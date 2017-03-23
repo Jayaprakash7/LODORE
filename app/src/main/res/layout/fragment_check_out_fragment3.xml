@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
-                android:text="@string/login_name"
+                android:text="خطوة أخيرة"
                 android:textColor="@color/primary_text"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -66,21 +66,30 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="16dp"
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
-                android:text="@string/header"
+                android:text="قم بإنشاء حساب لتسهيل عملية"
+                android:textColor="@color/primary_text"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="16dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="الشراء في المستقبل!"
                 android:textColor="@color/primary_text"
                 android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_weight="1"
                 android:background="@drawable/btn_backround_home"
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"
@@ -91,9 +100,8 @@
             <EditText
                 android:id="@+id/edit_password"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
                 android:background="@drawable/btn_backround_home"
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"
@@ -104,9 +112,8 @@
             <EditText
                 android:id="@+id/edit_confirm_password"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
                 android:background="@drawable/btn_backround_home"
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"

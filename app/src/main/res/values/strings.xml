@@ -57,9 +57,8 @@
     <string name="sort_by">الترتيب بحسب</string>
     <string name="show_all">عرض الكل</string>
     <string name="catagory">عناصر الفرز</string>
-
-
-
+    <string name="email">البريد اﻹلكتروني</string>
+    <string name="password">كلمة المرور</string>
 
 
 </resources>

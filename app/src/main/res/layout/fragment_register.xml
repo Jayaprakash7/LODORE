@@ -1,130 +1,120 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#E0E0E0"
-        tools:context="lodore.com.lodore.Fragment.RegisterFragment">
+        android:layout_marginBottom="75dp">
 
-        <!-- TODO: Update blank fragment layout -->
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:hint="Enter ur name"
-            android:drawableRight="@drawable/msg_icon"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:padding="5dip"
-            android:background="@drawable/edittxtshape"
-            android:id="@+id/registration_email"
-            android:layout_marginTop="30dp"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:paddingTop="30dp"
-            android:hint="Enter ur name"
-            android:drawableRight="@drawable/lock_icon"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:padding="5dip"
-            android:background="@drawable/edittxtshape"
-            android:id="@+id/registration_password"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/editText1"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:paddingTop="30dp"
-            android:hint="Enter ur name"
-            android:drawableRight="@drawable/lock_icon"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:padding="5dip"
-            android:background="@drawable/edittxtshape"
-            android:id="@+id/registration_confirmpassword"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/editText2"
-            android:layout_centerHorizontal="true" />
-
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:paddingTop="30dp"
-            android:hint="Enter ur name"
-            android:drawableRight="@drawable/contact_icon"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:padding="5dip"
-            android:background="@drawable/edittxtshape"
-            android:id="@+id/registration_name"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/editText3"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:paddingTop="30dp"
-            android:hint="Enter ur name"
-            android:drawableRight="@drawable/phone_icon"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:padding="5dip"
-            android:background="@drawable/edittxtshape"
-            android:id="@+id/registration_phone_one"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/editText4"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:paddingTop="30dp"
-            android:hint="Enter ur name"
-            android:drawableRight="@drawable/phone_icon"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:padding="5dip"
-            android:background="@drawable/edittxtshape"
-            android:id="@+id/registration_phone_two"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/editText5"
-            android:layout_centerHorizontal="true" />
-
-        <CheckBox
-            android:text="CheckBox"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:textSize="20dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="12dp"
-            android:gravity="end"
-            android:id="@+id/checkBox"
-            android:layout_below="@+id/editText6"
-            android:layout_alignLeft="@+id/editText6"
-            android:layout_alignStart="@+id/editText6" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:context="lodore.com.lodore.Fragment.RegisterFragment">
 
-        <Button
-            android:layout_width="340dp"
-            android:layout_height="40dp"
-            android:text="Login"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:background="@color/colorPrimaryDark"
-            android:id="@+id/button"
-            android:layout_marginTop="13dp"
-            android:layout_below="@+id/checkBox"
-            android:layout_alignLeft="@+id/checkBox"
-            android:layout_alignStart="@+id/checkBox" />
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/msg_icon"
+                android:hint="@string/email"
+                android:padding="20dp" />
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/lock_icon"
+                android:hint="@string/password"
+                android:padding="20dp" />
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/lock_icon"
+                android:hint="تاكيد كلمة المرور"
+                android:padding="20dp" />
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/ic_person_black_24px"
+                android:hint="اﻻسم الثنائي"
+                android:padding="20dp" />
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/phone_icon"
+                android:hint="رقم الجوال"
+                android:padding="20dp" />
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/phone_icon"
+                android:hint="رقم جوال أخر"
+                android:padding="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.9"
+                    android:layout_height="match_parent"
+                    android:text="أوافق على بنود اﻻستخدام وسياسة الخصوصية"
+                    android:gravity="center_vertical"
+                    />
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.1"
+                    android:layout_height="wrap_content"
+
+                    />
+            </LinearLayout>
 
 
-    </LinearLayout>
-</ScrollView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/btn_cart_background"
+        android:text="Login"
+        android:textColor="@color/white" />
+</RelativeLayout>
