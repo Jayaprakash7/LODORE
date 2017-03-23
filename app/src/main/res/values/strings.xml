@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">LODORE</string>
+    <string name="action_search">Search</string>
+    <string name="action_cart">Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+
+
+    <string name="home_header_one">عطرك , بصمتك الخاصة</string>
+    <string name="home_header_two">نأخزك هنافي رحلة للكتشاف</string>
+    <string name="home_header_three">لعطر الأنسب لك أنت!</string>
+
+
+    <string name="login_name">تسجيل الدخول</string>
+    <string name="abt_us_txt1">اسمي براديب أنا الهندي</string>
+    <string name="abt_us_txt2">تم تشخيص  اشانتيمع سرطان الثدي وتطوير عضلة
+        القلب الناجم عن العلاج
+        الكيماوي، مما يمكن
+        أن يؤدي إلى فشل القلب
+        الاحتقاني. حصلت على جهاز
+        القلب لمساعدتها على
+        التعامل مع حالتها.
+        الجهاز والأدوية قلبها قد
+        تحسنت بشكل ملحوظ نوعية حياتها.  </string>
+
+    <string name="blogtxt">القلب الناجم عن العلاج
+                        الكيماوي، مما يمكن
+                     أن يؤدي إلى فشل القلب
+ </string>
+
+    <string name="contact_us">تصل بنا</string>
+
+    <string name="yes">Contuning Shopping</string>
+    <string name="no"> Confirm Order</string>
+
+    <string name="item">بند</string>
+    <string name="quantity">كمية</string>
+    <string name="price">السعر</string>
+    <string name="header"> والأفريقية، لكتابة العديد من اللغات الآسيوية والأفريقية</string>
+    <string name="start_journey">ابدأ الرحلة</string>
+    <string name="fragnance_familess">تعرف على عوائل العطر</string>
+    <string name="suggested_perfume">عطور مختارة منا هزه العائلة</string>
+    <string name="home">الرئيسية</string>
+    <string name="perfumes">العطور</string>
+    <string name="fragnance_familes">دور العطور</string>
+    <string name="my_about_us">من نحن</string>
+    <string name="my_account">حسابي</string>
+    <string name="blog">المـدونة</string>
+    <string name="send_gift">أرسال هدية</string>
+    <string name="shippinganddelivery">معلومات الشحن والتوصيل</string>
+    <string name="faq">أسئلة الخصوصية</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="prouct_found">تم العثور على 6 نتائج</string>
+    <string name="perfume_houses">دور العطور</string>
+    <string name="sort_by">الترتيب بحسب</string>
+    <string name="show_all">عرض الكل</string>
+    <string name="catagory">عناصر الفرز</string>
+
+
+
+
+
+</resources>

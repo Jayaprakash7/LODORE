@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="20dp"
+    android:weightSum="6">
+
+    <ImageView
+        android:id="@+id/image_delete_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_action_name" />
+
+    <TextView
+        android:id="@+id/row_text_price_cart"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="50dp"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:text="@string/price"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/row_text_quan_cart"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25"
+        android:background="@drawable/btn_backround_home"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/primary_text" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.75"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/row_text_title_cart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:text="@string/login_name"
+                android:textColor="@color/primary_text" />
+
+            <ImageView
+                android:id="@+id/row_image_cart"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/perfume2" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:text="@string/login_name"
+        android:textColor="@color/primary_text" />
+
+</LinearLayout>

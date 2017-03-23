@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="20dp"
+    android:weightSum="6">
+
+    <ImageView
+        android:id="@+id/image_delete_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_chevron_left_black_24dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="4.58"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|right"
+
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/row_title_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_name"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/row_desc_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_name"
+            android:textColor="@color/primary_text"
+            />
+        <TextView
+            android:id="@+id/row_price_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 1500السعر"
+            android:textColor="@color/primary_text"
+            />
+    </LinearLayout>
+    
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            
+
+            <ImageView
+                android:id="@+id/row_image_result"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/perfume2" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
