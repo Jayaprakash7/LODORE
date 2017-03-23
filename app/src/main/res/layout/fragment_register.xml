@@ -16,7 +16,7 @@
             tools:context="lodore.com.lodore.Fragment.RegisterFragment">
 
             <EditText
-
+                android:id="@+id/registration_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -28,6 +28,7 @@
 
             <EditText
 
+                android:id="@+id/registration_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -39,6 +40,7 @@
 
             <EditText
 
+                android:id="@+id/registration_confirmpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -49,7 +51,7 @@
                 android:padding="20dp" />
 
             <EditText
-
+                android:id="@+id/registration_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -60,7 +62,7 @@
                 android:padding="20dp" />
 
             <EditText
-
+                android:id="@+id/registration_phone_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -69,8 +71,9 @@
                 android:drawableRight="@drawable/phone_icon"
                 android:hint="رقم الجوال"
                 android:padding="20dp" />
-            <EditText
 
+            <EditText
+                android:id="@+id/registration_phone_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -83,26 +86,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:weightSum="1">
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="0.9"
                     android:layout_height="match_parent"
-                    android:text="أوافق على بنود اﻻستخدام وسياسة الخصوصية"
+                    android:layout_weight="0.9"
                     android:gravity="center_vertical"
-                    />
+                    android:text="أوافق على بنود اﻻستخدام وسياسة الخصوصية" />
+
                 <CheckBox
                     android:id="@+id/checkBox"
                     android:layout_width="0dp"
-                    android:layout_weight="0.1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
 
                     />
             </LinearLayout>
-
 
 
         </LinearLayout>

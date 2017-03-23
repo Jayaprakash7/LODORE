@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical|end"
-                android:text="تسجيل"
+                android:text="بيانات التوصيل"
                 android:textColor="@color/colorPrimary" />
 
         </LinearLayout>

@@ -38,7 +38,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/header"
+                android:text="يقوم هزا اﻻختبار بمساعدتك
+قي اختيار العطر اﻷنسب لك
+"
                 android:paddingLeft="100dp"
                 android:paddingRight="100dp"
                 android:gravity="center"/>
@@ -54,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
-                android:text="@string/header"
+                android:text="ماهي طبيعة استخدام العطر؟"
                 android:gravity="center"
                 android:textColor="@color/primary_text"/>
             <Button
@@ -64,7 +66,7 @@
                 android:background="@drawable/btn_cart_background"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:text="@string/login_name"
+                android:text="يومي"
                 android:textColor="@color/btn_primary_color"/>
             <Button
                 android:layout_width="match_parent"
@@ -73,7 +75,7 @@
                 android:background="@drawable/btn_cart_background"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:text="@string/login_name"
+                android:text="صباحي"
                 android:textColor="@color/btn_primary_color"/>
             <Button
                 android:layout_width="match_parent"
@@ -83,7 +85,7 @@
                 android:background="@drawable/btn_cart_background"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:text="@string/login_name"
+                android:text="مسائي"
                 android:textColor="@color/btn_primary_color"/>
         </LinearLayout>
     </ScrollView>

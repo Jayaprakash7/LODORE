@@ -48,24 +48,28 @@
                         android:hint="Combination of perfume"/>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:weightSum="4"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:textSize="18dp"
                             android:paddingRight="20dp"
-                            android:text="Perfume name"/>
+                            android:text="التركيز"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
                             android:layout_height="wrap_content"
                             android:textSize="18dp"
-                            android:hint="Combination "/>
+                           android:paddingRight="10dp"
+                            android:hint="الحجم: امل "/>
 
 
                     </LinearLayout>
@@ -80,14 +84,14 @@
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Buy"
+                            android:text="مسائي"
                             android:textColor="@color/white"
                             android:background="@drawable/perfumedetails_btn1"/>
 
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Cart"
+                            android:text="صباحي"
                             android:textColor="@color/white"
                             android:layout_marginLeft="25dp"
                             android:background="@drawable/perfumedetails_btn2"/>
@@ -99,7 +103,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="right"
-                        android:hint="Combination of perfume"/>
+                        android:paddingRight="10dp"
+                        android:hint="	700 ريال"/>
 
 
                 </LinearLayout>
@@ -141,7 +146,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Discription"
+                    android:text="قصة العطر"
                     android:gravity="center"/>
 
             </LinearLayout>
@@ -177,7 +182,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="THANK YOU"
+                    android:text="مكونات العطر"
                     android:layout_marginTop="20dp"
                     android:gravity="center"/>
 
@@ -287,7 +292,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="button"
+                    android:text="مشاركة"
                     android:textColor="@color/white"
                     android:background="@drawable/myacct_btnbg"
                     android:id="@+id/button"
@@ -298,7 +303,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="button"
+                    android:text="إضفة المفضلة"
                     android:textColor="@color/white"
                     android:background="@drawable/myacct_btnbg"
                     android:id="@+id/button2"
@@ -311,6 +316,21 @@
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="منتجات أخرى مشابهة"
+                android:layout_marginTop="20dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
 
 
         <LinearLayout
@@ -338,7 +358,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="0.75"
-                android:text="Add to cart"
+                android:text="اضفة للسلة"
                 android:textColor="@color/white"
                 android:background="@drawable/button_background"/>
 
