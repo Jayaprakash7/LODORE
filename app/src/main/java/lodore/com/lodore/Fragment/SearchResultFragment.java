@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class SearchResultFragment extends Fragment {
     LinearLayout linearLayoutPerfumes;
 
 
+
     public SearchResultFragment() {
         // Required empty public constructor
     }
@@ -48,19 +50,8 @@ public class SearchResultFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_search);
         linearLayoutPerfumes = (LinearLayout) view.findViewById(R.id.linear_perfumes);
         linearLayoutPerfumeHouse = (LinearLayout) view.findViewById(R.id.linear_perfume_house);
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("Seaech Result");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
         linearLayoutPerfumes.setOnClickListener(new View.OnClickListener() {
             @Override

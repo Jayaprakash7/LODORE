@@ -1,6 +1,7 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import lodore.com.lodore.MainActivity;
 import lodore.com.lodore.R;
 
 /**
@@ -31,7 +33,7 @@ public class CheckOutFragment5 extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_check_out_fragment5, container, false);
 
-        Button btnCheckout = (Button) layout.findViewById(R.id.btn_checkout5);
+        Button back_home = (Button) layout.findViewById(R.id.btn_back_home);
         Toolbar toolbar = (Toolbar) layout.findViewById(R.id.toolbar);
 
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
@@ -47,17 +49,12 @@ public class CheckOutFragment5 extends Fragment {
         });
 
 
-        btnCheckout.setOnClickListener(new View.OnClickListener() {
+        back_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                GiftFragment1 fragment1 = new GiftFragment1();
-                FragmentManager manager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.checkout_container_layout, fragment1);
-                transaction.addToBackStack(null);
-                transaction.commit();
-
+               Intent i = new Intent(getContext(), MainActivity.class);
+                startActivity(i);
             }
         });
 

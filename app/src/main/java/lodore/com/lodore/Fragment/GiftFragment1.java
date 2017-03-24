@@ -67,7 +67,7 @@ public class GiftFragment1 extends Fragment {
             editText6.setText(savedInstanceState.getString(EDIT_6));
         }
 
-        Button btnGift1 = (Button) layout.findViewById(R.id.btn_gift1);
+        Button proceed = (Button) layout.findViewById(R.id.btn_proceed);
         Toolbar toolbar = (Toolbar) layout.findViewById(R.id.toolbar);
 
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
@@ -82,24 +82,20 @@ public class GiftFragment1 extends Fragment {
             }
         });
 
-        btnGift1.setOnClickListener(new View.OnClickListener() {
+        proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GiftFragment2();
+
+                GiftFragment2 giftFragment2 = new GiftFragment2();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame,giftFragment2);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
         return layout;
-    }
-
-    public void GiftFragment2() {
-        GiftFragment2 giftFragment2 = new GiftFragment2();
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.addToBackStack(null);
-        transaction.replace(R.id.checkout_container_layout, giftFragment2);
-        transaction.commit();
-
     }
 
 }

@@ -3,6 +3,8 @@ package lodore.com.lodore.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,7 +45,7 @@ public class PerfumeFragment extends Fragment {
         Button btnCheck = (Button) view.findViewById(R.id.update_search);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
+        /*AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
         appCompatActivity.setSupportActionBar(toolbar);
         appCompatActivity.getSupportActionBar().setTitle("Perfume Filter");
         appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -54,9 +56,24 @@ public class PerfumeFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
-
+*/
 
         final LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.linear_check_filter);
+
+
+        recyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame,productDetailsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

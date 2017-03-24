@@ -39,7 +39,7 @@ public class GiftFragment2 extends Fragment {
     private static String EDIT_11 = "EDIT_11";
     private static String EDIT_12 = "EDIT_12";
 
-    Button btnGift2;
+    Button finish;
 
 
     boolean button1Flags = false;
@@ -67,14 +67,7 @@ public class GiftFragment2 extends Fragment {
         outState.putString(EDIT_12, editText12.getText().toString());
     }
 
-    private void GiftFragment() {
-        GiftFragment3 giftFragment3 = new GiftFragment3();
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.addToBackStack(null);
-        transaction.replace(R.id.checkout_container_layout, giftFragment3);
-        transaction.commit();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -126,13 +119,18 @@ public class GiftFragment2 extends Fragment {
             editText12.setText(savedInstanceState.getString(EDIT_12));
         }
 
-        btnGift2 = (Button) layoutCheckout.findViewById(R.id.btn_gift2);
+        finish = (Button) layoutCheckout.findViewById(R.id.btn_finish);
 
-        btnGift2.setOnClickListener(new View.OnClickListener() {
+        finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                GiftFragment();
+                GiftFragment3 giftFragment3 = new GiftFragment3();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.content_frame, giftFragment3);
+                transaction.commit();
 
             }
         });
