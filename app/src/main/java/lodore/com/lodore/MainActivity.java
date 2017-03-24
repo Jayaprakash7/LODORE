@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     EditText search_txt;
     Toolbar toolbar;
     FrameLayout frameLayoutSearch;
+    Button search_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +39,35 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = (LinearLayout) findViewById(R.id.search_txt);
         search_txt = (EditText) findViewById(R.id.search_here);
 
+        search_btn = (Button) findViewById(R.id.search_btn);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
 
-        frameLayoutSearch = (FrameLayout) findViewById(R.id.frame_search);
 
-        frameLayoutSearch.setOnClickListener(new View.OnClickListener() {
+        search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SearchResultFragment searchResultFragment = new SearchResultFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame,searchResultFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+                if(linearLayout.getVisibility() == View.GONE)
+                {
+                    linearLayout.setVisibility(View.VISIBLE);
+
+                }else if(linearLayout.getVisibility() == View.VISIBLE){
+
+                    linearLayout.setVisibility(View.GONE);
+
+                }
 
             }
         });

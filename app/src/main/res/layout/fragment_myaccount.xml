@@ -24,6 +24,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_background"
+                android:textSize="18sp"
                 android:text="@string/order_history"
                 android:textColor="@color/white" />
 
@@ -33,6 +34,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:background="@drawable/button_background"
                 android:text="@string/favourite_list"
@@ -82,7 +84,8 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="@string/email"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/textView8" />
             </LinearLayout>
 
             <LinearLayout
@@ -177,6 +180,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:textSize="18sp"
                 android:background="@drawable/btn_checkout"
                 android:text="@string/change_info"
                 android:textColor="@color/primary_text" />
@@ -189,6 +193,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:textSize="18sp"
                 android:background="@drawable/btn_checkout"
                 android:text="@string/change_password"
                 android:textColor="@color/primary_text" />
@@ -305,6 +310,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_checkout"
                 android:text="@string/change_info"
+                android:textSize="18sp"
                 android:textColor="@color/primary_text" />
         </LinearLayout>
     </LinearLayout>

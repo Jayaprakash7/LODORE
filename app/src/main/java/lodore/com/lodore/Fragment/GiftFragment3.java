@@ -1,6 +1,7 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import lodore.com.lodore.MainActivity;
 import lodore.com.lodore.R;
 
 /**
@@ -20,31 +22,24 @@ import lodore.com.lodore.R;
 public class GiftFragment3 extends Fragment {
 
 
-    private void quizFragment() {
-        QuizFragment1 quizFragment1 = new QuizFragment1();
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.addToBackStack(null);
-        transaction.replace(R.id.content_frame, quizFragment1);
-        transaction.commit();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_gift_fragment3, container, false);
-        Button btnGift3 = (Button) view.findViewById(R.id.btn_gift3);
+        Button back_home = (Button) view.findViewById(R.id.btn_back_home);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
 
 
-        btnGift3.setOnClickListener(new View.OnClickListener() {
+        back_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                quizFragment();
-
+                Intent i = new Intent(getContext(), MainActivity.class);
+                startActivity(i);
             }
         });
 

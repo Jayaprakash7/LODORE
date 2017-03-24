@@ -33,7 +33,7 @@ public class CheckOutFragment5 extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_check_out_fragment5, container, false);
 
-        Button btnCheckout = (Button) layout.findViewById(R.id.btn_checkout5);
+        Button back_home = (Button) layout.findViewById(R.id.btn_back_home);
         Toolbar toolbar = (Toolbar) layout.findViewById(R.id.toolbar);
 
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
@@ -49,7 +49,7 @@ public class CheckOutFragment5 extends Fragment {
         });
 
 
-        btnCheckout.setOnClickListener(new View.OnClickListener() {
+        back_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
