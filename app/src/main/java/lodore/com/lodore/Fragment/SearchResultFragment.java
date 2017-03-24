@@ -50,17 +50,7 @@ public class SearchResultFragment extends Fragment {
         linearLayoutPerfumeHouse = (LinearLayout) view.findViewById(R.id.linear_perfume_house);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("Seaech Result");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
         linearLayoutPerfumes.setOnClickListener(new View.OnClickListener() {
             @Override

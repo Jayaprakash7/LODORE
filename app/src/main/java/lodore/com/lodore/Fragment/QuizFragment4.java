@@ -46,17 +46,6 @@ public class QuizFragment4 extends Fragment {
         perfumeAdapter = new PerfumeAdapter(getActivity(), getData());
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("Quiz");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +56,7 @@ public class QuizFragment4 extends Fragment {
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.addToBackStack(null);
-                transaction.replace(R.id.checkout_container_layout, resultFragment);
+                transaction.replace(R.id.content_frame, resultFragment);
                 transaction.commit();
 
             }

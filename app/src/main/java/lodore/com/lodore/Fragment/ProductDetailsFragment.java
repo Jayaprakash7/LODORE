@@ -41,7 +41,6 @@ public class ProductDetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_product_details, container, false);
 
         recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
-        recyclerViewtop = (RecyclerView) view.findViewById(R.id.recycler_viewtop);
 
         albumList = new ArrayList<>();
         adapter = new RecyclerviewhomeAdapter(getContext(), albumList);

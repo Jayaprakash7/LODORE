@@ -136,10 +136,6 @@ public class NavigationDrawerFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mUserLearnedDrawer = Boolean.valueOf(readPreferences(getActivity(),"user_learned_drawer","false"));
-        if (savedInstanceState != null){
-            mSavedInstanceState = true;
-        }
     }
 
     @Override
@@ -162,10 +158,6 @@ public class NavigationDrawerFragment extends Fragment {
         privacy_policy = (TextView) view.findViewById(R.id.nav_privacy_policy);
         contact_us = (TextView) view.findViewById(R.id.nav_contact_us);
 
-        /*productdetails = (TextView) view.findViewById(R.id.nav_txt4);
-        branddetails = (TextView) view.findViewById(R.id.nav_txt5);
-        register = (TextView) view.findViewById(R.id.nav_txt1);
-        brands = (TextView) view.findViewById(R.id.nav_txt2);*/
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -330,10 +322,10 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                if (!mUserLearnedDrawer){
+                /*if (!mUserLearnedDrawer){
                     mUserLearnedDrawer = true;
                     savedPreferences(getActivity(), "user_learned_drawer",mUserLearnedDrawer+"");
-                }
+                }*/
                 getActivity().invalidateOptionsMenu();
             }
 
@@ -351,12 +343,12 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-        if (!mUserLearnedDrawer && !mSavedInstanceState){
+        /*if (!mUserLearnedDrawer && !mSavedInstanceState){
             mDrawerLayout.openDrawer(containerView);
-        }
+        }*/
 
     }
-    public static void savedPreferences(Context context, String preferencesName, String preferencesValue){
+   /* public static void savedPreferences(Context context, String preferencesName, String preferencesValue){
         SharedPreferences sharedPreferences = context.getSharedPreferences("test",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(preferencesName,preferencesValue);
@@ -366,6 +358,6 @@ public class NavigationDrawerFragment extends Fragment {
         SharedPreferences sharedPreferences = context.getSharedPreferences("test",Context.MODE_PRIVATE);
         return sharedPreferences.getString(preferencesName,defaultValue);
 
-    }
+    }*/
 
 }

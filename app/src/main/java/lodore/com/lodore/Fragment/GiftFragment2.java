@@ -72,7 +72,7 @@ public class GiftFragment2 extends Fragment {
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.addToBackStack(null);
-        transaction.replace(R.id.checkout_container_layout, giftFragment3);
+        transaction.replace(R.id.content_frame, giftFragment3);
         transaction.commit();
     }
 
@@ -99,17 +99,6 @@ public class GiftFragment2 extends Fragment {
         editText12 = (EditText) layoutCheckout.findViewById(R.id.editText12);
         Toolbar toolbar = (Toolbar) layoutCheckout.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("Gift");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
         if (savedInstanceState != null) {
             editText1.setText(savedInstanceState.getString(EDIT_1));

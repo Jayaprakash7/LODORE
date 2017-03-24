@@ -160,6 +160,7 @@
     <string name="branches">فروعنا</string>
     <string name="contact_">نموزج اﻻتصال</string>
     <string name="name">اﻻسم</string>
+    <string name="for_back_press">For Back Press</string>
 
 
 </resources>

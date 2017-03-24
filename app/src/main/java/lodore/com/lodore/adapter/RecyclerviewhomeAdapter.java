@@ -26,16 +26,12 @@ public class RecyclerviewhomeAdapter extends RecyclerView.Adapter<Recyclerviewho
     private List<Perfume> albumList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, count;
         public ImageView thumbnail;
-        public Button addtocart;
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            count = (TextView) view.findViewById(R.id.flavour);
+
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-            addtocart = (Button) view.findViewById(R.id.button2);
         }
     }
 
@@ -56,18 +52,10 @@ public class RecyclerviewhomeAdapter extends RecyclerView.Adapter<Recyclerviewho
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Perfume album = albumList.get(position);
-        holder.title.setText(album.getName());
-        holder.count.setText(album.getFlavour() + " songs");
 
         // loading album cover using Glide library
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
 
-        holder.addtocart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // showPopupMenu(holder.addtocart);
-            }
-        });
     }
 
 

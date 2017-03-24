@@ -1,4 +1,4 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,10 +11,12 @@
 
 
         <EditText
-            android:layout_width="250dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:drawableRight="@drawable/search_icon"
             android:background="@drawable/edittxtshape"
             android:layout_gravity="center"
@@ -26,8 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_margin="20dp"
+            android:layout_margin="16dp"
             android:background="@drawable/cardbg">
 
             <android.support.v7.widget.RecyclerView
@@ -41,4 +42,4 @@
         </LinearLayout>
 
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

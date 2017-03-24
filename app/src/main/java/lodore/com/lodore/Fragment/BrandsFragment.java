@@ -51,6 +51,7 @@ public class BrandsFragment extends Fragment {
         recyclerViewbrands.setLayoutManager(mLayoutManager);
         recyclerViewbrands.addItemDecoration(new BrandsFragment.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerViewbrands.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewbrands.setNestedScrollingEnabled(false);
         recyclerViewbrands.setAdapter(adapter);
 
         prepareAlbums();
@@ -68,17 +69,19 @@ public class BrandsFragment extends Fragment {
 
     private void prepareAlbums() {
         int[] covers = new int[]{
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample};
+                R.drawable.perfume2,
+                R.drawable.perfume4,
+                R.drawable.perfume2,
+                R.drawable.perfume4,
+                R.drawable.perfume2,
+                R.drawable.perfume4,
+                R.drawable.perfume2,
+                R.drawable.perfume4,
+                R.drawable.perfume2,
+                R.drawable.perfume4,
+                R.drawable.perfume2,
+                R.drawable.perfume4,
+               };
 
         Brandsdispay a = new Brandsdispay("perfume",  covers[0]);
         albumList.add(a);

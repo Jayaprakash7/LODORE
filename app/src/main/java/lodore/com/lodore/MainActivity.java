@@ -15,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import lodore.com.lodore.Fragment.CartFragment;
 import lodore.com.lodore.Fragment.HomeFragment;
 import lodore.com.lodore.Fragment.NavigationDrawerFragment;
 import lodore.com.lodore.Fragment.PerfumeFragment;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             HomeFragment homeFragment = new HomeFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.content_frame, homeFragment);
+            fragmentTransaction.replace(R.id.content_frame, homeFragment);
             fragmentTransaction.commit();
         }
     }
@@ -88,29 +89,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_cart) {
-
-           /* new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("Warning!!!")
-                    .setMessage("Please Login to use this feature.")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            //Intent i = new Intent(MainActivity.this,MainActivity.class);
-                            //startActivity(i);
-
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // do nothing
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();*/
-
-            Intent i = new Intent(MainActivity.this,CartActivity.class);
+            /*Intent i = new Intent(MainActivity.this,CartActivity.class);
             startActivity(i);
-            return true;
+            return true;*/
+            CartFragment cartFragment = new CartFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, cartFragment);
+            fragmentTransaction.commit();
+
         }
 
         return super.onOptionsItemSelected(item);

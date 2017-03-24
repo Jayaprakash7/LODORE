@@ -25,7 +25,7 @@ public class GiftFragment3 extends Fragment {
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.addToBackStack(null);
-        transaction.replace(R.id.checkout_container_layout, quizFragment1);
+        transaction.replace(R.id.content_frame, quizFragment1);
         transaction.commit();
     }
 
@@ -37,17 +37,6 @@ public class GiftFragment3 extends Fragment {
         Button btnGift3 = (Button) view.findViewById(R.id.btn_gift3);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("CheckOut");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
 
         btnGift3.setOnClickListener(new View.OnClickListener() {

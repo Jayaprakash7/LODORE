@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public class HomeFragment extends Fragment {
 
     Button reg;
 
-    private RecyclerView recyclerViewbottom,recyclerViewtop;
+    private RecyclerView recyclerViewbottom;
     private RecyclerviewhomeAdapter adapter;
     private List<Perfume> albumList;
 
@@ -47,17 +48,14 @@ public class HomeFragment extends Fragment {
 
 
         recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
-        recyclerViewtop = (RecyclerView) view.findViewById(R.id.recycler_viewtop);
+
 
 
 
         albumList = new ArrayList<>();
         adapter = new RecyclerviewhomeAdapter(getContext(), albumList);
-
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerViewbottom.setLayoutManager(mLayoutManager);
-        recyclerViewbottom.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
-        recyclerViewbottom.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewbottom.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,true));
+        recyclerViewbottom.setNestedScrollingEnabled(false);
         recyclerViewbottom.setAdapter(adapter);
 
 
@@ -74,17 +72,12 @@ public class HomeFragment extends Fragment {
 
     private void prepareAlbums() {
         int[] covers = new int[]{
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample,
-                R.drawable.sample};
+                R.drawable.flower,
+                R.drawable.flower,
+                R.drawable.flower,R.drawable.flower,R.drawable.flower,
+                R.drawable.flower,
+
+                };
 
         Perfume a = new Perfume("True Romance", 13, covers[0]);
         albumList.add(a);
@@ -102,18 +95,6 @@ public class HomeFragment extends Fragment {
         albumList.add(a);
 
         a = new Perfume("I Need a Doctor", 1, covers[5]);
-        albumList.add(a);
-
-        a = new Perfume("Loud", 11, covers[6]);
-        albumList.add(a);
-
-        a = new Perfume("Legend", 14, covers[7]);
-        albumList.add(a);
-
-        a = new Perfume("Hello", 11, covers[8]);
-        albumList.add(a);
-
-        a = new Perfume("Greatest Hits", 17, covers[9]);
         albumList.add(a);
 
         adapter.notifyDataSetChanged();

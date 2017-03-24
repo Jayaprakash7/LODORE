@@ -1,12 +1,13 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#c19343"
+    >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#e3b559"
         android:orientation="vertical"
         tools:context="lodore.com.lodore.Fragment.HomeFragment">
 
@@ -14,7 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -26,8 +28,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:paddingLeft="48dp"
-                    android:paddingRight="48dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
                     android:text="@string/home_header_one"
                     android:textAlignment="center"
                     android:textColor="@color/white" />
@@ -60,15 +62,15 @@
 
                 android:id="@+id/btn_heading_home"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_backround_home"
-                android:paddingLeft="65dp"
-                android:paddingRight="65dp"
                 android:paddingTop="10dp"
                 android:text="@string/start_journey"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:paddingLeft="65dp"
+                android:paddingRight="65dp"/>
 
 
         </LinearLayout>
@@ -77,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:background="@drawable/cardbg"
+            android:background="@drawable/btn_backround_home"
             android:orientation="vertical">
 
             <TextView
@@ -86,55 +88,10 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="48dp"
                 android:paddingRight="48dp"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
                 android:text="@string/fragnance_familess"
                 android:textAlignment="center" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_viewtop"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:scrollbars="horizontal" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="6">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="#000" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="4"
-                    android:gravity="center"
-                    android:text="@string/suggested_perfume" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="#000" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -144,15 +101,89 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_viewbottom"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:scrollbars="vertical" />
+                    android:layout_height="wrap_content"
+
+                     />
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/primary_text" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@color/primary_text"
+                    android:text="@string/suggested_perfume" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/primary_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/row_home_bottom"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/row_home_bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/row_home_bottom"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/row_home_bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
 
         </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

@@ -25,7 +25,7 @@ public class QuizFragment2 extends Fragment {
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.addToBackStack(null);
-        transaction.replace(R.id.checkout_container_layout, quizFragment);
+        transaction.replace(R.id.content_frame, quizFragment);
         transaction.commit();
     }
 
@@ -42,17 +42,7 @@ public class QuizFragment2 extends Fragment {
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         Button btnQuiz2 = (Button) view.findViewById(R.id.btn_quiz2);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("Quiz");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
 
         btnQuiz2.setOnClickListener(new View.OnClickListener() {

@@ -43,17 +43,6 @@ public class PerfumeFragment extends Fragment {
         Button btnCheck = (Button) view.findViewById(R.id.update_search);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-        appCompatActivity.setSupportActionBar(toolbar);
-        appCompatActivity.getSupportActionBar().setTitle("Perfume Filter");
-        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
 
 
         final LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.linear_check_filter);

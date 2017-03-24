@@ -42,7 +42,7 @@ public class BranddetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_branddetails, container, false);
 
         recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
-        recyclerViewtop = (RecyclerView) view.findViewById(R.id.recycler_viewtop);
+
 
         albumList = new ArrayList<>();
         adapter = new RecyclerviewhomeAdapter(getContext(), albumList);
@@ -51,6 +51,7 @@ public class BranddetailsFragment extends Fragment {
         recyclerViewbottom.setLayoutManager(mLayoutManager);
         recyclerViewbottom.addItemDecoration(new BranddetailsFragment.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerViewbottom.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewbottom.setNestedScrollingEnabled(false);
         recyclerViewbottom.setAdapter(adapter);
 
 
