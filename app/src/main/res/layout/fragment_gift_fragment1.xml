@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="webhostapp.com.buy_it_jp.fragments.GiftFragment1">
+    tools:context="lodore.com.lodore.Fragment.GiftFragment1">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:layout_marginTop="20dp"
                 android:padding="20dp"
-                android:hint="@string/login_name"
+                android:hint="اسم المستلم"
                 android:gravity="center|right"/>
             <EditText
                 android:id="@+id/editText2"
@@ -60,7 +60,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:layout_marginTop="10dp"
                 android:padding="20dp"
-                android:hint="@string/login_name"
+                android:hint="رقم جوال المستلم"
                 android:gravity="center|right"/>
             <EditText
                 android:id="@+id/editText3"
@@ -69,7 +69,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:layout_marginTop="10dp"
                 android:padding="20dp"
-                android:hint="@string/login_name"
+                android:hint="رقم جوال اخر للمستلم"
                 android:gravity="center|right"/>
             <EditText
                 android:id="@+id/editText4"
@@ -78,7 +78,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:layout_marginTop="10dp"
                 android:padding="20dp"
-                android:hint="@string/login_name"
+                android:hint="البريد اﻹلكتروني للمستلم"
                 android:gravity="center|right"/>
             <EditText
                 android:id="@+id/editText5"
@@ -87,7 +87,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:layout_marginTop="10dp"
                 android:padding="20dp"
-                android:hint="@string/login_name"
+                android:hint="المبلغ"
                 android:gravity="center|right"/>
             <EditText
                 android:id="@+id/editText6"
@@ -96,7 +96,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:padding="40dp"
                 android:layout_marginTop="10dp"
-                android:hint="@string/login_name"
+                android:hint="الرسالة"
                 android:gravity="top"/>
 
         </LinearLayout>
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/btn_cart_background"
-        android:hint="@string/login_name"
+        android:hint="اﻻستمرار >"
         android:layout_alignParentBottom="true"
         android:id="@+id/btn_gift1"
         />

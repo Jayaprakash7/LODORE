@@ -20,7 +20,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/login_name"
+                android:text="نوع العطر"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/login_name" />
+                            android:text="اختيار الكل" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/login_name" />
+                            android:text="دافئ" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/login_name" />
+                            android:text="هادئ" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -133,9 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-
                 android:layout_marginRight="40dp"
-                android:text="@string/login_name"
+                android:text="المناسبة"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -181,7 +180,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/login_name" />
+                            android:text="مسائي" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -196,7 +195,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/login_name" />
+                            android:text="صباحي" />
 
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -242,7 +241,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="اختيار الكل" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -257,7 +256,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="يومي" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -270,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginRight="40dp"
-                android:text="@string/login_name"
+                android:text="العائلة العطرية"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -278,7 +277,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="4">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -288,7 +287,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="أخشاب عطرية" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -303,7 +302,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="شرقي (عود)" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -318,59 +317,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="شرقي (عنبدر)" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -392,7 +339,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="فواكه(حمضيات)" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -407,7 +354,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="باودر" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -422,7 +369,111 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
+                        android:text="شرقي(توابل)" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="فواكه(سويت)" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="مسك" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="جلود" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="اختيار الكل" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="أزهار" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="أعشاب عطرية" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -436,7 +487,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_cart_background"
-                android:text="@string/login_name"
+                android:text="تحديث النتائج"
                 android:textColor="@color/btn_primary_color" />
         </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

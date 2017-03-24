@@ -32,7 +32,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/price"
+                    android:text="السعر"
                     android:textColor="@color/primary_text"
                     android:textStyle="bold" />
 
@@ -40,7 +40,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/quantity"
+                    android:text="لكمية"
                     android:textColor="@color/primary_text"
                     android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="@string/item"
+                    android:text="المنتج"
                     android:textColor="@color/primary_text"
                     android:textStyle="bold" />
 
@@ -103,7 +103,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:paddingLeft="20dp"
-                    android:text="السعر"
+                    android:text="اﻹجمالي"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -119,7 +119,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="الحوالة"
+                    android:text="مجانا!"
                     android:textSize="20sp" />
 
                 <TextView
@@ -129,7 +129,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:paddingLeft="20dp"
-                    android:text="الحوالة الحوالة"
+                    android:text="تكاليف الشحن"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -157,7 +157,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:paddingLeft="20dp"
-                    android:text="الحوالة الحوالة"
+                    android:text="رمز التخفيض"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -174,13 +174,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:weightSum="5"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:layout_weight="0.12"
+                    android:layout_weight="2"
                     android:text=" 1500درهم"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -188,10 +189,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.13"
-                    android:gravity="end"
+                    android:layout_weight="3"
+                    android:gravity="center"
                     android:paddingLeft="20dp"
-                    android:text="الحوالة الحوالة"
+                    android:text="اﻹجمالي النهائي"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp" />
             </LinearLayout>

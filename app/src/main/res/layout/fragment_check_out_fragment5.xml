@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text=" تسجيل الدخولا لدخول"
+                android:text=" تمت عملية الشراء بنجاح!"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text=" تسجيلالدخولاتسجيلالدخولا الدخولا لدخول"
+                android:text="Arabic txt"
                 android:textColor="@color/primary_text" />
 
             <Button
@@ -67,7 +67,7 @@
                 android:background="@drawable/button_check"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="الدخولا لدخول"
+                android:text="العودة للصفحة الرئيسية"
                 android:textColor="@color/primary_text" />
 
         </LinearLayout>
