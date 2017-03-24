@@ -47,7 +47,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/lock_icon"
-                android:hint="تاكيد كلمة المرور"
+                android:hint="@string/confirm_pass"
                 android:padding="20dp" />
 
             <EditText
@@ -58,7 +58,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/ic_person_black_24px"
-                android:hint="اﻻسم الثنائي"
+                android:hint="@string/full_name"
                 android:padding="20dp" />
 
             <EditText
@@ -69,7 +69,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/phone_icon"
-                android:hint="رقم الجوال"
+                android:hint="@string/phone_1"
                 android:padding="20dp" />
 
             <EditText
@@ -80,7 +80,7 @@
                 android:background="@drawable/btn_backround_home"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/phone_icon"
-                android:hint="رقم جوال أخر"
+                android:hint="@string/phone_2"
                 android:padding="20dp" />
 
             <LinearLayout
@@ -96,10 +96,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.9"
                     android:gravity="center_vertical"
-                    android:text="أوافق على بنود اﻻستخدام وسياسة الخصوصية" />
+                    android:text="@string/terms_condition" />
 
                 <CheckBox
-                    android:id="@+id/checkBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"

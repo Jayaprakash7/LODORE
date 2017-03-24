@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginTop="20dp"
-                android:text="فروعنا"
+                android:text="@string/branches"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:textStyle="bold"
@@ -147,7 +147,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="16dp"
-                android:text="نموزج اﻻتصال"
+                android:text="@string/contact_"
                 android:textStyle="bold"
                 android:textColor="@color/primary_text"/>
 
@@ -160,7 +160,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="اﻻسم"
+                    android:hint="@string/name"
                     android:padding="10dp"
                     android:background="@drawable/edittxtshape"
                     android:id="@+id/contactus_name"
@@ -171,8 +171,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="البريد اﻹلكتروني"
-
+                    android:hint="@string/email"
                     android:layout_gravity="center"
                     android:padding="10dp"
                     android:background="@drawable/edittxtshape"
@@ -183,7 +182,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="الرسالة"
+                    android:hint="@string/msg"
 
                     android:layout_gravity="center"
                     android:padding="10dp"

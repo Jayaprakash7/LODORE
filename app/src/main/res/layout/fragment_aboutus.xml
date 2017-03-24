@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="نحكي لك قصة كل عطر بكل شغف!"
+            android:text="@string/our_story"
             android:textColor="@color/primary_text"
             android:textSize="23sp"
             android:textStyle="bold" />

@@ -1,493 +1,520 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_check"
+    android:orientation="vertical"
+    android:padding="20dp">
 
+    <RelativeLayout
+        android:id="@+id/relative_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <TextView
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="#eaeaea"
-            android:layout_margin="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="16dp"
-                android:text="نوع العطر"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="اختيار الكل" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="دافئ" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="هادئ" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="40dp"
-                android:text="المناسبة"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="مسائي" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="صباحي" />
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_name" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="اختيار الكل" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="يومي" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="40dp"
-                android:text="العائلة العطرية"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="أخشاب عطرية" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="شرقي (عود)" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="شرقي (عنبدر)" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="فواكه(حمضيات)" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="باودر" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="شرقي(توابل)" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="فواكه(سويت)" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="مسك" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="جلود" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="اختيار الكل" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="أزهار" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="أعشاب عطرية" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_perfume_filter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_cart_background"
-                android:text="تحديث النتائج"
-                android:textColor="@color/btn_primary_color" />
-        </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+            android:text="@string/perfume_type"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/check_cool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_cool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_cool"
+            android:layout_alignBottom="@+id/check_cool"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_cool"
+            android:layout_toStartOf="@+id/check_cool"
+            android:gravity="center"
+            android:text="@string/cool" />
+
+        <CheckBox
+            android:id="@+id/check_warm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_cool"
+            android:layout_alignBottom="@+id/text_cool"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/text_cool"
+            android:layout_toStartOf="@+id/text_cool"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_warm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_warm"
+            android:layout_alignBottom="@+id/check_warm"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_warm"
+            android:layout_toStartOf="@+id/check_warm"
+            android:gravity="center"
+            android:text="@string/warm" />
+
+        <CheckBox
+            android:id="@+id/check_selectall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_warm"
+            android:layout_alignBottom="@+id/text_warm"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/text_warm"
+            android:layout_toStartOf="@+id/text_warm"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_selectall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_selectall"
+            android:layout_alignBottom="@+id/check_selectall"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_selectall"
+            android:layout_toStartOf="@+id/check_selectall"
+            android:gravity="center"
+            android:text="@string/select_all" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_1">
+
+        <TextView
+            android:id="@+id/text_occasion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/occasion"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/check_morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/text_occasion"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_morning"
+            android:layout_alignBottom="@+id/check_morning"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_morning"
+            android:layout_toStartOf="@+id/check_morning"
+            android:gravity="center"
+            android:text="@string/morning" />
+
+        <CheckBox
+            android:id="@+id/check_night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_morning"
+            android:layout_alignBottom="@+id/text_morning"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/text_morning"
+            android:layout_toStartOf="@+id/text_morning"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_night"
+            android:layout_alignBottom="@+id/check_night"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_night"
+            android:layout_toStartOf="@+id/check_night"
+            android:gravity="center"
+            android:text="@string/night" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_2">
+
+        <CheckBox
+            android:id="@+id/check_daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_daily"
+            android:layout_alignBottom="@+id/check_daily"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_daily"
+            android:layout_toStartOf="@+id/check_daily"
+            android:gravity="center"
+            android:text="@string/daily" />
+
+        <CheckBox
+            android:id="@+id/check_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_daily"
+            android:layout_alignBottom="@+id/text_daily"
+            android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_toLeftOf="@+id/text_daily"
+            android:layout_toStartOf="@+id/text_daily"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_select_all"
+            android:layout_alignBottom="@+id/check_select_all"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toLeftOf="@+id/check_select_all"
+            android:layout_toStartOf="@+id/check_select_all"
+            android:gravity="center"
+            android:text="@string/selectall" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_3">
+
+        <TextView
+            android:id="@+id/perfume_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/perfume_family"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/check_amber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/perfume_family"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_amber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_amber"
+            android:layout_alignBottom="@+id/check_amber"
+            android:layout_toLeftOf="@+id/check_amber"
+            android:layout_toStartOf="@+id/check_amber"
+            android:gravity="center"
+            android:text="@string/amber" />
+
+        <CheckBox
+            android:id="@+id/check_oud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_amber"
+            android:layout_alignBottom="@+id/text_amber"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/text_amber"
+            android:layout_toStartOf="@+id/text_amber"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_oud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_oud"
+            android:layout_alignBottom="@+id/check_oud"
+            android:layout_toLeftOf="@+id/check_oud"
+            android:layout_toStartOf="@+id/check_oud"
+            android:gravity="center"
+            android:text="@string/oud" />
+
+        <CheckBox
+            android:id="@+id/check_wood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_oud"
+            android:layout_alignBottom="@+id/text_oud"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/text_oud"
+            android:layout_toStartOf="@+id/text_oud"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_wood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_wood"
+            android:layout_alignBottom="@+id/check_wood"
+            android:layout_toLeftOf="@+id/check_wood"
+            android:layout_toStartOf="@+id/check_wood"
+            android:gravity="center"
+            android:text="@string/wood" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_4">
+
+        <CheckBox
+            android:id="@+id/check_spices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_spices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_spices"
+            android:layout_alignBottom="@+id/check_spices"
+            android:layout_toLeftOf="@+id/check_spices"
+            android:layout_toStartOf="@+id/check_spices"
+            android:gravity="center"
+            android:text="@string/spices" />
+
+        <CheckBox
+            android:id="@+id/check_powder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_spices"
+            android:layout_alignBottom="@+id/text_spices"
+            android:layout_toLeftOf="@+id/text_spices"
+            android:layout_toStartOf="@+id/text_spices"
+            android:gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:id="@+id/text_powder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_powder"
+            android:layout_alignBottom="@+id/check_powder"
+            android:layout_toLeftOf="@+id/check_powder"
+            android:layout_toStartOf="@+id/check_powder"
+            android:gravity="center"
+            android:text="@string/powder" />
+
+        <CheckBox
+            android:id="@+id/check_fruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_powder"
+            android:layout_alignBottom="@+id/text_powder"
+            android:layout_toLeftOf="@+id/text_powder"
+            android:layout_toStartOf="@+id/text_powder"
+            android:gravity="center"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"/>
+
+        <TextView
+            android:id="@+id/text_fruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_fruit"
+            android:layout_alignBottom="@+id/check_fruit"
+            android:layout_toLeftOf="@+id/check_fruit"
+            android:layout_toStartOf="@+id/check_fruit"
+            android:gravity="center"
+            android:text="@string/fruit" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative_6"
+        android:layout_below="@id/relative_5">
+
+        <CheckBox
+            android:id="@+id/check_leather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_leather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_leather"
+            android:layout_alignBottom="@+id/check_leather"
+            android:layout_toLeftOf="@+id/check_leather"
+            android:layout_toStartOf="@+id/check_leather"
+            android:gravity="center"
+            android:text="@string/leather" />
+        <CheckBox
+            android:id="@+id/check_musk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_leather"
+            android:layout_alignBottom="@+id/text_leather"
+            android:layout_toLeftOf="@+id/text_leather"
+            android:layout_toStartOf="@+id/text_leather"
+            android:layout_marginEnd="65dp"
+            android:layout_marginRight="65dp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text_musk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_musk"
+            android:layout_alignBottom="@+id/check_musk"
+            android:layout_toLeftOf="@+id/check_musk"
+            android:layout_toStartOf="@+id/check_musk"
+            android:gravity="center"
+            android:text="@string/musk" />
+
+        <CheckBox
+            android:id="@+id/check_sweet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_musk"
+            android:layout_alignBottom="@+id/text_musk"
+            android:layout_toLeftOf="@+id/text_musk"
+            android:layout_toStartOf="@+id/text_musk"
+            android:gravity="center"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"/>
+
+        <TextView
+            android:id="@+id/text_sweet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_sweet"
+            android:layout_alignBottom="@+id/check_sweet"
+            android:layout_toLeftOf="@+id/check_sweet"
+            android:layout_toStartOf="@+id/check_sweet"
+            android:gravity="center"
+            android:text="@string/sweet" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relative_7"
+        android:layout_below="@+id/relative_6"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/check_fragrant_plant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/text_fragrant_plant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_fragrant_plant"
+            android:layout_alignBottom="@+id/check_fragrant_plant"
+            android:layout_toLeftOf="@+id/check_fragrant_plant"
+            android:layout_toStartOf="@+id/check_fragrant_plant"
+            android:gravity="center"
+            android:text="@string/fragrant_plant" />
+
+        <CheckBox
+            android:id="@+id/check_flowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text_fragrant_plant"
+            android:layout_alignBottom="@+id/text_fragrant_plant"
+            android:layout_toLeftOf="@+id/text_fragrant_plant"
+            android:layout_toStartOf="@+id/text_fragrant_plant"
+            android:gravity="center"
+            android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"/>
+
+        <TextView
+            android:id="@+id/flowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_flowers"
+            android:layout_alignBottom="@+id/check_flowers"
+            android:layout_toLeftOf="@+id/check_flowers"
+            android:layout_toStartOf="@+id/check_flowers"
+            android:gravity="center"
+            android:text="@string/flowers" />
+
+        <CheckBox
+            android:id="@+id/check_select_all_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/flowers"
+            android:layout_alignBottom="@+id/flowers"
+            android:layout_toLeftOf="@+id/flowers"
+            android:layout_toStartOf="@+id/flowers"
+            android:gravity="center"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"/>
+
+        <TextView
+            android:id="@+id/text_select_all_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check_select_all_family"
+            android:layout_alignBottom="@+id/check_select_all_family"
+            android:layout_toLeftOf="@+id/check_select_all_family"
+            android:layout_toStartOf="@+id/check_select_all_family"
+            android:gravity="center"
+            android:text="@string/select_all_family" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/update_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_7"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_cart_background"
+        android:text="@string/update_search"
+        android:textColor="@color/btn_primary_color" />
+
+</RelativeLayout>

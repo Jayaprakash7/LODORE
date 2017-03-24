@@ -6,298 +6,306 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#E0E0E0"
+        android:orientation="vertical"
         tools:context="lodore.com.lodore.Fragment.MyaccountFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="2">
 
             <Button
-                android:text="Button"
-                android:layout_width="340dp"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
                 android:background="@drawable/button_background"
-                android:layout_marginTop="28dp"
-                android:id="@+id/button1" />
+                android:text="@string/order_history"
+                android:textColor="@color/white" />
 
             <Button
-                android:text="Button"
-                android:layout_width="340dp"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
                 android:background="@drawable/button_background"
-                android:layout_marginTop="9dp"
-                android:id="@+id/button2"/>
+                android:text="@string/favourite_list"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
 
 
         <TextView
-            android:text="Arabic text to be dispayed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button3"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
-            android:id="@+id/textView1" />
+            android:text="@string/personal_info"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
-            android:id="@+id/first"
-            android:background="@color/white"
             android:layout_margin="15dp"
+            android:background="@drawable/btn_backround_home"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
                 android:orientation="horizontal"
-                android:background="@color/white">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                android:weightSum="2">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Enter ur Email id"
-                    android:paddingRight="10dp"
+                    android:gravity="right"
+                    android:text="moe@ali.com"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="end"
-                    android:id="@+id/textView3" />
+                    android:text="@string/email"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
-                android:orientation="horizontal"
-                android:background="@color/white">
 
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingRight="10dp"
-                    android:text="Enter ur Email id"
+                    android:gravity="right"
+                    android:text="@string/full_name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="end"
-                    android:id="@+id/textView4" />
+                    android:text="@string/full_name"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
-                android:orientation="horizontal"
-                android:background="@color/white">
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
 
-                <EditText
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                    android:gravity="right"
+                    android:text="0504488977"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
-                    android:text="Enter ur Email id"
-                    android:paddingRight="10dp"
                     android:gravity="end"
-                    android:id="@+id/textView5" />
+                    android:text="@string/phone_1"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
                 android:orientation="horizontal"
-                android:background="@color/white">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                android:weightSum="2">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Enter ur Email id"
-                    android:paddingRight="10dp"
+                    android:gravity="right"
+                    android:text="0508514231"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="end"
-                    android:id="@+id/textView2" />
+                    android:text="@string/phone_2"
+                    android:textSize="18sp" />
             </LinearLayout>
 
 
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_checkout"
+                android:text="@string/change_info"
+                android:textColor="@color/primary_text" />
 
-                <Button
-                    android:layout_width="297dp"
-                    android:layout_height="40dp"
-                    android:text="txt1"
-                    android:textColor="@color/white"
-                    android:background="@drawable/myacct_btnbg"
-                    android:id="@+id/button3"
-                    android:layout_gravity="center"
-                    android:paddingLeft="15dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignLeft="@+id/editText"
-                    android:layout_alignStart="@+id/editText"
-                    android:layout_marginBottom="15dp" />
-
-                <Button
-                    android:layout_width="302dp"
-                    android:layout_height="40dp"
-                    android:text="txt1"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:background="@drawable/myacct_btnbg"
-                    android:id="@+id/button4"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="15dp" />
-
-            </LinearLayout>
-
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_checkout"
+                android:text="@string/change_password"
+                android:textColor="@color/primary_text" />
 
 
         </LinearLayout>
 
         <TextView
-            android:text="Arabic text to be dispayed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_below="@+id/first"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/textView6" />
-
-        <LinearLayout
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView6"
-            android:layout_margin="15dp"
-            android:id="@+id/second"
-            android:background="@color/white"
+            android:textSize="18sp"
+            android:textColor="@color/primary_text"
+            android:layout_marginRight="20dp"
+            android:text="@string/delivery_details_" />
 
+        <LinearLayout
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_backround_home"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
                 android:orientation="horizontal"
-                android:background="@color/white">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                android:weightSum="2">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Enter ur Email id"
-                    android:paddingRight="10dp"
+                    android:gravity="right"
+                    android:text="@string/city"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="end"
-                    android:id="@+id/textView001" />
+                    android:text="@string/city"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
-                android:orientation="horizontal"
-                android:background="@color/white">
 
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Enter ur Email id"
-                    android:paddingRight="10dp"
+                    android:gravity="right"
+                    android:text="@string/full_name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="end"
-                    android:id="@+id/textView002" />
+                    android:text="@string/nighbor"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
-                android:orientation="horizontal"
-                android:background="@color/white">
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
 
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="enter ur email"/>
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Enter ur Email id"
-                    android:paddingRight="10dp"
+                    android:gravity="right"
+                    android:text="@string/street_name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:gravity="end"
-                    android:id="@+id/textView003" />
+                    android:text="@string/street_name"
+                    android:textSize="18sp" />
             </LinearLayout>
             <Button
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:text="txt1"
-                android:textColor="@color/white"
-                android:id="@+id/button"
-                android:background="@drawable/myacct_btnbg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_alignParentBottom="true"
-                android:layout_alignLeft="@+id/editText"
-                android:layout_alignStart="@+id/editText"
-                android:layout_marginBottom="15dp" />
-
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_checkout"
+                android:text="@string/change_info"
+                android:textColor="@color/primary_text" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

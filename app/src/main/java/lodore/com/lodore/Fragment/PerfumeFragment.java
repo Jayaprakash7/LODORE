@@ -40,7 +40,7 @@ public class PerfumeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_perfume, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.perfume_filter_recycler);
         Button btnFilter = (Button) view.findViewById(R.id.btn_filter);
-        Button btnCheck = (Button) view.findViewById(R.id.btn_perfume_filter);
+        Button btnCheck = (Button) view.findViewById(R.id.update_search);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();

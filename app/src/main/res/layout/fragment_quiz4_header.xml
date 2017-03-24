@@ -7,14 +7,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="النتائج"
+        android:text="@string/results"
         android:textColor="@color/primary_text"
         android:textStyle="bold"
         android:gravity="center"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/header"
+        android:text="@string/arabic_text"
         android:layout_marginTop="16dp"
         android:textColor="@color/primary_text"
         android:gravity="center"/>

@@ -34,14 +34,12 @@
 
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="يقوم هزا اﻻختبار بمساعدتك
-قي اختيار العطر اﻷنسب لك
-" />
+                android:text="@string/happy_to_help"
+                android:paddingLeft="100dp"
+                android:paddingRight="100dp"
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/textView4"
@@ -56,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:text="@string/header"
+                android:text="@string/which_perfume_family_like"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -80,7 +78,7 @@
                         android:layout_weight="0.5"
 
                         android:background="@drawable/btn_background_quiz"
-                        android:text="شرقي(توابل)" />
+                        android:text="@string/spices" />
 
                     <Button
                         android:id="@+id/button3"
@@ -89,7 +87,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="شرقي(عود)" />
+                        android:text="@string/oud" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,7 +102,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="أعشاب عطرية" />
+                        android:text="@string/fragrant_plant" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -112,7 +110,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="شرقي(عنبدر)" />
+                        android:text="@string/amber" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -127,7 +125,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="أزهار" />
+                        android:text="@string/flowers" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -135,7 +133,8 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="مسك" />
+                        android:text="@string/musk"
+                        android:id="@+id/button6" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -151,7 +150,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="فواكه (سويت)" />
+                        android:text="@string/sweet" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -159,7 +158,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="جلود" />
+                        android:text="@string/leather" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -174,7 +173,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="باودر" />
+                        android:text="@string/powder" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -182,24 +181,25 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="فواكه (حمضيات)" />
+                        android:text="@string/citrus" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:gravity="center"
                     android:weightSum="1">
 
                     <Button
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_marginLeft="120dp"
                         android:layout_marginRight="100dp"
                         android:layout_weight="0.36"
                         android:background="@drawable/btn_background_quiz"
-                        android:text="أخشاب عطرية" />
+                        android:text="@string/wood" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -210,7 +210,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_cart_background"
-                android:text="عرض النتائج" />
+                android:text="@string/show_result"
+                android:textColor="@color/btn_primary_color"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

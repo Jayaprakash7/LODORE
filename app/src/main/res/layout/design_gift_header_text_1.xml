@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical|end"
-                android:text="تسجيل"
+                android:text="@string/payment_method"
                 android:textColor="@color/primary_text" />
 
         </LinearLayout>
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical|end"
-                android:text="بيانات التوصيل"
+                android:text="@string/delivery_details"
                 android:textColor="@color/colorPrimary" />
 
         </LinearLayout>

@@ -11,16 +11,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import lodore.com.lodore.Fragment.HomeFragment;
 import lodore.com.lodore.Fragment.NavigationDrawerFragment;
+import lodore.com.lodore.Fragment.PerfumeFragment;
+import lodore.com.lodore.Fragment.SearchResultFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
     EditText search_txt;
     Toolbar toolbar;
+    FrameLayout frameLayoutSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
+
+        frameLayoutSearch = (FrameLayout) findViewById(R.id.frame_search);
+
+        frameLayoutSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         drawerFragment.setUp(R.id.navigation_drawer_fragment, drawerLayout, toolbar);
 
         if(null == savedInstanceState) {

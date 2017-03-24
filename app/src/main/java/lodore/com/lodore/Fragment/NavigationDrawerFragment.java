@@ -191,6 +191,15 @@ public class NavigationDrawerFragment extends Fragment {
                 //perfumeFragment();
                 mDrawerLayout.closeDrawers();
 
+                SearchResultFragment searchResultFragment = new SearchResultFragment();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.content_frame, searchResultFragment);
+                transaction.commit();
+
+
+
             }
         });
 

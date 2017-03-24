@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="لدي حساب"
+                    android:text="@string/have_acc"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/text_size" />
 
@@ -62,7 +62,7 @@
                     android:cursorVisible="false"
                     android:drawablePadding="20dp"
                     android:drawableRight="@drawable/ic_email_black_24px"
-                    android:hint="البريد اﻹلكتروني" />
+                    android:hint="@string/email_login" />
 
                 <EditText
                     android:id="@+id/edit_password"
@@ -74,7 +74,7 @@
                     android:cursorVisible="false"
                     android:drawablePadding="20dp"
                     android:drawableRight="@drawable/ic_lock_black_24px"
-                    android:hint="كلمة المرور" />
+                    android:hint="@string/password_login" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                     android:layout_marginTop="20dp"
                     android:padding="15dp"
                     android:background="@drawable/btn_cart_background"
-                    android:text="تسجيل الدخول"
+                    android:text="@string/login"
                     android:textColor="@color/btn_primary_color" />
 
                 <TextView
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
-                    android:text="نسيت كلمة المرور؟"
+                    android:text="@string/forgot_password"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
 
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:gravity="center_horizontal"
-                    android:text="مستخدم جديد"
+                    android:text="@string/new_acc"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -124,7 +124,7 @@
             android:layout_marginBottom="16dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/btn_cart_background"
-            android:text="اﻻستمرار"
+            android:text="@string/procced"
             android:textColor="@color/btn_primary_color" />
 
     </RelativeLayout>

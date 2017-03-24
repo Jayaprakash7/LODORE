@@ -61,7 +61,7 @@
                             android:layout_gravity="right"
                             android:textSize="18dp"
                             android:paddingRight="20dp"
-                            android:text="التركيز"/>
+                            android:text="@string/concentrations"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -69,7 +69,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="18dp"
                            android:paddingRight="10dp"
-                            android:hint="الحجم: امل "/>
+                            android:hint="@string/size"/>
 
 
                     </LinearLayout>
@@ -84,14 +84,14 @@
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="مسائي"
+                            android:text="@string/night_"
                             android:textColor="@color/white"
                             android:background="@drawable/perfumedetails_btn1"/>
 
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="صباحي"
+                            android:text="@string/morning_"
                             android:textColor="@color/white"
                             android:layout_marginLeft="25dp"
                             android:background="@drawable/perfumedetails_btn2"/>
@@ -99,12 +99,12 @@
                     </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="right"
                         android:paddingRight="10dp"
-                        android:hint="	700 ريال"/>
+                        android:hint="@string/price_700"/>
 
 
                 </LinearLayout>
@@ -146,8 +146,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="قصة العطر"
-                    android:gravity="center"/>
+                    android:text="@string/perfume_story"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold"
+                    android:textSize="25sp"/>
 
             </LinearLayout>
 
@@ -162,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/abt_us_txt2"
                     android:gravity="center"
-                    android:id="@+id/textView8" />
+                    android:id="@+id/perfume_family" />
 
 
             </LinearLayout>
@@ -182,7 +186,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="مكونات العطر"
+                    android:text="@string/perfume_notes"
                     android:layout_marginTop="20dp"
                     android:gravity="center"/>
 
@@ -292,7 +296,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="مشاركة"
+                    android:text="@string/share"
                     android:textColor="@color/white"
                     android:background="@drawable/myacct_btnbg"
                     android:id="@+id/button"
@@ -303,7 +307,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="إضفة المفضلة"
+                    android:text="@string/add_to_fav"
                     android:textColor="@color/white"
                     android:background="@drawable/myacct_btnbg"
                     android:id="@+id/button2"
@@ -325,7 +329,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="منتجات أخرى مشابهة"
+                android:text="@string/similar_protect"
                 android:layout_marginTop="20dp"
                 android:gravity="center"/>
 
@@ -358,7 +362,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="0.75"
-                android:text="اضفة للسلة"
+                android:text="@string/add_to_cart"
                 android:textColor="@color/white"
                 android:background="@drawable/button_background"/>
 
@@ -372,7 +376,3 @@
     </LinearLayout>
 
 </ScrollView>
-
-
-    <!--
-    </RelativeLayout>-->

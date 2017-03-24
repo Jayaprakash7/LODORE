@@ -43,7 +43,7 @@
                 android:background="@drawable/btn_checkout"
                 android:layout_weight="1"
                 android:id="@+id/viewmore"
-                android:text="تفاصيل أكثر"/>
+                android:text="@string/read_more"/>
 
 
         </LinearLayout>

@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    android:text="@string/login_name"
+                    android:text="@string/review_order"
                     android:textColor="@color/primary_text" />
 
             </FrameLayout>
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    android:text="@string/login_name"
+                    android:text="@string/arabic_text"
 
                     android:textColor="@color/primary_text" />
 
@@ -77,7 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    android:text="	وسيلة الدفع"
+                    android:text="@string/payment_method"
                     android:textColor="@color/primary_text" />
 
             </FrameLayout>
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    android:text="بيانات التوصيل"
+                    android:text="@string/delivery_opt"
                     android:textColor="@color/colorPrimary" />
 
             </FrameLayout>

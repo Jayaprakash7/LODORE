@@ -199,7 +199,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
         android:background="@drawable/btn_cart_background"
-        android:text="@string/login_name"
+        android:text="@string/finish_order"
         android:textColor="@color/btn_primary_color" />
 
 </RelativeLayout>

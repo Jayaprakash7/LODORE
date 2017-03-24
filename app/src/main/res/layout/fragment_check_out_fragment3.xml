@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
-                android:text="خطوة أخيرة"
+                android:text="@string/final_step"
                 android:textColor="@color/primary_text"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -94,7 +94,7 @@
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/ic_email_black_24px"
-                android:hint="@string/login_name"
+                android:hint="@string/email_login"
                 android:padding="20dp" />
 
             <EditText
@@ -106,7 +106,7 @@
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/ic_lock_black_24px"
-                android:hint="@string/login_name"
+                android:hint="@string/password"
                 android:padding="20dp" />
 
             <EditText
@@ -118,7 +118,7 @@
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/ic_lock_black_24px"
-                android:hint="@string/login_name"
+                android:hint="@string/confirm_password"
                 android:padding="20dp" />
 
 

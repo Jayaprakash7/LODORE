@@ -9,7 +9,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="حدد موقعك"
+        android:text="@string/loc"
         android:background="@drawable/btn_checkout"
         android:layout_gravity="center"
         />
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="أدخل العنوان"
+        android:text="@string/address"
         android:layout_marginTop="20dp"/>
     <EditText
         android:id="@+id/editText4"
@@ -33,7 +33,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:hint="@string/login_name"
+        android:hint="arabic text"
         android:padding="10dp" />
 
     <EditText
@@ -43,7 +43,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:hint="@string/login_name"
+        android:hint="arabic text"
         android:padding="10dp" />
 
     <EditText
@@ -53,6 +53,6 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:hint="@string/login_name"
+        android:hint="arabic text"
         android:padding="10dp" />
 </LinearLayout>

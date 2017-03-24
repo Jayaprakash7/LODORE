@@ -45,7 +45,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_margin="16dp"
                 android:background="@drawable/btn_cart_background"
-                android:text="اعتماد الطلب"
+                android:text="@string/confirm_order"
                 android:textColor="@color/btn_primary_color" />
         </RelativeLayout>
 

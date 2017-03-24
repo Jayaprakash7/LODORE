@@ -1,15 +1,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:background="#e3b559"
+        android:orientation="vertical"
         tools:context="lodore.com.lodore.Fragment.HomeFragment">
 
-        <!-- TODO: Update blank fragment layout -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,51 +22,53 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/_home_heading_one"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/_home_heading_one"
-                    android:textAlignment="center"
                     android:layout_marginTop="20dp"
                     android:paddingLeft="48dp"
                     android:paddingRight="48dp"
-                    android:textColor="@color/white"
-                    android:text="@string/home_header_one"/>
+                    android:text="@string/home_header_one"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/_home_heading_two"
-                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:paddingLeft="48dp"
                     android:paddingRight="48dp"
-                    android:textColor="@color/white"
-                    android:text="@string/home_header_two"/>
+                    android:text="@string/home_header_two"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
 
                 <TextView
+                    android:id="@+id/_home_heading_three"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/_home_heading_three"
-                    android:textAlignment="center"
                     android:paddingLeft="48dp"
                     android:paddingRight="48dp"
-                    android:textColor="@color/white"
-                    android:text="@string/home_header_three"/>
+                    android:text="@string/home_header_three"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
 
             </LinearLayout>
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btn_heading_home"
-                android:textColor="@color/secondary_text"
-                android:background="@drawable/btn_backround_home"
-                android:text="@string/start_journey"
-                android:paddingTop="10dp"/>
 
+                android:id="@+id/btn_heading_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_backround_home"
+                android:paddingLeft="65dp"
+                android:paddingRight="65dp"
+                android:paddingTop="10dp"
+                android:text="@string/start_journey"
+                android:textColor="@color/colorPrimary" />
 
 
         </LinearLayout>
@@ -79,13 +81,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/fragnance_families"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fragnance_families"
-                android:textAlignment="center"
                 android:paddingLeft="48dp"
                 android:paddingRight="48dp"
-                android:text="@string/fragnance_familess"/>
+                android:text="@string/fragnance_familess"
+                android:textAlignment="center" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -103,7 +105,6 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,25 +113,25 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="1dp"
-                    android:background="#000"
-                    android:layout_margin="20dp" />
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="#000" />
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="4"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="4"
                     android:gravity="center"
-                    android:text="@string/suggested_perfume"/>
+                    android:text="@string/suggested_perfume" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="1dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="1"
-                    android:background="#000"
-                    android:layout_margin="20dp" />
+                    android:background="#000" />
 
 
             </LinearLayout>

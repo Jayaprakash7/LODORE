@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text=" تمت عملية الشراء بنجاح!"
+                android:text="@string/check_email"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -67,7 +67,7 @@
                 android:background="@drawable/button_check"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="العودة للصفحة الرئيسية"
+                android:text="@string/back_home"
                 android:textColor="@color/primary_text" />
 
         </LinearLayout>

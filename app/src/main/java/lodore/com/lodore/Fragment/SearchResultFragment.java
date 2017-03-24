@@ -32,6 +32,8 @@ public class SearchResultFragment extends Fragment {
 
     RecyclerView recyclerView;
     SearchResultAdapter adapter;
+    LinearLayout linearLayoutPerfumeHouse;
+    LinearLayout linearLayoutPerfumes;
 
 
     public SearchResultFragment() {
@@ -44,7 +46,8 @@ public class SearchResultFragment extends Fragment {
                              final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search_result, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_search);
-        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.linear_search);
+        linearLayoutPerfumes = (LinearLayout) view.findViewById(R.id.linear_perfumes);
+        linearLayoutPerfumeHouse = (LinearLayout) view.findViewById(R.id.linear_perfume_house);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
@@ -59,18 +62,32 @@ public class SearchResultFragment extends Fragment {
             }
         });
 
-        linearLayout.setOnClickListener(new View.OnClickListener() {
+        linearLayoutPerfumes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PerfumeFragment perfumeFragment = new PerfumeFragment();
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.addToBackStack(null);
-                transaction.replace(R.id.checkout_container_layout, perfumeFragment);
+                transaction.replace(R.id.content_frame, perfumeFragment);
                 transaction.commit();
 
             }
         });
+
+        linearLayoutPerfumeHouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BrandsFragment brandsFragment = new BrandsFragment();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.content_frame, brandsFragment);
+                transaction.commit();
+
+            }
+        });
+
 
         adapter = new SearchResultAdapter(getActivity(), getData());
         recyclerView.setHasFixedSize(true);
