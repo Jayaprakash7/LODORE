@@ -118,7 +118,7 @@
                 android:cursorVisible="false"
                 android:drawablePadding="20dp"
                 android:drawableRight="@drawable/ic_lock_black_24px"
-                android:hint="@string/confirm_password"
+                android:hint="@string/confirm_pass"
                 android:padding="20dp" />
 
 
