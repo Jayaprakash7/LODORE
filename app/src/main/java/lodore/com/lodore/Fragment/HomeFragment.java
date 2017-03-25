@@ -5,10 +5,10 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +21,6 @@ import java.util.List;
 import lodore.com.lodore.Pojo.Perfume;
 import lodore.com.lodore.R;
 import lodore.com.lodore.adapter.RecyclerHome;
-import lodore.com.lodore.adapter.RecyclerviewhomeAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +28,7 @@ import lodore.com.lodore.adapter.RecyclerviewhomeAdapter;
 public class HomeFragment extends Fragment {
 
     Button reg;
+    Toolbar toolbarHome;
 
     private RecyclerView recyclerViewbottom;
     private RecyclerHome adapter;
@@ -49,7 +49,10 @@ public class HomeFragment extends Fragment {
 
 
         recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
+        toolbarHome = (Toolbar) view.findViewById(R.id.toolbar_home);
 
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbarHome);
+        
 
 
 

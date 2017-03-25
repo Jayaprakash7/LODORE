@@ -5,6 +5,8 @@
     android:orientation="vertical"
     tools:context="lodore.com.lodore.Fragment.BlogFragment">
 
+    <include layout="@layout/toolbar_for_home"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_blog"
         android:layout_width="match_parent"

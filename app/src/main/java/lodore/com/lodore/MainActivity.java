@@ -35,20 +35,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        linearLayout = (LinearLayout) findViewById(R.id.search_txt);
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+       /* linearLayout = (LinearLayout) findViewById(R.id.search_txt);
         search_txt = (EditText) findViewById(R.id.search_here);
 
-        search_btn = (Button) findViewById(R.id.search_btn);
+        search_btn = (Button) findViewById(R.id.search_btn);*/
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
 
 
-        search_btn.setOnClickListener(new View.OnClickListener() {
+       /* search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
         drawerFragment.setUp(R.id.navigation_drawer_fragment, drawerLayout, toolbar);
 
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -109,9 +110,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_cart) {
-            /*Intent i = new Intent(MainActivity.this,CartActivity.class);
+            */
+/*Intent i = new Intent(MainActivity.this,CartActivity.class);
             startActivity(i);
-            return true;*/
+            return true;*//*
+
             CartFragment cartFragment = new CartFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -122,5 +125,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+*/
 
 }

@@ -1,45 +1,53 @@
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_for_home" />
+
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E0E0E0"
-        android:orientation="vertical"
-        tools:context="lodore.com.lodore.Fragment.BrandsFragment">
+        android:layout_height="match_parent">
 
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:drawableRight="@drawable/search_icon"
-            android:background="@drawable/edittxtshape"
-            android:layout_gravity="center"
-            android:hint="Search here"/>
-
-
-
-        <LinearLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="16dp"
-            android:background="@drawable/cardbg">
+            android:background="#E0E0E0"
+            android:orientation="vertical"
+            tools:context="lodore.com.lodore.Fragment.BrandsFragment">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_viewbrands"
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittxtshape"
+                android:drawableRight="@drawable/search_icon"
+                android:gravity="center"
+                android:hint="Search here" />
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:scrollbars="horizontal" />
+                android:layout_margin="16dp"
+                android:background="@drawable/cardbg"
+                android:orientation="horizontal">
 
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_viewbrands"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:scrollbars="horizontal" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

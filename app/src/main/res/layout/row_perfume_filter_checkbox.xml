@@ -20,7 +20,7 @@
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/check_cool"
+            android:id="@+id/toolbar_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -32,12 +32,12 @@
             android:id="@+id/text_cool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/check_cool"
-            android:layout_alignBottom="@+id/check_cool"
+            android:layout_alignBaseline="@+id/toolbar_cart"
+            android:layout_alignBottom="@+id/toolbar_cart"
             android:layout_marginEnd="11dp"
             android:layout_marginRight="11dp"
-            android:layout_toLeftOf="@+id/check_cool"
-            android:layout_toStartOf="@+id/check_cool"
+            android:layout_toLeftOf="@+id/toolbar_cart"
+            android:layout_toStartOf="@+id/toolbar_cart"
             android:gravity="center"
             android:text="@string/cool" />
 
@@ -79,7 +79,7 @@
             android:gravity="center" />
 
         <TextView
-            android:id="@+id/text_selectall"
+            android:id="@+id/toolbar_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/check_selectall"
