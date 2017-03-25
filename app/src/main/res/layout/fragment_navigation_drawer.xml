@@ -1,8 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c59158"
-    >
+    android:background="#c59158">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -30,12 +29,11 @@
                 android:id="@+id/nav_home"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.97"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
                 android:text="@string/home"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                 />
+                android:textSize="25sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -54,12 +52,11 @@
                 android:id="@+id/nav_perfume"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.97"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
                 android:text="@string/perfumes"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                 />
+                android:textSize="25sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -78,12 +75,11 @@
                 android:id="@+id/nav_fragnance_familes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.97"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
                 android:text="@string/fragnance_familes"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                 />
+                android:textSize="25sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -102,12 +98,11 @@
                 android:id="@+id/nav_about_us"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.97"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
                 android:text="@string/my_about_us"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                 />
+                android:textSize="25sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -127,12 +122,11 @@
                 android:id="@+id/nav_my_account"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.97"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
                 android:text="@string/my_account"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                 />
+                android:textSize="25sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -152,13 +146,12 @@
                 android:id="@+id/nav_login"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.97"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
                 android:gravity="end"
                 android:text="Login"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                 />
+                android:textSize="25sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -229,6 +222,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/contact_us"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nav_brand_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="Brand Details"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nav_product_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="Product Details"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nav_quiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="Quiz"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>

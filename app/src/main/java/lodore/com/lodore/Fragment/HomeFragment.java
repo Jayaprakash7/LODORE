@@ -20,6 +20,7 @@ import java.util.List;
 
 import lodore.com.lodore.Pojo.Perfume;
 import lodore.com.lodore.R;
+import lodore.com.lodore.adapter.RecyclerHome;
 import lodore.com.lodore.adapter.RecyclerviewhomeAdapter;
 
 /**
@@ -30,7 +31,7 @@ public class HomeFragment extends Fragment {
     Button reg;
 
     private RecyclerView recyclerViewbottom;
-    private RecyclerviewhomeAdapter adapter;
+    private RecyclerHome adapter;
     private List<Perfume> albumList;
 
 
@@ -53,7 +54,7 @@ public class HomeFragment extends Fragment {
 
 
         albumList = new ArrayList<>();
-        adapter = new RecyclerviewhomeAdapter(getContext(), albumList);
+        adapter = new RecyclerHome(getContext(), albumList);
         recyclerViewbottom.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,true));
         recyclerViewbottom.setNestedScrollingEnabled(false);
         recyclerViewbottom.setAdapter(adapter);

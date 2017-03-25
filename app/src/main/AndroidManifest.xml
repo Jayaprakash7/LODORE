@@ -15,9 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CartActivity" />
-        <activity android:name=".CheckOutActivity" />
-        <activity android:name=".CheckOutCompleteActivity"></activity>
+        <activity android:name=".CartActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".CheckOutActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".CheckOutCompleteActivity"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
     </application>
 
 </manifest>

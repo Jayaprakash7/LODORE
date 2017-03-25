@@ -1,18 +1,25 @@
 package lodore.com.lodore;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import lodore.com.lodore.Fragment.PerfumeFragment;
+import lodore.com.lodore.Fragment.RegisterFragment;
 
 public class CheckOutActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     Button btnCheckOut;
     EditText edit_email, edit_password;
+    TextView textViewNewAcc;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -40,6 +47,14 @@ public class CheckOutActivity extends AppCompatActivity {
         btnCheckOut = (Button) findViewById(R.id.btnCheckOut);
         edit_email = (EditText) findViewById(R.id.edit_email);
         edit_password = (EditText) findViewById(R.id.edit_password);
+        textViewNewAcc = (TextView) findViewById(R.id.new_acc);
+
+        textViewNewAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegisterFragment();
+            }
+        });
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,4 +76,14 @@ public class CheckOutActivity extends AppCompatActivity {
 
 
     }
+
+    public void RegisterFragment (){
+        RegisterFragment registerFragment = new RegisterFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,registerFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
 }

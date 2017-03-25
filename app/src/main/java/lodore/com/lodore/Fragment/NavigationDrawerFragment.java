@@ -35,7 +35,7 @@ public class NavigationDrawerFragment extends Fragment {
     private DrawerLayout mDrawerLayout;
 
     TextView home,perfume,contact_us,about_us,my_account,login,fragnance_fmaily;
-    TextView register,brands,blog,productdetails,branddetails,shippinganddeliveryifo,sendgift,faq,privacy_policy;
+    TextView quiz,blog,productdetails,branddetails,shippinganddeliveryifo,sendgift,faq,privacy_policy;
 
 
     public void perfumeFragment(){
@@ -43,6 +43,31 @@ public class NavigationDrawerFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,perfumeFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void productdetails(){
+        ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,productDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+    public void branddetails(){
+        BranddetailsFragment branddetails = new BranddetailsFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,branddetails);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+    public void quiz(){
+        QuizFragment1 quiz = new QuizFragment1();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,quiz);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
@@ -157,6 +182,9 @@ public class NavigationDrawerFragment extends Fragment {
         faq = (TextView) view.findViewById(R.id.nav_faq);
         privacy_policy = (TextView) view.findViewById(R.id.nav_privacy_policy);
         contact_us = (TextView) view.findViewById(R.id.nav_contact_us);
+        quiz = (TextView) view.findViewById(R.id.nav_quiz);
+        branddetails = (TextView) view.findViewById(R.id.nav_brand_details);
+        productdetails = (TextView) view.findViewById(R.id.nav_product_details);
 
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +200,31 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 perfumeFragment();
+                mDrawerLayout.closeDrawers();
+
+            }
+        });
+
+        branddetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                branddetails();
+                mDrawerLayout.closeDrawers();
+
+            }
+        });
+        quiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quiz();
+                mDrawerLayout.closeDrawers();
+
+            }
+        });
+        productdetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                productdetails();
                 mDrawerLayout.closeDrawers();
 
             }

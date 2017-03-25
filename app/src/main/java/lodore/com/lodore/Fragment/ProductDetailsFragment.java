@@ -47,8 +47,8 @@ public class ProductDetailsFragment extends Fragment {
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerViewbottom.setLayoutManager(mLayoutManager);
-        recyclerViewbottom.addItemDecoration(new ProductDetailsFragment.GridSpacingItemDecoration(2, dpToPx(10), true));
-        recyclerViewbottom.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewbottom.setNestedScrollingEnabled(false);
+
         recyclerViewbottom.setAdapter(adapter);
 
 
@@ -66,17 +66,18 @@ public class ProductDetailsFragment extends Fragment {
 
     private void prepareAlbums() {
         int[] covers = new int[]{
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume,
-                R.drawable.kingperfume};
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+                R.drawable.perfume2,
+        };
 
         Perfume a = new Perfume("perfume", 13, covers[0]);
         albumList.add(a);
