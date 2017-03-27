@@ -49,12 +49,6 @@ public class HomeFragment extends Fragment {
 
 
         recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
-        toolbarHome = (Toolbar) view.findViewById(R.id.toolbar_home);
-
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbarHome);
-        
-
-
 
         albumList = new ArrayList<>();
         adapter = new RecyclerHome(getContext(), albumList);

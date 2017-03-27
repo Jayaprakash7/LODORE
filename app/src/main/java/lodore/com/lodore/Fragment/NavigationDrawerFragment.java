@@ -38,124 +38,6 @@ public class NavigationDrawerFragment extends Fragment {
     TextView quiz,blog,productdetails,branddetails,shippinganddeliveryifo,sendgift,faq,privacy_policy;
 
 
-    public void perfumeFragment(){
-        PerfumeFragment perfumeFragment = new PerfumeFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,perfumeFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void productdetails(){
-        ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,productDetailsFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-    public void branddetails(){
-        BranddetailsFragment branddetails = new BranddetailsFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,branddetails);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-    public void quiz(){
-        QuizFragment1 quiz = new QuizFragment1();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,quiz);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void ContactusFragment(){
-        ContactusFragment contactusFragment = new ContactusFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,contactusFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void AboutusFragment(){
-        AboutusFragment aboutusFragment = new AboutusFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,aboutusFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-    public void MyaccountFragment(){
-        MyaccountFragment myaccountFragment = new MyaccountFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,myaccountFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void LoginFragment(){
-        LoginFragment loginFragment = new LoginFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,loginFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void RegisterFragment(){
-        RegisterFragment registerFragment = new RegisterFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,registerFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void PrivacypolicyFragment(){
-        PrivacypolicyFragment privacypolicyFragment = new PrivacypolicyFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,privacypolicyFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void BlogFragment(){
-        BlogFragment blogFragment = new BlogFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,blogFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void FaqFragment(){
-        FaqFragment faq_Fragment = new FaqFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,faq_Fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void GiftFragment1(){
-        GiftFragment1 giftFragment1 = new GiftFragment1();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,giftFragment1);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-
-    public NavigationDrawerFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -186,185 +68,41 @@ public class NavigationDrawerFragment extends Fragment {
         branddetails = (TextView) view.findViewById(R.id.nav_brand_details);
         productdetails = (TextView) view.findViewById(R.id.nav_product_details);
 
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
-        });
-
-        perfume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                perfumeFragment();
-                mDrawerLayout.closeDrawers();
-
-            }
-        });
-
-        branddetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                branddetails();
-                mDrawerLayout.closeDrawers();
-
-            }
-        });
-        quiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                quiz();
-                mDrawerLayout.closeDrawers();
-
-            }
-        });
-        productdetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                productdetails();
-                mDrawerLayout.closeDrawers();
-
-            }
-        });
-
-        fragnance_fmaily.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //perfumeFragment();
-                mDrawerLayout.closeDrawers();
-
-                SearchResultFragment searchResultFragment = new SearchResultFragment();
-                FragmentManager manager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.content_frame, searchResultFragment);
-                transaction.commit();
-
-
-
-            }
-        });
-
-        about_us.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AboutusFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-
-        my_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyaccountFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        blog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BlogFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        sendgift.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GiftFragment1();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        shippinganddeliveryifo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //BlogFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FaqFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        privacy_policy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PrivacypolicyFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        contact_us.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContactusFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-
-        /*contact_us.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContactusFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RegisterFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        brands.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BrandsFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-
-
-        productdetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProductDetailsFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-
-        branddetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BranddetailsFragment();
-                mDrawerLayout.closeDrawers();
-            }
-        });
-*/
         return view;
+    }
+
+    public TextView getHome(){
+        return home;
+    }
+    public TextView getPerfume(){
+        return perfume;
+    }
+    public TextView getContact_us(){
+        return contact_us;
+    } public TextView getAbout_us(){
+        return about_us;
+    } public TextView getMy_account(){
+        return my_account;
+    } public TextView getLogin(){
+        return login;
+    } public TextView getFragnance_fmaily(){
+        return fragnance_fmaily;
+    } public TextView getQuiz(){
+        return quiz;
+    } public TextView getBlog(){
+        return blog;
+    } public TextView getProductdetails(){
+        return productdetails;
+    } public TextView getBranddetails(){
+        return branddetails;
+    } public TextView getShippinganddeliveryifo(){
+        return shippinganddeliveryifo;
+    } public TextView getSendgift(){
+        return sendgift;
+    } public TextView getFaq(){
+        return faq;
+    } public TextView getPrivacy_policy(){
+        return privacy_policy;
     }
 
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolBar) {
@@ -375,10 +113,7 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                /*if (!mUserLearnedDrawer){
-                    mUserLearnedDrawer = true;
-                    savedPreferences(getActivity(), "user_learned_drawer",mUserLearnedDrawer+"");
-                }*/
+
                 getActivity().invalidateOptionsMenu();
             }
 
@@ -396,21 +131,6 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-        /*if (!mUserLearnedDrawer && !mSavedInstanceState){
-            mDrawerLayout.openDrawer(containerView);
-        }*/
-
     }
-   /* public static void savedPreferences(Context context, String preferencesName, String preferencesValue){
-        SharedPreferences sharedPreferences = context.getSharedPreferences("test",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(preferencesName,preferencesValue);
-        editor.apply();
-    }
-    public static String readPreferences(Context context, String preferencesName, String defaultValue){
-        SharedPreferences sharedPreferences = context.getSharedPreferences("test",Context.MODE_PRIVATE);
-        return sharedPreferences.getString(preferencesName,defaultValue);
-
-    }*/
 
 }

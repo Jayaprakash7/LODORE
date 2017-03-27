@@ -4,24 +4,15 @@
     tools:context="hiyan.com.lodore.MainActivity">
     <item
         android:id="@+id/action_search"
-        android:title="@string/action_search"
-        android:icon="@drawable/ic_search_white_24px"
-        app:showAsAction="always"/>
-
-
-    <!--<item
-        android:id="@+id/action_search"
-        android:icon="@string/action_search"
+        android:title="@string/login_name"
         android:orderInCategory="100"
-        android:title="@string/action_search"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="always" />-->
-
-
+        android:icon="@drawable/ic_search_white_24px"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_cart"
-        android:title="@string/action_search"
+        android:title="@string/add_to_cart"
+        android:orderInCategory="100"
         android:icon="@drawable/ic_shopping_cart_white_24px"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

@@ -7,9 +7,6 @@
     android:weightSum="1"
     tools:context="lodore.com.lodore.Fragment.LoginFragment">
 
-    <include
-        android:id="@+id/include_layout"
-        layout="@layout/toolbar_for_home" />
 
     <LinearLayout
         android:id="@+id/linear_edit"

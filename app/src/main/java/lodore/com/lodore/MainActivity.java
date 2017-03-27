@@ -1,6 +1,5 @@
 package lodore.com.lodore;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -11,54 +10,70 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import lodore.com.lodore.Fragment.AboutusFragment;
+import lodore.com.lodore.Fragment.BlogFragment;
+import lodore.com.lodore.Fragment.BranddetailsFragment;
 import lodore.com.lodore.Fragment.CartFragment;
+import lodore.com.lodore.Fragment.ContactusFragment;
+import lodore.com.lodore.Fragment.FaqFragment;
+import lodore.com.lodore.Fragment.GiftFragment1;
 import lodore.com.lodore.Fragment.HomeFragment;
+import lodore.com.lodore.Fragment.LoginFragment;
+import lodore.com.lodore.Fragment.MyaccountFragment;
 import lodore.com.lodore.Fragment.NavigationDrawerFragment;
 import lodore.com.lodore.Fragment.PerfumeFragment;
+import lodore.com.lodore.Fragment.PrivacypolicyFragment;
+import lodore.com.lodore.Fragment.ProductDetailsFragment;
+import lodore.com.lodore.Fragment.QuizFragment1;
 import lodore.com.lodore.Fragment.SearchResultFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
-    EditText search_txt;
+    TextView toolbar_text;
     Toolbar toolbar;
     FrameLayout frameLayoutSearch;
     Button search_btn;
+    ImageView image_cart,image_search;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-       /* linearLayout = (LinearLayout) findViewById(R.id.search_txt);
-        search_txt = (EditText) findViewById(R.id.search_here);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar_text = (TextView) findViewById(R.id.toolbar_text);
+        image_cart = (ImageView) findViewById(R.id.toolbar_cart);
+        image_search = (ImageView) findViewById(R.id.toolbar_search);
+        linearLayout = (LinearLayout) findViewById(R.id.search_txt);
+        search_btn = (Button) findViewById(R.id.search_btn);
+        toolbar_text.setText("الرئيسية");
 
-        search_btn = (Button) findViewById(R.id.search_btn);*/
+        setSupportActionBar(toolbar);
 
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-       /* search_btn.setOnClickListener(new View.OnClickListener() {
+        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
+
+        image_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                SearchResultFragment searchResultFragment = new SearchResultFragment();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame,searchResultFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
+                cartFragment();
+            }
+        });
+        image_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if(linearLayout.getVisibility() == View.GONE)
                 {
                     linearLayout.setVisibility(View.VISIBLE);
@@ -70,11 +85,135 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });*/
+        });
+
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchFragment();
+            }
+        });
+
+        drawerFragment.getHome().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeFragment();
+                toolbar_text.setText("الرئيسية");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getPerfume().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                perfumeFragment();
+                toolbar_text.setText("العطور");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getContact_us().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContactusFragment();
+                toolbar_text.setText("تصل بنا");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getAbout_us().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AboutusFragment();
+                toolbar_text.setText("من نحن");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getMy_account().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyaccountFragment();
+                toolbar_text.setText("حسابي");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getLogin().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginFragment();
+                toolbar_text.setText("LogIn");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getQuiz().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quiz();
+                toolbar_text.setText("اختبار العطر");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getBlog().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BlogFragment();
+                toolbar_text.setText("المـدونة");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getProductdetails().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                productdetails();
+                toolbar_text.setText("العطور");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getBranddetails().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                branddetails();
+                toolbar_text.setText("دور العطور");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getSendgift().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GiftFragment1();
+                toolbar_text.setText("أرسل هدية");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getFaq().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FaqFragment();
+                toolbar_text.setText("أسئلة الخصوصية");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getPrivacy_policy().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PrivacypolicyFragment();
+                toolbar_text.setText("سياسة الخصوصية");
+                drawerLayout.closeDrawers();
+            }
+        });
 
         drawerFragment.setUp(R.id.navigation_drawer_fragment, drawerLayout, toolbar);
 
-        if(null == savedInstanceState) {
+        if (null == savedInstanceState) {
             HomeFragment homeFragment = new HomeFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -83,48 +222,145 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void searchFragment() {
+        SearchResultFragment searchResultFragment = new SearchResultFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,searchResultFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+        linearLayout.setVisibility(View.GONE);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    private void cartFragment() {
 
-        int id = item.getItemId();
+        CartFragment cartFragment = new CartFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, cartFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            if(linearLayout.getVisibility() == View.GONE)
-            {
-                linearLayout.setVisibility(View.VISIBLE);
-
-            }else if(linearLayout.getVisibility() == View.VISIBLE){
-
-                linearLayout.setVisibility(View.GONE);
-
-            }
-            return true;
-        }
-        if (id == R.id.action_cart) {
-            */
-/*Intent i = new Intent(MainActivity.this,CartActivity.class);
-            startActivity(i);
-            return true;*//*
-
-            CartFragment cartFragment = new CartFragment();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, cartFragment);
-            fragmentTransaction.commit();
-
-        }
-
-        return super.onOptionsItemSelected(item);
     }
-*/
+
+
+    public void homeFragment() {
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, homeFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void perfumeFragment() {
+        PerfumeFragment perfumeFragment = new PerfumeFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, perfumeFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void productdetails() {
+        ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, productDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void branddetails() {
+        BranddetailsFragment branddetails = new BranddetailsFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, branddetails);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void quiz() {
+        QuizFragment1 quiz = new QuizFragment1();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, quiz);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void ContactusFragment() {
+        ContactusFragment contactusFragment = new ContactusFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, contactusFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void AboutusFragment() {
+        AboutusFragment aboutusFragment = new AboutusFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, aboutusFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void MyaccountFragment() {
+        MyaccountFragment myaccountFragment = new MyaccountFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, myaccountFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void LoginFragment() {
+        LoginFragment loginFragment = new LoginFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, loginFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void PrivacypolicyFragment() {
+        PrivacypolicyFragment privacypolicyFragment = new PrivacypolicyFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, privacypolicyFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void BlogFragment() {
+        BlogFragment blogFragment = new BlogFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, blogFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void FaqFragment() {
+        FaqFragment faq_Fragment = new FaqFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, faq_Fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void GiftFragment1() {
+        GiftFragment1 giftFragment1 = new GiftFragment1();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, giftFragment1);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
 
 }
