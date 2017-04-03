@@ -11,79 +11,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import lodore.com.lodore.Fragment.CheckoutLoginFragment;
 import lodore.com.lodore.Fragment.PerfumeFragment;
 import lodore.com.lodore.Fragment.RegisterFragment;
 
 public class CheckOutActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    Button btnCheckOut;
-    EditText edit_email, edit_password;
-    TextView textViewNewAcc;
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("email", edit_email.getText().toString());
-        outState.putString("password", edit_password.getText().toString());
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-
-        super.onRestoreInstanceState(savedInstanceState);
-        String string = savedInstanceState.getString("email");
-        edit_email.setText(string);
-        edit_password.setText(savedInstanceState.getString("password"));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        btnCheckOut = (Button) findViewById(R.id.btnCheckOut);
-        edit_email = (EditText) findViewById(R.id.edit_email);
-        edit_password = (EditText) findViewById(R.id.edit_password);
-        textViewNewAcc = (TextView) findViewById(R.id.new_acc);
-
-        textViewNewAcc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RegisterFragment();
-            }
-        });
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        btnCheckOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CheckOutActivity.this, CheckOutCompleteActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
-        });
-
-
-    }
-
-    public void RegisterFragment (){
-        RegisterFragment registerFragment = new RegisterFragment();
+        CheckoutLoginFragment loginFragment = new CheckoutLoginFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,registerFragment);
+        fragmentTransaction.replace(R.id.checkout_container,loginFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+
     }
+
 
 }

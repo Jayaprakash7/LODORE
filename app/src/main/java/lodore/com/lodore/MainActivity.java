@@ -1,5 +1,6 @@
 package lodore.com.lodore;
 
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 cartFragment();
+                drawerLayout.closeDrawers();
             }
         });
         image_search.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +79,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(linearLayout.getVisibility() == View.GONE)
                 {
+                    drawerLayout.closeDrawers();
                     linearLayout.setVisibility(View.VISIBLE);
 
                 }else if(linearLayout.getVisibility() == View.VISIBLE){
 
+                    drawerLayout.closeDrawers();
                     linearLayout.setVisibility(View.GONE);
 
                 }
@@ -91,6 +96,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 searchFragment();
+                drawerLayout.closeDrawers();
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
             }
         });
 
@@ -143,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginFragment();
-                toolbar_text.setText("LogIn");
+                toolbar_text.setText("تسجيل الدخول");
                 drawerLayout.closeDrawers();
             }
         });

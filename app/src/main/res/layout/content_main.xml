@@ -165,8 +165,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
                 android:background="@color/divider"
                 android:clickable="false" />
 
@@ -174,14 +174,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:weightSum="5"
+                android:weightSum="4"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
                     android:layout_weight="2"
+                    android:gravity="right"
                     android:text=" 1500درهم"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -189,9 +189,8 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:gravity="center"
-                    android:paddingLeft="20dp"
                     android:text="@string/total_"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp" />
