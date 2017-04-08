@@ -91,7 +91,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/btn_backround_home"
-                                    android:hint="@string/login_name"
+                                    android:hint="اسم حامل البطاقة"
                                     android:padding="20dp" />
 
                                 <EditText
@@ -100,7 +100,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/btn_backround_home"
-                                    android:hint="@string/login_name"
+                                    android:hint="رقم البطاقة"
                                     android:padding="20dp" />
 
                                 <EditText
@@ -109,7 +109,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/btn_backround_home"
-                                    android:hint="@string/login_name"
+                                    android:hint="تاريخ الانتهاء"
                                     android:padding="20dp" />
 
                                 <EditText
@@ -118,7 +118,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/btn_backround_home"
-                                    android:hint="@string/login_name"
+                                    android:hint="cvc"
                                     android:padding="20dp" />
                             </LinearLayout>
 

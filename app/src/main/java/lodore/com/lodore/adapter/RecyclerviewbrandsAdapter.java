@@ -1,68 +1,84 @@
 package lodore.com.lodore.adapter;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import lodore.com.lodore.Pojo.Brandsdispay;
-import lodore.com.lodore.R;
+import javax.xml.transform.Result;
 
-/**
- * Created by w7 on 21-Mar-17.
- */
+import lodore.com.lodore.Fragment.BranddetailsFragment;
+import lodore.com.lodore.Fragment.CartFragment;
+import lodore.com.lodore.Pojo.BrandResult;
+import lodore.com.lodore.R;
 
 public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<RecyclerviewbrandsAdapter.MyViewHolder> {
 
-    private Context mContext;
-    private List<Brandsdispay> albumList;
+    private List<BrandResult> brandList;
+    Context context;
+    String id;
+
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public ImageView thumbnail;
-
+        ImageView thumbnail;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-
         }
     }
 
-    public RecyclerviewbrandsAdapter(Context mContext, List<Brandsdispay> albumList) {
-        this.mContext = mContext;
-        this.albumList = albumList;
+
+    public RecyclerviewbrandsAdapter(Context context,List<BrandResult> brandList) {
+        this.brandList = brandList;
+        this.context = context;
     }
 
     @Override
-    public RecyclerviewbrandsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.brands_card, parent, false);
 
-        return new RecyclerviewbrandsAdapter.MyViewHolder(itemView);
+        return new MyViewHolder(itemView);
     }
 
-
     @Override
-    public void onBindViewHolder(final RecyclerviewbrandsAdapter.MyViewHolder holder, int position) {
-        Brandsdispay album = albumList.get(position);
-        holder.title.setText(album.getName());
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        final BrandResult brand = brandList.get(position);
+        holder.title.setText(brand.getName());
+        Picasso.with(context).load("http://192.168.123.10/lodore/"+brandList.get(position).getImage()).fit().into(holder.thumbnail);
 
-        // loading album cover using Glide library
-        Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+        holder.thumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                id = brand.getId();
+               System.out.println("prdeeep printing id ************ "+id);
+
+                new BranddetailsFragment();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return albumList.size();
+        return brandList.size();
     }
 }
+

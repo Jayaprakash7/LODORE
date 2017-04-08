@@ -112,13 +112,13 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/create_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="16dp"
             android:background="@drawable/btn_cart_background"
-            android:text="Login"
+            android:text="إنشاء حساب"
             android:textColor="@color/white" />
 
     </RelativeLayout>

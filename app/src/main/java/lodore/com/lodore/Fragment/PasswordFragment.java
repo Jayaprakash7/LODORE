@@ -1,7 +1,9 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,23 +29,14 @@ import retrofit.client.OkClient;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterFragment extends Fragment {
+public class PasswordFragment extends Fragment {
 
-    EditText email,password,confirm_password,name,phone_one,phone_two;
-    Button create_account;
+    EditText password,confirmpassword;
+    Button updatepassword;
+    SharedPreferences pref;
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("reg_email",email.getText().toString());
-        outState.putString("reg_password",password.getText().toString());
-        outState.putString("reg_confirm_password",confirm_password.getText().toString());
-        outState.putString("reg_name",name.getText().toString());
-        outState.putString("reg_phone_one",phone_one.getText().toString());
-        outState.putString("reg_phone_two",phone_two.getText().toString());
-    }
 
-    public RegisterFragment() {
+    public PasswordFragment() {
         // Required empty public constructor
     }
 
@@ -52,49 +45,36 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_register, container, false);
+        View view = inflater.inflate(R.layout.fragment_password, container, false);
 
-        email = (EditText) view.findViewById(R.id.registration_email);
-        password = (EditText) view.findViewById(R.id.registration_password);
-        confirm_password = (EditText) view.findViewById(R.id.registration_confirmpassword);
-        name = (EditText) view.findViewById(R.id.registration_name);
-        phone_one = (EditText) view.findViewById(R.id.registration_phone_one);
-        phone_two = (EditText) view.findViewById(R.id.registration_phone_two);
+        password = (EditText) view.findViewById(R.id.password);
+        confirmpassword = (EditText) view.findViewById(R.id.confirmpassword);
+        updatepassword = (Button) view.findViewById(R.id.update_password);
 
-        create_account =  (Button) view.findViewById(R.id.create_account);
-
-        create_account.setOnClickListener(new View.OnClickListener() {
+        updatepassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (password.getText().toString().equals(confirmpassword.getText().toString()) )
+                {
+                    pref = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS);
+                    RegResult reginput = new RegResult();
+                    reginput.setId(pref.getString("_id", "null"));
+                    reginput.setPassword(password.getText().toString());
+                    Toast.makeText(getContext(), "Password Updated", Toast.LENGTH_SHORT).show();
+                    new PasswordFragment.UpdatePassword().execute(reginput);
 
-                RegResult reginput = new RegResult();
-
-                reginput.setEmail(email.getText().toString());
-                reginput.setUsername(name.getText().toString());
-                reginput.setPassword(password.getText().toString());
-                reginput.setMobile(phone_one.getText().toString());
-                reginput.setAnotherMobile(phone_two.getText().toString());
-
-                new RegisterFragment.RegisterUser().execute(reginput);
-
-
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Password is mismatch", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-
-        if (savedInstanceState != null) {
-            email.setText(savedInstanceState.getString("reg_email"));
-            password.setText(savedInstanceState.getString("reg_password"));
-            confirm_password.setText(savedInstanceState.getString("reg_confirm_password"));
-            name.setText(savedInstanceState.getString("reg_name"));
-            phone_one.setText(savedInstanceState.getString("reg_phone_one"));
-            phone_two.setText(savedInstanceState.getString("reg_phone_two"));
-        }
 
         return view;
     }
 
-    public class RegisterUser extends AsyncTask<RegResult, Integer, Registerresp> {
+    public class UpdatePassword extends AsyncTask<RegResult, Integer, Registerresp> {
         RestAdapter restAdapter;
         public String res;
 
@@ -115,7 +95,7 @@ public class RegisterFragment extends Fragment {
             Registerresp status = null;
             try {
                 Retrofit_rest enroll_plan = restAdapter.create(Retrofit_rest.class);
-                status = enroll_plan.regUrlEncode(params[0]);
+                status = enroll_plan.updatepasswordUrlEncode(params[0]);
             }catch (Exception e){
 
             }
@@ -142,3 +122,5 @@ public class RegisterFragment extends Fragment {
     }
 
 }
+
+

@@ -1,6 +1,7 @@
 package lodore.com.lodore;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import lodore.com.lodore.Fragment.AboutusFragment;
 import lodore.com.lodore.Fragment.BlogFragment;
 import lodore.com.lodore.Fragment.BranddetailsFragment;
+import lodore.com.lodore.Fragment.BrandsFragment;
 import lodore.com.lodore.Fragment.CartFragment;
 import lodore.com.lodore.Fragment.ContactusFragment;
 import lodore.com.lodore.Fragment.FaqFragment;
@@ -35,14 +37,21 @@ import lodore.com.lodore.Fragment.ProductDetailsFragment;
 import lodore.com.lodore.Fragment.QuizFragment1;
 import lodore.com.lodore.Fragment.SearchResultFragment;
 
+import static lodore.com.lodore.R.id.login;
+
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
-    TextView toolbar_text;
+    TextView toolbar_text,login;
     Toolbar toolbar;
     FrameLayout frameLayoutSearch;
     Button search_btn;
     ImageView image_cart,image_search;
+
+    SharedPreferences pref;
+    String Id;
+
+
 
 
     @Override
@@ -58,10 +67,18 @@ public class MainActivity extends AppCompatActivity {
         search_btn = (Button) findViewById(R.id.search_btn);
         toolbar_text.setText("الرئيسية");
 
+        login =(TextView) findViewById(R.id.nav_login);
+
+        pref = getSharedPreferences("login data", Context.MODE_MULTI_PROCESS);
+        Id = pref.getString("_id", "null");
+
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
 
 
         final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -153,6 +170,11 @@ public class MainActivity extends AppCompatActivity {
         drawerFragment.getLogin().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                SharedPreferences settings = getSharedPreferences("login data", Context.MODE_PRIVATE);
+                settings.edit().clear().commit();
+
                 LoginFragment();
                 toolbar_text.setText("تسجيل الدخول");
                 drawerLayout.closeDrawers();
@@ -213,6 +235,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        drawerFragment.getFragnance_fmaily().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BrandsFragment();
+                toolbar_text.setText("دور العطور");
+                drawerLayout.closeDrawers();
+            }
+        });
+
         drawerFragment.getPrivacy_policy().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
             }
         });
+
 
         drawerFragment.setUp(R.id.navigation_drawer_fragment, drawerLayout, toolbar);
 
@@ -373,5 +405,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+
+    public void BrandsFragment() {
+        BrandsFragment brandsFragment = new BrandsFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, brandsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
 }

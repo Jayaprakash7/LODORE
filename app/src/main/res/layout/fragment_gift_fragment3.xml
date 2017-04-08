@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="@string/arabic_text"
+                android:text=" يرجى مراجعة بريدك الإلكتروني للتغاصيل"
                 android:textColor="@color/primary_text" />
 
             <Button

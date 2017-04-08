@@ -107,7 +107,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/contact_us"
+                            android:text="برج رافال كمينسكي , طريق الملك فهد"
                             android:textSize="18sp" />
 
                         <ImageView
@@ -130,7 +130,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/contact_us"
+                            android:text="هارفي نيكلز , الغيصلية مول , طريق الملك فهد"
                             android:textSize="18sp" />
 
                         <ImageView

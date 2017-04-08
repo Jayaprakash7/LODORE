@@ -20,6 +20,8 @@ import android.widget.TextView;
 import lodore.com.lodore.MainActivity;
 import lodore.com.lodore.R;
 
+import static lodore.com.lodore.R.id.login;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -37,7 +39,8 @@ public class NavigationDrawerFragment extends Fragment {
     TextView home,perfume,contact_us,about_us,my_account,login,fragnance_fmaily;
     TextView quiz,blog,productdetails,branddetails,shippinganddeliveryifo,sendgift,faq,privacy_policy;
 
-
+    SharedPreferences pref;
+    String Id;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,6 +71,11 @@ public class NavigationDrawerFragment extends Fragment {
         branddetails = (TextView) view.findViewById(R.id.nav_brand_details);
         productdetails = (TextView) view.findViewById(R.id.nav_product_details);
 
+        pref = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS);
+        Id = pref.getString("_id", "null");
+
+
+
         return view;
     }
 
@@ -79,31 +87,37 @@ public class NavigationDrawerFragment extends Fragment {
     }
     public TextView getContact_us(){
         return contact_us;
-    } public TextView getAbout_us(){
-        return about_us;
-    } public TextView getMy_account(){
-        return my_account;
-    } public TextView getLogin(){
-        return login;
-    } public TextView getFragnance_fmaily(){
-        return fragnance_fmaily;
-    } public TextView getQuiz(){
-        return quiz;
-    } public TextView getBlog(){
-        return blog;
-    } public TextView getProductdetails(){
-        return productdetails;
-    } public TextView getBranddetails(){
-        return branddetails;
-    } public TextView getShippinganddeliveryifo(){
-        return shippinganddeliveryifo;
-    } public TextView getSendgift(){
-        return sendgift;
-    } public TextView getFaq(){
-        return faq;
-    } public TextView getPrivacy_policy(){
-        return privacy_policy;
     }
+    public TextView getAbout_us(){
+        return about_us;
+    }
+    public TextView getMy_account(){
+        return my_account;
+    }
+    public TextView getLogin(){
+
+        if(Id.equals("null")){
+            login.setText("Login");
+        }else{
+            login.setText("LogOut");
+        }
+        return login;
+    }
+    public TextView getFragnance_fmaily(){
+        return fragnance_fmaily;
+    }
+    public TextView getQuiz(){
+        return quiz;
+    }
+    public TextView getBlog(){
+        return blog;
+    }
+    public TextView getProductdetails(){return productdetails;}
+    public TextView getBranddetails(){return branddetails;}
+    public TextView getShippinganddeliveryifo(){return shippinganddeliveryifo;}
+    public TextView getSendgift(){return sendgift;}
+    public TextView getFaq(){return faq;}
+    public TextView getPrivacy_policy(){return privacy_policy;}
 
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolBar) {
 

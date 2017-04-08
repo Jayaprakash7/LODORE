@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/arabic_text"
+        android:text="تم العشور على العطور التالية:"
         android:layout_marginTop="16dp"
         android:textColor="@color/primary_text"
         android:gravity="center"/>

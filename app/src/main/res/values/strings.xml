@@ -118,7 +118,7 @@
     <string name="address">أدخل العنوان</string>
     <string name="delivery_opt">بيانات التوصيل</string>
     <string name="payment_method">وسيلة الدفع</string>
-    <string name="arabic_text">arabic text</string>
+    <string name="arabic_text">إنشاء الحساب</string>
     <string name="review_order">مراجعة الطلب</string>
     <string name="credit_card">بطاقة ائتمانية</string>
     <string name="bank_transfer">حوالة بنكية</string>
