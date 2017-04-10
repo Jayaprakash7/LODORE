@@ -161,6 +161,9 @@
     <string name="contact_">نموزج اﻻتصال</string>
     <string name="name">اﻻسم</string>
     <string name="for_back_press">For Back Press</string>
+    <string name="register">إنشاء حساب</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="log_out">تسجيل الخروج</string>
 
 
 </resources>

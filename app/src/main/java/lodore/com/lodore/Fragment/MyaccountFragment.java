@@ -1,6 +1,7 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,6 +35,7 @@ import retrofit.client.OkClient;
  */
 public class MyaccountFragment extends Fragment {
 
+    ProgressDialog progressDialog;
 
     public MyaccountFragment() {
         // Required empty public constructor
@@ -48,17 +50,20 @@ public class MyaccountFragment extends Fragment {
         transaction.commit();
     }
 
-    TextView personal_info,email,name,phone,anotherphone,city,neighborhood,street_name;
-    Button order_history,my_fav_perfume,change_acc_info,change_password,change_adress_info;
-    EditText et_email,et_name,et_phone,et_anotherphone,et_city,et_neighborhood,et_streetname ;
+    TextView personal_info, email, name, phone, anotherphone, city, neighborhood, street_name;
+    Button order_history, my_fav_perfume, change_acc_info, change_password, change_adress_info;
+    EditText et_email, et_name, et_phone, et_anotherphone, et_city, et_neighborhood, et_streetname;
     SharedPreferences pref;
 
+    String et_nameString, et_phoneString, et_anotherphoneString;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_myaccount, container, false);
+
+        progressDialog = new ProgressDialog(getActivity());
 
         personal_info = (TextView) view.findViewById(R.id.personal_info);
         email = (TextView) view.findViewById(R.id.myacc_eamil);
@@ -67,7 +72,7 @@ public class MyaccountFragment extends Fragment {
         anotherphone = (TextView) view.findViewById(R.id.myacc_anotherphone);
         city = (TextView) view.findViewById(R.id.my_acc_city);
         neighborhood = (TextView) view.findViewById(R.id.my_acc_neighborhood);
-        street_name = (TextView) view.findViewById(R.id.my_acc_neighborhood);
+        street_name = (TextView) view.findViewById(R.id.my_acc_streetname);
 
         order_history = (Button) view.findViewById(R.id.order_history);
         my_fav_perfume = (Button) view.findViewById(R.id.my_fav_perfume);
@@ -85,20 +90,38 @@ public class MyaccountFragment extends Fragment {
         et_streetname = (EditText) view.findViewById(R.id.et_my_acc_streetname);
 
         pref = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS);
-        et_email.setText(pref.getString("email", "null"));
+        String email = pref.getString("email", "null");
+
+        et_email.setText(email);
         et_name.setText(pref.getString("username", "null"));
         et_anotherphone.setText(pref.getString("anothermobile", "null"));
         et_phone.setText(pref.getString("mobile", "null"));
+
+        if(email.equals("null")){
+            et_email.setText("");
+            et_name.setText("");
+            et_anotherphone.setText("");
+            et_phone.setText("");
+        }
+
 
         change_acc_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RegResult reginput = new RegResult();
 
+                String et_nameString = et_name.getText().toString().trim();
+                String et_phoneString = et_phone.getText().toString().trim();
+                String et_anotherphoneString = et_anotherphone.getText().toString().trim();
+
+                if (et_nameString.matches("") || et_anotherphoneString.matches("") || et_anotherphoneString.matches("")){
+                    Toast.makeText(getActivity(), "Enter all fields", Toast.LENGTH_SHORT).show();
+                }
+                else
                 reginput.setEmail(et_email.getText().toString());
-                reginput.setUsername(et_name.getText().toString());
-                reginput.setMobile(et_phone.getText().toString());
-                reginput.setAnotherMobile(et_anotherphone.getText().toString());
+                reginput.setUsername(et_nameString);
+                reginput.setMobile(et_phoneString);
+                reginput.setAnotherMobile(et_anotherphoneString);
                 reginput.setId(pref.getString("_id", "null"));
                 //reginput.setPassword();
 
@@ -128,6 +151,7 @@ public class MyaccountFragment extends Fragment {
             final OkHttpClient okHttpClient = new OkHttpClient();
             okHttpClient.setReadTimeout(5, TimeUnit.SECONDS);
             okHttpClient.setConnectTimeout(5, TimeUnit.SECONDS);
+            showDialog();
 
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
@@ -141,18 +165,17 @@ public class MyaccountFragment extends Fragment {
             try {
                 Retrofit_rest enroll_plan = restAdapter.create(Retrofit_rest.class);
                 status = enroll_plan.updateUrlEncode(params[0]);
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
             return status;
         }
 
-        protected void onPostExecute(Registerresp response)
-        {
+        protected void onPostExecute(Registerresp response) {
             try {
                 if (response.getStatus().equals("success")) {
 
-                    Intent i = new Intent(getContext(),MainActivity.class);
+                    Intent i = new Intent(getContext(), MainActivity.class);
 
                     SharedPreferences.Editor editor = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS).edit();
                     editor.putString("email", response.getResult().get(0).getEmail());
@@ -161,18 +184,29 @@ public class MyaccountFragment extends Fragment {
                     editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
 
                     editor.commit();
+                    hideDialoge();
                     Toast.makeText(getContext(), "Update is succesfull", Toast.LENGTH_SHORT).show();
 
                     startActivity(i);
 
-                }else  {
-
+                } else {
+                    hideDialoge();
                     Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
 
                 }
 
-            } catch (Exception e){}
+            } catch (Exception e) {
+            }
         }
+    }
+
+    public void showDialog(){
+        progressDialog.setMessage("please wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+    }
+    public void hideDialoge(){
+        progressDialog.dismiss();
     }
 
 

@@ -22,6 +22,7 @@ import javax.xml.transform.Result;
 
 import lodore.com.lodore.Fragment.BranddetailsFragment;
 import lodore.com.lodore.Fragment.CartFragment;
+import lodore.com.lodore.Fragment.GiftFragment1;
 import lodore.com.lodore.Pojo.BrandResult;
 import lodore.com.lodore.R;
 
@@ -71,7 +72,13 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
                 id = brand.getId();
                System.out.println("prdeeep printing id ************ "+id);
 
-                new BranddetailsFragment();
+                //new BranddetailsFragment();
+               /* GiftFragment1 giftFragment1 = new GiftFragment1();
+                FragmentManager fragmentManager = context.getgetSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, giftFragment1);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();*/
             }
         });
     }
