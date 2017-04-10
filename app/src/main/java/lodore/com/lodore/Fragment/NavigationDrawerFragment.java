@@ -15,11 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import lodore.com.lodore.MainActivity;
 import lodore.com.lodore.R;
 
+import static lodore.com.lodore.R.id.linear_myaccount;
 import static lodore.com.lodore.R.id.login;
 
 /**
@@ -38,6 +40,8 @@ public class NavigationDrawerFragment extends Fragment {
 
     TextView home,perfume,contact_us,about_us,my_account,login,fragnance_fmaily;
     TextView quiz,blog,productdetails,branddetails,shippinganddeliveryifo,sendgift,faq,privacy_policy;
+
+    LinearLayout linearLayoutLogout,linearLayoutLogin,linearRegister,linearMyaccount;
 
     SharedPreferences pref;
     String Id;
@@ -70,6 +74,11 @@ public class NavigationDrawerFragment extends Fragment {
         quiz = (TextView) view.findViewById(R.id.nav_quiz);
         branddetails = (TextView) view.findViewById(R.id.nav_brand_details);
         productdetails = (TextView) view.findViewById(R.id.nav_product_details);
+        linearLayoutLogout = (LinearLayout) view.findViewById(R.id.linear_logout);
+        linearLayoutLogin = (LinearLayout) view.findViewById(R.id.linear_login);
+        linearRegister = (LinearLayout) view.findViewById(R.id.linear_rigister);
+        linearMyaccount = (LinearLayout) view.findViewById(R.id.linear_myaccount);
+
 
         pref = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS);
         Id = pref.getString("_id", "null");
@@ -97,11 +106,23 @@ public class NavigationDrawerFragment extends Fragment {
     public TextView getLogin(){
 
         if(Id.equals("null")){
-            login.setText("Login");
+            linearLayoutLogout.setVisibility(View.GONE);
+            linearMyaccount.setVisibility(View.GONE);
+            linearLayoutLogin.setVisibility(View.VISIBLE);
+            linearRegister.setVisibility(View.VISIBLE);
         }else{
-            login.setText("LogOut");
+            linearLayoutLogout.setVisibility(View.VISIBLE);
+            linearLayoutLogin.setVisibility(View.GONE);
+            linearMyaccount.setVisibility(View.VISIBLE);
+            linearRegister.setVisibility(View.GONE);
         }
         return login;
+    }
+    public LinearLayout getLinearLayoutLogout(){
+        return linearLayoutLogout;
+    }
+    public LinearLayout getLinearRegister(){
+        return linearRegister;
     }
     public TextView getFragnance_fmaily(){
         return fragnance_fmaily;

@@ -1,6 +1,7 @@
 package lodore.com.lodore;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -35,6 +36,7 @@ import lodore.com.lodore.Fragment.PerfumeFragment;
 import lodore.com.lodore.Fragment.PrivacypolicyFragment;
 import lodore.com.lodore.Fragment.ProductDetailsFragment;
 import lodore.com.lodore.Fragment.QuizFragment1;
+import lodore.com.lodore.Fragment.RegisterFragment;
 import lodore.com.lodore.Fragment.SearchResultFragment;
 
 import static lodore.com.lodore.R.id.login;
@@ -167,16 +169,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        drawerFragment.getLinearLayoutLogout().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences settings = getSharedPreferences("login data", Context.MODE_PRIVATE);
+                settings.edit().clear().apply();
+                drawerLayout.closeDrawers();
+                homeActivity();
+            }
+        });
+
         drawerFragment.getLogin().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-                SharedPreferences settings = getSharedPreferences("login data", Context.MODE_PRIVATE);
-                settings.edit().clear().commit();
-
                 LoginFragment();
                 toolbar_text.setText("تسجيل الدخول");
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        drawerFragment.getLinearRegister().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RegisterFragment();
+                toolbar_text.setText("إنشاء حساب");
                 drawerLayout.closeDrawers();
             }
         });
@@ -263,6 +280,12 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.content_frame, homeFragment);
             fragmentTransaction.commit();
         }
+    }
+
+    private void homeActivity() {
+        Intent intent = new Intent(MainActivity.this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     private void searchFragment() {
@@ -369,6 +392,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    public void RegisterFragment(){
+        RegisterFragment registerFragment = new RegisterFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, registerFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
     public void PrivacypolicyFragment() {
         PrivacypolicyFragment privacypolicyFragment = new PrivacypolicyFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();

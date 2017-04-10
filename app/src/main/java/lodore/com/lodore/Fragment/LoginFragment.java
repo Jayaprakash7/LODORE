@@ -1,6 +1,7 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,6 +35,8 @@ public class LoginFragment extends Fragment {
     EditText email,password;
     Button login;
     SharedPreferences pref;
+    String emailString,passwordString;
+    private ProgressDialog progressDialog;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -58,6 +61,7 @@ public class LoginFragment extends Fragment {
 
         email = (EditText) view.findViewById(R.id.login_email);
         password = (EditText) view.findViewById(R.id.login_password);
+        progressDialog = new ProgressDialog(getActivity());
 
         login = (Button) view.findViewById(R.id.login);
 
@@ -65,10 +69,19 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+
                 RegResult reginput = new RegResult();
 
-                reginput.setEmail(email.getText().toString());
-                reginput.setPassword(password.getText().toString());
+                emailString = email.getText().toString().trim();
+                passwordString = password.getText().toString().trim();
+
+                if ((emailString.matches("")) || (passwordString.matches(""))){
+                    Toast.makeText(getActivity(), "Enter all fields", Toast.LENGTH_SHORT).show();
+                }
+
+                else
+                reginput.setEmail(emailString);
+                reginput.setPassword(passwordString);
 
                 new LoginFragment.LoginUser().execute(reginput);
 
@@ -94,7 +107,7 @@ public class LoginFragment extends Fragment {
             final OkHttpClient okHttpClient = new OkHttpClient();
             okHttpClient.setReadTimeout(5, TimeUnit.SECONDS);
             okHttpClient.setConnectTimeout(5, TimeUnit.SECONDS);
-
+            showDialog();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
                     .setEndpoint("http://192.168.123.10/lodore/api")
@@ -129,16 +142,25 @@ public class LoginFragment extends Fragment {
 
                     editor.commit();
                     startActivity(i);
+                    hideDialoge();
                     Toast.makeText(getContext(), "Login is succesfull", Toast.LENGTH_SHORT).show();
 
                 }else  {
-
+                    hideDialoge();
                     Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
 
                 }
 
             } catch (Exception e){}
         }
+    }
+    public void showDialog(){
+        progressDialog.setMessage("please wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+    }
+    public void hideDialoge(){
+        progressDialog.dismiss();
     }
 
 }

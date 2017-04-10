@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="lodore.com.lodore.Fragment.HomeFragment">
+    tools:context="lodore.com.lodore.Fragment.HomeFragment"
+    >
 
 
 
@@ -20,7 +21,6 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
-        android:background="#c59158"
         android:orientation="vertical"
         tools:context="lodore.com.lodore.Fragment.NavigationDrawerFragment">
 
@@ -123,10 +123,12 @@
 
 
         <LinearLayout
+            android:id="@+id/linear_myaccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="20dp">
+            android:paddingTop="20dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/nav_my_account"
@@ -145,12 +147,37 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linear_rigister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/nav_register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_person_24px" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="20dp">
+            android:paddingTop="20dp"
+            android:id="@+id/linear_login">
 
             <TextView
                 android:id="@+id/nav_login"
@@ -158,8 +185,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="0.97"
-                android:gravity="end"
-                android:text="Login"
+                android:text="@string/log_in"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logout_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/nav_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.97"
+                android:text="@string/log_out"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 

@@ -1,339 +1,344 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#E0E0E0"
+        android:orientation="vertical"
+        tools:context="lodore.com.lodore.Fragment.MyaccountFragment">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#E0E0E0"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context="lodore.com.lodore.Fragment.MyaccountFragment">
+            android:weightSum="2">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/order_history"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:weightSum="2">
-
-                <Button
-                    android:id="@+id/order_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_background"
-                    android:text="@string/order_history"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/my_fav_perfume"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_background"
-                    android:text="@string/favourite_list"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-
-            </LinearLayout>
-
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/personal_info"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold"
-                android:id="@+id/personal_info" />
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/order_history"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/my_fav_perfume"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/favourite_list"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+
+            android:id="@+id/personal_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/personal_info"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_backround_home"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn_backround_home"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <EditText
-                        android:id="@+id/et_myacc_eamil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="moe@ali.com"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/myacc_eamil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/email"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <EditText
-                        android:id="@+id/et_myacc_name"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="@string/full_name"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/myacc_name"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/full_name"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <EditText
-                        android:id="@+id/et_myacc_phone"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="0504488977"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/myacc_phone"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/phone_1"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <EditText
-                        android:id="@+id/et_myacc_anotherphone"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="0508514231"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/myacc_anotherphone"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/phone_2"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-
-                <Button
-                    android:id="@+id/acct_change_info"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/et_myacc_eamil"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_checkout"
-                    android:text="@string/change_info"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="moe@ali.com"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
 
-                <Button
-                    android:id="@+id/change_password"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/myacc_eamil"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="15dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_checkout"
-                    android:text="@string/change_password"
-                    android:textColor="@color/primary_text"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/email"
                     android:textSize="18sp" />
-
-
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView6"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/et_myacc_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="@string/full_name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/myacc_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/full_name"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/et_myacc_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="0504488977"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/myacc_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/phone_1"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/et_myacc_anotherphone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="0508514231"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/myacc_anotherphone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/phone_2"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/acct_change_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="@string/delivery_details_"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_checkout"
+                android:text="@string/change_info"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp" />
 
-            <LinearLayout
-                android:id="@+id/second"
+            <Button
+                android:id="@+id/change_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/btn_backround_home"
-                android:orientation="vertical">
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_checkout"
+                android:text="@string/change_password"
+                android:textColor="@color/primary_text"
+                android:textSize="18sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
 
-                    <EditText
-                        android:id="@+id/et_my_acc_city"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="@string/city"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
+        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/my_acc_city"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/city"
-                        android:textSize="18sp" />
-                </LinearLayout>
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="@string/delivery_details_"
+            android:textColor="@color/primary_text"
+            android:textSize="18sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+        <LinearLayout
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_backround_home"
+            android:orientation="vertical">
 
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                    <EditText
-                        android:id="@+id/et_my_acc_neighborhood"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="@string/full_name"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/my_acc_neighborhood"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/nighbor"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <EditText
-                        android:id="@+id/et_my_acc_streetname"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="@string/street_name"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/my_acc_streetname"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="@string/street_name"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/address_change_info"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/et_my_acc_city"
+                    android:background="@android:color/transparent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_checkout"
-                    android:text="@string/change_info"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/city"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/my_acc_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/city"
+                    android:textSize="18sp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/et_my_acc_neighborhood"
+                    android:background="@android:color/transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/full_name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/my_acc_neighborhood"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/nighbor"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/et_my_acc_streetname"
+                    android:background="@android:color/transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/street_name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/my_acc_streetname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/street_name"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/address_change_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_checkout"
+                android:text="@string/change_info"
+                android:textColor="@color/primary_text"
+                android:textSize="18sp" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+</ScrollView>
