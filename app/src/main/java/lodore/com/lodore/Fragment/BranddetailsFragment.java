@@ -41,7 +41,7 @@ public class BranddetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_branddetails, container, false);
 
-        recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
+        recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_view_fragrance_families);
 
 
         albumList = new ArrayList<>();

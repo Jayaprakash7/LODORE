@@ -32,7 +32,7 @@ public class RecyclerviewblogAdapter extends RecyclerView.Adapter<Recyclerviewbl
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.blog_title);
-            discription = (TextView) view.findViewById(R.id.discp);
+            discription = (TextView) view.findViewById(R.id.blog_description);
             thumbnail = (ImageView) view.findViewById(R.id.blog_thumbnail);
 
         }
@@ -47,7 +47,7 @@ public class RecyclerviewblogAdapter extends RecyclerView.Adapter<Recyclerviewbl
     @Override
     public RecyclerviewblogAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.blog_card, parent, false);
+                .inflate(R.layout.row_blog_details, parent, false);
 
         return new RecyclerviewblogAdapter.MyViewHolder(itemView);
     }

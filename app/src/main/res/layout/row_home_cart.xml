@@ -17,9 +17,9 @@
 
 
         <ImageView
-            android:id="@+id/thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/image_home_fragrance"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/perfume2"
             android:clickable="true"
             android:scaleType="fitXY" />

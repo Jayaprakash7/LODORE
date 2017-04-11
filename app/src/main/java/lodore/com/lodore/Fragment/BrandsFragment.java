@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lodore.com.lodore.Pojo.BrandResult;
@@ -27,8 +28,6 @@ import retrofit.RestAdapter;
 public class BrandsFragment extends Fragment {
 
     private RecyclerView recyclerViewbrands;
-    private RecyclerviewbrandsAdapter adapter;
-    private List<BrandResult> albumList;
 
     public BrandsFragment() {
         // Required empty public constructor
@@ -49,13 +48,14 @@ public class BrandsFragment extends Fragment {
 
     public class BrandItemDispaly extends AsyncTask<Void, Void, Brandresp> {
         RestAdapter restAdapter;
-        public ProgressDialog dialog;
+        ProgressDialog dialog;
 
 
         @Override//i love
         protected void onPreExecute() {
             dialog = new ProgressDialog(getContext());
             dialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+            dialog.setMessage("Please wait...");
             dialog.setCancelable(false);
             dialog.show();
             restAdapter = new RestAdapter.Builder()
@@ -82,17 +82,17 @@ public class BrandsFragment extends Fragment {
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
-                //getSurveyList(response.getProduct());
-               // adapter = new RecyclerviewbrandsAdapter(getActivity(), albumList);
 
 
-                adapter = new RecyclerviewbrandsAdapter(getContext(), response.getBrandResult());
+                RecyclerviewbrandsAdapter adapter = new RecyclerviewbrandsAdapter(getContext(), response.getBrandResult());
+
                 recyclerViewbrands.setAdapter(adapter);
                 recyclerViewbrands.setHasFixedSize(true);
                 recyclerViewbrands.setNestedScrollingEnabled(false);
                 recyclerViewbrands.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
