@@ -12,7 +12,7 @@ public class Brandresp {
 
         private String status;
         private String message;
-        private List<BrandResult> result = null;
+        private List<BrandResult> product_result = null;
 
         public String getStatus() {
             return status;
@@ -30,12 +30,12 @@ public class Brandresp {
             this.message = message;
         }
 
-        public List<BrandResult> getBrandResult() {
-            return result;
+        public List<BrandResult> getProduct_result() {
+            return product_result;
         }
 
-        public void setBrandResult(List<BrandResult> result) {
-            this.result = result;
+        public void setProduct_result(List<BrandResult> result) {
+            this.product_result = result;
         }
 
 }
