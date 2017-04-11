@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -40,7 +39,7 @@ public class ProductDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_details, container, false);
 
-        recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_viewbottom);
+        recyclerViewbottom = (RecyclerView) view.findViewById(R.id.recycler_view_fragrance_families);
 
         albumList = new ArrayList<>();
         adapter = new RecyclerviewhomeAdapter(getContext(), albumList);

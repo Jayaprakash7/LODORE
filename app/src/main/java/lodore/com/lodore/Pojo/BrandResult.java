@@ -12,6 +12,7 @@ public class BrandResult {
     private String description;
     private String updated;
 
+
     public String getId() {
         return _id;
     }

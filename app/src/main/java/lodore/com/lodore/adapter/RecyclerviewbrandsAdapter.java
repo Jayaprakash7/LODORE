@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -45,7 +46,6 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
     String id;
     private FragmentActivity myContext;
     public static String selected_product_id = null;
-
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -78,7 +78,12 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final BrandResult brand = brandList.get(position);
         holder.title.setText(brand.getName());
-        Picasso.with(context).load("http://192.168.123.10/lodore/"+brandList.get(position).getImage()).fit().into(holder.thumbnail);
+       // Picasso.with(context).load("http://192.168.123.10/lodore/" + brandList.get(position).getImage()).fit().into(holder.thumbnail);
+
+        Glide.with(context)
+                .load("http://192.168.123.10/lodore/" + brandList.get(position).getImage())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override

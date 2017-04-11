@@ -1,8 +1,10 @@
 package lodore.com.lodore.service;
 
+import lodore.com.lodore.Pojo.BlogResponse;
 import lodore.com.lodore.Pojo.BrandDetailsResponse;
 import lodore.com.lodore.Pojo.BrandInfo;
 import lodore.com.lodore.Pojo.Brandresp;
+import lodore.com.lodore.Pojo.HomeFragrancePlantResponse;
 import lodore.com.lodore.Pojo.RegResult;
 import lodore.com.lodore.Pojo.Registerresp;
 import retrofit.http.Body;
@@ -36,6 +38,14 @@ public interface Retrofit_rest {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/category/subcategory")
     BrandDetailsResponse getBrandDeatails(@Body BrandInfo param);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @GET("/blog")
+    BlogResponse getBlogList();
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @GET("/banner")
+    HomeFragrancePlantResponse getPlantList();
 
 
 }

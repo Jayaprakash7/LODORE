@@ -32,7 +32,7 @@ public class RecyclerviewblogAdapter extends RecyclerView.Adapter<Recyclerviewbl
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.blog_title);
-            discription = (TextView) view.findViewById(R.id.discp);
+            discription = (TextView) view.findViewById(R.id.blog_description);
             thumbnail = (ImageView) view.findViewById(R.id.blog_thumbnail);
 
         }

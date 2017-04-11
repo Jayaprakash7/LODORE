@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lodore.com.lodore.Pojo.BrandResult;
@@ -49,13 +50,14 @@ public class BrandsFragment extends Fragment {
 
     public class BrandItemDispaly extends AsyncTask<Void, Void, Brandresp> {
         RestAdapter restAdapter;
-        public ProgressDialog dialog;
+        ProgressDialog dialog;
 
 
         @Override
         protected void onPreExecute() {
             dialog = new ProgressDialog(getContext());
             dialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+            dialog.setMessage("Please wait...");
             dialog.setCancelable(false);
             dialog.show();
             restAdapter = new RestAdapter.Builder()
