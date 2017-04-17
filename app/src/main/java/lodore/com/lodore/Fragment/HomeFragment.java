@@ -124,8 +124,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-
-
     public void showDialog(){
         progressDialog.setMessage("please wait...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
