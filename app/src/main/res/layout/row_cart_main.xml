@@ -6,12 +6,12 @@
     android:layout_marginBottom="20dp"
     android:weightSum="6">
 
-    <ImageView
-        android:id="@+id/image_delete_cart"
+    <CheckBox
+        android:id="@+id/check_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/ic_action_name" />
+         />
 
     <TextView
         android:id="@+id/row_text_price_cart"

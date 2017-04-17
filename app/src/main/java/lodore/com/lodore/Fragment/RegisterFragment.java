@@ -132,7 +132,7 @@ public class RegisterFragment extends Fragment {
 
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://192.168.123.10/lodore/api")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
                     .setClient(new OkClient(okHttpClient))
                     .build();
         }

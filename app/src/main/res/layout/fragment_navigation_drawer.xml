@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="#c59158"
     tools:context="lodore.com.lodore.Fragment.HomeFragment"
     >
 
@@ -12,13 +13,13 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c59158">
+    >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
@@ -287,16 +288,6 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/nav_brand_details"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="right"
-                android:text="Brand Details"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/nav_product_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -306,15 +297,6 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/nav_quiz"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="right"
-                android:text="Quiz"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

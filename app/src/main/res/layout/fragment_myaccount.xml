@@ -79,6 +79,8 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
                     android:text="moe@ali.com"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
@@ -110,6 +112,8 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:text="@string/full_name"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
@@ -135,6 +139,8 @@
                 android:weightSum="2">
 
                 <EditText
+                    android:inputType="phone"
+                    android:maxLines="1"
                     android:id="@+id/et_myacc_phone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -165,6 +171,8 @@
                 android:weightSum="2">
 
                 <EditText
+                    android:inputType="phone"
+                    android:maxLines="1"
                     android:id="@+id/et_myacc_anotherphone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -243,17 +251,21 @@
                 android:weightSum="2">
 
                 <EditText
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:id="@+id/et_my_acc_city"
-                    android:background="@android:color/transparent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
                     android:gravity="right"
                     android:text="@string/city"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
 
                 <TextView
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:id="@+id/my_acc_city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -274,11 +286,13 @@
                 android:weightSum="2">
 
                 <EditText
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:id="@+id/et_my_acc_neighborhood"
-                    android:background="@android:color/transparent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
                     android:gravity="right"
                     android:text="@string/full_name"
                     android:textColor="@color/primary_text"
@@ -305,11 +319,13 @@
                 android:weightSum="2">
 
                 <EditText
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:id="@+id/et_my_acc_streetname"
-                    android:background="@android:color/transparent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
                     android:gravity="right"
                     android:text="@string/street_name"
                     android:textColor="@color/primary_text"

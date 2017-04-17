@@ -41,7 +41,7 @@ public class HomeFragrantPlantsAdapter extends RecyclerView.Adapter<HomeFragrant
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         Glide.with(context)
-                .load("http://192.168.123.10/lodore/" + fragrancePlantResultsList.get(position).getImage())
+                .load("http://54.201.67.32/lodore/connection/" + fragrancePlantResultsList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imageFragrancePlant);
     }

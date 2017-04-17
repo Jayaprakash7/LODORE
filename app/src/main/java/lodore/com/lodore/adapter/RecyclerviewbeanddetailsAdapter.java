@@ -64,7 +64,7 @@ public class RecyclerviewbeanddetailsAdapter extends RecyclerView.Adapter<Recycl
         final BrandProducts brand = brandList.get(position);
         holder.title.setText(brand.getName());
         holder.item_description.setText(brand.getDescription());
-        Picasso.with(context).load("http://192.168.123.10/lodore/"+brandList.get(position).getImage()).fit().into(holder.thumbnail);
+        Picasso.with(context).load("http://54.201.67.32/lodore/connection/"+brandList.get(position).getImage()).fit().into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -46,7 +46,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder>{
         holder.textDescription.setText(blogResult.getDescription());
         //Picasso.with(context).load("http://192.168.123.10/lodore/" + blogResultList.get(position).getImage()).fit().into(holder.imageBlog);
         Glide.with(context)
-                .load("http://192.168.123.10/lodore/" + blogResultList.get(position).getImage())
+                .load("http://54.201.67.32/lodore/connection/" + blogResultList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imageBlog);
     }

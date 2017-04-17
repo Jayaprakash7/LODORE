@@ -1,12 +1,15 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +37,7 @@ public class PasswordFragment extends Fragment {
     EditText password,confirmpassword;
     Button updatepassword;
     SharedPreferences pref;
+    private ProgressDialog progressDialog;
 
 
     public PasswordFragment() {
@@ -50,6 +54,7 @@ public class PasswordFragment extends Fragment {
         password = (EditText) view.findViewById(R.id.password);
         confirmpassword = (EditText) view.findViewById(R.id.confirmpassword);
         updatepassword = (Button) view.findViewById(R.id.update_password);
+        progressDialog = new ProgressDialog(getActivity());
 
         updatepassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +67,14 @@ public class PasswordFragment extends Fragment {
                     reginput.setPassword(password.getText().toString());
                     Toast.makeText(getContext(), "Password Updated", Toast.LENGTH_SHORT).show();
                     new PasswordFragment.UpdatePassword().execute(reginput);
+
+                    MyaccountFragment myaccountFragment = new MyaccountFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, myaccountFragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+
 
                 }
                 else
@@ -84,6 +97,7 @@ public class PasswordFragment extends Fragment {
             okHttpClient.setReadTimeout(5, TimeUnit.SECONDS);
             okHttpClient.setConnectTimeout(5, TimeUnit.SECONDS);
 
+            showDialog();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
                     .setEndpoint("http://192.168.123.10/lodore/api")
@@ -107,12 +121,14 @@ public class PasswordFragment extends Fragment {
             try {
                 if (response.getStatus().equals("success")) {
 
+                    hideDialoge();
                     Intent i = new Intent(getContext(),MainActivity.class);
                     startActivity(i);
                     Toast.makeText(getContext(), "Register is succesfull", Toast.LENGTH_SHORT).show();
 
                 }else  {
 
+                    hideDialoge();
                     Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
 
                 }
@@ -120,7 +136,14 @@ public class PasswordFragment extends Fragment {
             } catch (Exception e){}
         }
     }
-
+    public void showDialog(){
+        progressDialog.setMessage("please wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+    }
+    public void hideDialoge(){
+        progressDialog.dismiss();
+    }
 }
 
 

@@ -36,7 +36,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:hint="arabic text"
+        android:hint="المدينة"
         android:padding="10dp" />
 
     <EditText
@@ -46,7 +46,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:hint="arabic text"
+        android:hint="الحي"
         android:padding="10dp" />
 
     <EditText
@@ -56,6 +56,6 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:hint="arabic text"
+        android:hint="العنوان"
         android:padding="10dp" />
 </LinearLayout>

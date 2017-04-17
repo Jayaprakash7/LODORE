@@ -62,6 +62,7 @@ public class QuizFragment4 extends Fragment {
             }
         });
 
+
         recyclerView.setAdapter(perfumeAdapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
