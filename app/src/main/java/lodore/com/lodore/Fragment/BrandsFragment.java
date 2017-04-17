@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lodore.com.lodore.Pojo.BrandResult;
@@ -28,6 +27,8 @@ import retrofit.RestAdapter;
 public class BrandsFragment extends Fragment {
 
     private RecyclerView recyclerViewbrands;
+    private RecyclerviewbrandsAdapter adapter;
+
 
     public BrandsFragment() {
         // Required empty public constructor
@@ -51,7 +52,7 @@ public class BrandsFragment extends Fragment {
         ProgressDialog dialog;
 
 
-        @Override//i love
+        @Override
         protected void onPreExecute() {
             dialog = new ProgressDialog(getContext());
             dialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
@@ -71,7 +72,10 @@ public class BrandsFragment extends Fragment {
                 Retrofit_rest list = restAdapter.create(Retrofit_rest.class);
                 response = list.getBrandList();
 
+
             } catch (Exception e) {
+
+                System.out.println("catch print  ************ "+e);
             }
             return response;
 
@@ -84,8 +88,7 @@ public class BrandsFragment extends Fragment {
                 }
 
 
-                RecyclerviewbrandsAdapter adapter = new RecyclerviewbrandsAdapter(getContext(), response.getBrandResult());
-
+                adapter = new RecyclerviewbrandsAdapter(getContext(), response.getProduct_result(),getActivity());
                 recyclerViewbrands.setAdapter(adapter);
                 recyclerViewbrands.setHasFixedSize(true);
                 recyclerViewbrands.setNestedScrollingEnabled(false);

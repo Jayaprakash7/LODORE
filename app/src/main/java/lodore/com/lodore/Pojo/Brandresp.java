@@ -2,6 +2,8 @@ package lodore.com.lodore.Pojo;
 
 import java.util.List;
 
+import javax.xml.transform.Result;
+
 /**
  * Created by w7 on 07-Apr-17.
  */
@@ -28,12 +30,12 @@ public class Brandresp {
             this.message = message;
         }
 
-        public List<BrandResult> getBrandResult() {
+        public List<BrandResult> getProduct_result() {
             return product_result;
         }
 
-        public void setBrandResult(List<BrandResult> result) {
-            this.product_result = product_result;
+        public void setProduct_result(List<BrandResult> result) {
+            this.product_result = result;
         }
 
 }

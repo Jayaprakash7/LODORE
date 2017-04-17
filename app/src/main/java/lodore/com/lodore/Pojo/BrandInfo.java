@@ -12,6 +12,7 @@ public class BrandInfo {
     private String description;
     private String id_category;
 
+
     public String getId() {
         return id;
     }

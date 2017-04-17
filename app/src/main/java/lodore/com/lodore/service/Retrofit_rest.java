@@ -1,6 +1,8 @@
 package lodore.com.lodore.service;
 
 import lodore.com.lodore.Pojo.BlogResponse;
+import lodore.com.lodore.Pojo.BrandDetailsResponse;
+import lodore.com.lodore.Pojo.BrandInfo;
 import lodore.com.lodore.Pojo.Brandresp;
 import lodore.com.lodore.Pojo.HomeFragrancePlantResponse;
 import lodore.com.lodore.Pojo.RegResult;
@@ -29,9 +31,14 @@ public interface Retrofit_rest {
     @POST("/customer/update")
     Registerresp updatepasswordUrlEncode(@Body RegResult param);
 
-    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    //@Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("/category")
     Brandresp getBrandList();
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("/category/subcategory")
+    BrandDetailsResponse getBrandDeatails(@Body BrandInfo param);
+
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("/blog")

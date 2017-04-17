@@ -44,6 +44,14 @@ public class BrandResult {
         this.image = image;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getUpdated() {
         return updated;
     }
