@@ -1,10 +1,6 @@
 package lodore.com.lodore.adapter;
 
-//import android.app.ProgressDialog;
 import android.content.Context;
-//import android.content.Intent;
-//import android.content.SharedPreferences;
-//import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,32 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
-//import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-//import com.squareup.picasso.Picasso;
-
-//import java.util.ArrayList;
-//import java.util.Collections;
 import java.util.List;
-
-//import javax.xml.transform.Result;
-
 import lodore.com.lodore.Fragment.BranddetailsFragment;
-/*import lodore.com.lodore.Fragment.CartFragment;
-import lodore.com.lodore.Fragment.GiftFragment1;
-import lodore.com.lodore.MainActivity;
-import lodore.com.lodore.Pojo.BrandDetailsResponse;
-import lodore.com.lodore.Pojo.BrandInfo;*/
 import lodore.com.lodore.Pojo.BrandResult;
-//import lodore.com.lodore.Pojo.Brandresp;
 import lodore.com.lodore.R;
-//import lodore.com.lodore.service.Retrofit_rest;
-//import retrofit.RestAdapter;
 
 public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<RecyclerviewbrandsAdapter.MyViewHolder> {
 
