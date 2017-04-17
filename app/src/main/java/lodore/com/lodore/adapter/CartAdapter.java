@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,7 +53,8 @@ public class CartAdapter  extends RecyclerView.Adapter<CartAdapter.MyViewHolder>
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView textTitleCart,textQuansCart,textPriceCart;
-        ImageView imageItem,imageDelete;
+        ImageView imageItem;
+        CheckBox checkSelected;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -61,7 +63,7 @@ public class CartAdapter  extends RecyclerView.Adapter<CartAdapter.MyViewHolder>
             textQuansCart = (TextView) itemView.findViewById(R.id.row_text_quan_cart);
             textPriceCart = (TextView) itemView.findViewById(R.id.row_text_price_cart);
             imageItem = (ImageView) itemView.findViewById(R.id.row_image_cart);
-            imageDelete = (ImageView) itemView.findViewById(R.id.image_delete_cart);
+            checkSelected = (CheckBox) itemView.findViewById(R.id.check_cart);
 
         }
     }

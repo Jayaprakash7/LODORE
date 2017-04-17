@@ -27,7 +27,6 @@ public class CheckOutActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.checkout_container,loginFragment);
-        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
     }

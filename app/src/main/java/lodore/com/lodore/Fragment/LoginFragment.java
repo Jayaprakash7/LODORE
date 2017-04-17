@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment {
             showDialog();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://192.168.123.10/lodore/api")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
                     .setClient(new OkClient(okHttpClient))
                     .build();
         }
@@ -140,7 +140,7 @@ public class LoginFragment extends Fragment {
                     editor.putString("mobile", response.getResult().get(0).getMobile());
                     editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
 
-                    editor.commit();
+                    editor.apply();
                     startActivity(i);
                     hideDialoge();
                     Toast.makeText(getContext(), "Login is succesfull", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,7 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.AsyncTask;
@@ -33,7 +34,7 @@ import retrofit.RestAdapter;
 public class BlogFragment extends Fragment {
 
     private RecyclerView recyclerViewblog;
-
+    private ProgressDialog progressDialog;
 
 
     public BlogFragment() {
@@ -46,6 +47,7 @@ public class BlogFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blog, container, false);
 
+        progressDialog = new ProgressDialog(getActivity());
         recyclerViewblog = (RecyclerView) view.findViewById(R.id.recycler_blog);
         new BlogItemDisplay().execute();
 
@@ -58,9 +60,10 @@ public class BlogFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
+            showDialog();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://192.168.123.10/lodore/api/")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
                     .build();
         }
 
@@ -85,6 +88,7 @@ public class BlogFragment extends Fragment {
 
             try {
 
+                hideDialoge();
                 BlogAdapter adapter = new BlogAdapter(getContext(), blogResponse.getBlogs());
 
                 recyclerViewblog.setAdapter(adapter);
@@ -98,5 +102,15 @@ public class BlogFragment extends Fragment {
 
         }
     }
+    public void showDialog(){
+
+        progressDialog.setMessage("please wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+    }
+    public void hideDialoge(){
+        progressDialog.dismiss();
+    }
+
 
 }

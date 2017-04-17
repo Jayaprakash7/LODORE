@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +20,6 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-import lodore.com.lodore.CartActivity;
 import lodore.com.lodore.CheckOutActivity;
 import lodore.com.lodore.Pojo.CartDTO;
 import lodore.com.lodore.R;
@@ -30,7 +31,7 @@ import lodore.com.lodore.adapter.CartAdapter;
 public class CartFragment extends Fragment {
 
     EditText editTextMain;
-    Button btnHome;
+    Button btnHome,btnSendGift;
     RecyclerView recyclerView;
     CartAdapter adapter;
     Toolbar toolbar;
@@ -48,6 +49,7 @@ public class CartFragment extends Fragment {
         editTextMain = (EditText) view.findViewById(R.id.edit_main);
         recyclerView = (RecyclerView) view.findViewById(R.id.cart_recycler_view);
         btnHome = (Button) view.findViewById(R.id.btn_home);
+        btnSendGift = (Button) view.findViewById(R.id.btn_send_gift);
         adapter = new CartAdapter(getActivity(), getData());
 
         recyclerView.setAdapter(adapter);
@@ -61,6 +63,20 @@ public class CartFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), CheckOutActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+
+            }
+        });
+
+        btnSendGift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GiftFragment1 giftFragment = new GiftFragment1();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, giftFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
 
             }
         });

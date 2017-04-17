@@ -79,10 +79,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
-
-
-
         final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         final NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
 
@@ -127,7 +123,9 @@ public class MainActivity extends AppCompatActivity {
         drawerFragment.getHome().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                homeFragment();
+                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 toolbar_text.setText("الرئيسية");
                 drawerLayout.closeDrawers();
             }
@@ -198,14 +196,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        drawerFragment.getQuiz().setOnClickListener(new View.OnClickListener() {
+        /*drawerFragment.getQuiz().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 quiz();
                 toolbar_text.setText("اختبار العطر");
                 drawerLayout.closeDrawers();
             }
-        });
+        });*/
 
         drawerFragment.getBlog().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,20 +223,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        drawerFragment.getBranddetails().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                branddetails();
-                toolbar_text.setText("دور العطور");
-                drawerLayout.closeDrawers();
-            }
-        });
-
         drawerFragment.getSendgift().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GiftFragment1();
-                toolbar_text.setText("أرسل هدية");
+
+                perfumeFragment();
+                toolbar_text.setText("العطور");
+
+               // GiftFragment1();
+                //toolbar_text.setText("أرسل هدية");
                 drawerLayout.closeDrawers();
             }
         });

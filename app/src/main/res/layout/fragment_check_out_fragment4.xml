@@ -16,16 +16,29 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:id="@+id/toolbar_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end|right"
+                android:text="إنهاء الطلب"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="75dp"
-        android:layout_below="@+id/appBar">
-
+        android:layout_below="@+id/appBar"
+        android:layout_marginBottom="75dp"
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -124,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
-                        android:text="@string/price" />
+                        android:text="الإجمالي" />
 
                 </LinearLayout>
 
@@ -149,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
-                        android:text="@string/price"
+                        android:text="الإجمالي النهائي"
                         android:textColor="@color/primary_text"
                         android:textStyle="bold" />
 
@@ -174,7 +187,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
                         android:gravity="left"
-                        android:text="@string/login_name"
+                        android:text="بطاقة ائتمانية"
                         />
 
                     <TextView
@@ -182,7 +195,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_weight="0.5"
-                        android:text="@string/price"
+                        android:text="وسيلة الدفع"
                         />
 
                 </LinearLayout>
@@ -192,6 +205,7 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
     <Button
         android:id="@+id/checkout_button4"
         android:layout_width="match_parent"
@@ -201,5 +215,6 @@
         android:background="@drawable/btn_cart_background"
         android:text="@string/finish_order"
         android:textColor="@color/btn_primary_color" />
+
 
 </RelativeLayout>

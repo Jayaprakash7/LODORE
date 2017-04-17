@@ -20,6 +20,7 @@ import java.util.List;
 
 import lodore.com.lodore.Pojo.PerfumeFilterDTO;
 import lodore.com.lodore.R;
+import lodore.com.lodore.adapter.PerfumeAdapter;
 import lodore.com.lodore.adapter.PerfumeFilterAdapter;
 
 /**
@@ -28,7 +29,8 @@ import lodore.com.lodore.adapter.PerfumeFilterAdapter;
 public class PerfumeFragment extends Fragment {
 
 
-    PerfumeFilterAdapter adapter;
+    PerfumeFilterAdapter perfumeFilterAdapter;
+
 
     public PerfumeFragment() {
         // Required empty public constructor
@@ -43,7 +45,7 @@ public class PerfumeFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.perfume_filter_recycler);
         Button btnFilter = (Button) view.findViewById(R.id.btn_filter);
         Button btnCheck = (Button) view.findViewById(R.id.update_search);
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+
 
 
 
@@ -65,10 +67,10 @@ public class PerfumeFragment extends Fragment {
             }
         });
 
-        adapter = new PerfumeFilterAdapter(getActivity(), getData());
+        perfumeFilterAdapter = new PerfumeFilterAdapter(getActivity(), getData(),getActivity());
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(perfumeFilterAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
         return view;

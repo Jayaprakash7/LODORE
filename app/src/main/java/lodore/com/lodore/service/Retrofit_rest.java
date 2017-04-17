@@ -39,7 +39,6 @@ public interface Retrofit_rest {
     @POST("/category/subcategory")
     BrandDetailsResponse getBrandDeatails(@Body BrandInfo param);
 
-
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("/blog")
     BlogResponse getBlogList();
@@ -47,8 +46,6 @@ public interface Retrofit_rest {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("/banner")
     HomeFragrancePlantResponse getPlantList();
-
-
 
 
 }

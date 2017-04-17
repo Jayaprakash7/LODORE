@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder>{
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_blog_details,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.blog_card,parent,false);
         MyViewHolder myViewHolder = new MyViewHolder(itemView);
         return myViewHolder;
     }
@@ -47,7 +46,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder>{
         holder.textDescription.setText(blogResult.getDescription());
         //Picasso.with(context).load("http://192.168.123.10/lodore/" + blogResultList.get(position).getImage()).fit().into(holder.imageBlog);
         Glide.with(context)
-                .load("http://192.168.123.10/lodore/" + blogResultList.get(position).getImage())
+                .load("http://54.201.67.32/lodore/connection/" + blogResultList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imageBlog);
     }

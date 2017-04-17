@@ -63,14 +63,14 @@
                                 android:layout_gravity="right"
                                 android:layout_weight="2"
                                 android:paddingRight="20dp"
-                                android:text="@string/concentrations"
+                                android:text="التركيز:EDP"
                                 android:textSize="18dp" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:hint="@string/size"
+                                android:hint="الحجم:٠٠امل"
                                 android:paddingRight="10dp"
                                 android:textSize="18dp" />
 

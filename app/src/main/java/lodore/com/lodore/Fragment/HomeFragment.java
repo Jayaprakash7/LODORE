@@ -1,9 +1,12 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -28,13 +31,24 @@ import retrofit.RestAdapter;
  */
 public class HomeFragment extends Fragment {
 
-    Button reg;
+    Button reg,start_jeorney;
     Toolbar toolbarHome;
 
     private RecyclerView recyclerViewFragrancePlants;
     private HomeFragrantPlantsAdapter adapter;
     private List<HomeFragrancePlantResponse> homeFragrancePlantResponses;
+    private ProgressDialog progressDialog;
 
+    private void QuizFragment1() {
+
+        QuizFragment1 quizFragment1 = new QuizFragment1();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, quizFragment1);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,7 +60,15 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        reg = (Button) view.findViewById(R.id.btn_heading_home);
+        start_jeorney = (Button) view.findViewById(R.id.start_jeorney);
+        progressDialog = new ProgressDialog(getActivity());
+
+        start_jeorney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuizFragment1();
+            }
+        });
 
 
         recyclerViewFragrancePlants = (RecyclerView) view.findViewById(R.id.recycler_view_fragrance_families);
@@ -61,9 +83,11 @@ public class HomeFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
+
+            showDialog();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://192.168.123.10/lodore/api/")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
                     .build();
         }
 
@@ -86,17 +110,30 @@ public class HomeFragment extends Fragment {
             try{
                 adapter = new HomeFragrantPlantsAdapter(getActivity(),homeFragrancePlantResponse.getResult());
 
+                hideDialoge();
+
                 recyclerViewFragrancePlants.setAdapter(adapter);
                 recyclerViewFragrancePlants.setHasFixedSize(true);
                 recyclerViewFragrancePlants.setNestedScrollingEnabled(false);
                 recyclerViewFragrancePlants.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
 
             }catch (Exception e){
-                e.printStackTrace();
+                System.out.print(""+e);
             }
 
         }
     }
+
+    public void showDialog(){
+        progressDialog.setMessage("please wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+    }
+    public void hideDialoge(){
+        progressDialog.dismiss();
+    }
+
 
 
 }

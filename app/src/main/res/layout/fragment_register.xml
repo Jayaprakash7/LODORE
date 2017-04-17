@@ -1,124 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="75dp">
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="75dp">
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                tools:context="lodore.com.lodore.Fragment.RegisterFragment">
-
-                <EditText
-                    android:id="@+id/registration_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_backround_home"
-                    android:drawablePadding="20dp"
-                    android:drawableRight="@drawable/msg_icon"
-                    android:hint="@string/email"
-                    android:padding="20dp" />
-
-                <EditText
-
-                    android:id="@+id/registration_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_backround_home"
-                    android:drawablePadding="20dp"
-                    android:drawableRight="@drawable/lock_icon"
-                    android:hint="@string/password"
-                    android:padding="20dp" />
-
-                <EditText
-
-                    android:id="@+id/registration_confirmpassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_backround_home"
-                    android:drawablePadding="20dp"
-                    android:drawableRight="@drawable/lock_icon"
-                    android:hint="@string/confirm_pass"
-                    android:padding="20dp" />
-
-                <EditText
-                    android:id="@+id/registration_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_backround_home"
-                    android:drawablePadding="20dp"
-                    android:drawableRight="@drawable/ic_person_black_24px"
-                    android:hint="@string/full_name"
-                    android:padding="20dp" />
-
-                <EditText
-                    android:id="@+id/registration_phone_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_backround_home"
-                    android:drawablePadding="20dp"
-                    android:drawableRight="@drawable/phone_icon"
-                    android:hint="@string/phone_1"
-                    android:padding="20dp" />
-
-                <EditText
-                    android:id="@+id/registration_phone_two"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_backround_home"
-                    android:drawablePadding="20dp"
-                    android:drawableRight="@drawable/phone_icon"
-                    android:hint="@string/phone_2"
-                    android:padding="20dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.9"
-                        android:gravity="center_vertical"
-                        android:text="@string/terms_condition" />
-
-                    <CheckBox
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1"
-
-                        />
-                </LinearLayout>
-
-
-            </LinearLayout>
-        </ScrollView>
-
-        <Button
-            android:id="@+id/create_account"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="16dp"
-            android:background="@drawable/btn_cart_background"
-            android:text="إنشاء حساب"
-            android:textColor="@color/white" />
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:context="lodore.com.lodore.Fragment.RegisterFragment">
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/registration_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/msg_icon"
+                android:drawableEnd="@drawable/msg_icon"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/registration_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawableEnd="@drawable/lock_icon"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/lock_icon"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/registration_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableEnd="@drawable/lock_icon"
+                android:drawableRight="@drawable/lock_icon"
+                android:hint="@string/confirm_pass"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/registration_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/ic_person_black_24px"
+                android:drawableEnd="@drawable/ic_person_black_24px"
+                android:hint="@string/full_name"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/registration_phone_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+
+                android:drawableRight="@drawable/phone_icon"
+                android:drawableEnd="@drawable/phone_icon"
+                android:hint="@string/phone_1"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/registration_phone_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_backround_home"
+                android:drawablePadding="20dp"
+                android:drawableRight="@drawable/phone_icon"
+                android:drawableEnd="@drawable/phone_icon"
+                android:hint="@string/phone_2"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.9"
+                    android:gravity="center_vertical"
+                    android:text="@string/terms_condition" />
+
+                <CheckBox
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/btn_cart_background"
+        android:text="@string/create_acc"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

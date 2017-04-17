@@ -164,6 +164,7 @@
     <string name="register">إنشاء حساب</string>
     <string name="log_in">تسجيل الدخول</string>
     <string name="log_out">تسجيل الخروج</string>
+    <string name="create_acc">إنشاء حساب</string>
 
 
 </resources>

@@ -12,13 +12,6 @@ public class BrandResult {
     private String description;
     private String updated;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getId() {
         return _id;

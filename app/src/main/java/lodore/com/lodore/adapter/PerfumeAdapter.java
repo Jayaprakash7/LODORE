@@ -1,6 +1,9 @@
 package lodore.com.lodore.adapter;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +15,10 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
+import lodore.com.lodore.Fragment.BranddetailsFragment;
+import lodore.com.lodore.Fragment.CartFragment;
 import lodore.com.lodore.Pojo.PerfumeDTO;
+import lodore.com.lodore.Pojo.PerfumeFilterDTO;
 import lodore.com.lodore.R;
 
 /**
@@ -22,6 +28,7 @@ import lodore.com.lodore.R;
 public class PerfumeAdapter extends RecyclerView.Adapter<PerfumeAdapter.MyViewHolder>{
 
     LayoutInflater inflater;
+    private FragmentActivity myContext;
 
     private List<PerfumeDTO> perfumeDTOList = Collections.emptyList();
 
@@ -38,9 +45,7 @@ public class PerfumeAdapter extends RecyclerView.Adapter<PerfumeAdapter.MyViewHo
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-       /* View view = inflater.inflate(R.layout.row_quiz4,parent,false);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;*/
+
 
         View rowView;
         switch (viewType){
@@ -61,16 +66,32 @@ public class PerfumeAdapter extends RecyclerView.Adapter<PerfumeAdapter.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         PerfumeDTO perfumeDTO = perfumeDTOList.get(position);
-        holder.textViewPerfume.setText(perfumeDTO.text);
+        //holder.textViewPerfume.setText(perfumeDTO.text);
         holder.imageViewPerfume.setImageResource(perfumeDTO.image);
+
+        holder.buttonPerfume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                System.out.println("prdeeep printing id ************ ");
+
+                CartFragment cartFragment = new CartFragment();
+                FragmentManager fragmentManager = myContext.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, cartFragment);
+                fragmentTransaction.commit();
+
+
+            }
+        });
 
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (perfumeDTOList.get(position).isHeader)
+       /* if (perfumeDTOList.get(position).isHeader)
             return VIEW_TYPES.HEADER;
-        else
+        else*/
             return VIEW_TYPES.NORMAL;
     }
 
