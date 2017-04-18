@@ -3,12 +3,8 @@ package lodore.com.lodore.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +16,6 @@ import java.util.List;
 
 import lodore.com.lodore.Pojo.PerfumeFilterDTO;
 import lodore.com.lodore.R;
-import lodore.com.lodore.adapter.PerfumeAdapter;
 import lodore.com.lodore.adapter.PerfumeFilterAdapter;
 
 /**
@@ -79,7 +74,7 @@ public class PerfumeFragment extends Fragment {
     public static List<PerfumeFilterDTO> getData() {
         List<PerfumeFilterDTO> perfumeFilterDTOList = new ArrayList<>();
 
-        int[] image = {R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4};
+        int[] image = {R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2};
 
 
         for (int i = 0; i < image.length; i++) {

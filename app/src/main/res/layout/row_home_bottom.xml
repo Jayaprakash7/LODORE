@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:src="@drawable/perfume4" />
+        android:src="@drawable/perfume2" />
 
     <TextView
         android:id="@+id/text_card_perfume"

@@ -11,7 +11,7 @@
             android:id="@+id/image_card_perfume"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/perfume4"
+            android:src="@drawable/perfume2"
             android:layout_gravity="center"/>
         <TextView
             android:id="@+id/text_card_perfume"

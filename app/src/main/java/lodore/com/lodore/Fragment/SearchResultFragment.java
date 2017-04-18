@@ -8,14 +8,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -92,7 +89,7 @@ public class SearchResultFragment extends Fragment {
     public static List<SearchResultDto> getData() {
         List<SearchResultDto> searchResultDtoList = new ArrayList<>();
 
-        int[] image = {R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4};
+        int[] image = {R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2};
 
 
         for (int i = 0; i < image.length; i++) {

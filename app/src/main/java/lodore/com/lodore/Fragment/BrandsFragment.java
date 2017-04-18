@@ -21,9 +21,7 @@ import lodore.com.lodore.adapter.RecyclerviewbrandsAdapter;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class BrandsFragment extends Fragment {
 
     private RecyclerView recyclerViewbrands;

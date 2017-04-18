@@ -12,9 +12,6 @@ import retrofit.http.GET;
 import retrofit.http.Headers;
 import retrofit.http.POST;
 
-/**
- * Created by w7 on 05-Apr-17.
- */
 
 public interface Retrofit_rest {
 
@@ -31,19 +28,19 @@ public interface Retrofit_rest {
     @POST("/customer/update")
     Registerresp updatepasswordUrlEncode(@Body RegResult param);
 
-    //@Headers({ "Content-Type: application/json;charset=UTF-8"})
+
     @GET("/category")
     Brandresp getBrandList();
 
-    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("/category/subcategory")
     BrandDetailsResponse getBrandDeatails(@Body BrandInfo param);
 
-    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/blog")
     BlogResponse getBlogList();
 
-    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/banner")
     HomeFragrancePlantResponse getPlantList();
 

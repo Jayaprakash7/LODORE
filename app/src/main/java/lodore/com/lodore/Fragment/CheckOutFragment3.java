@@ -15,9 +15,7 @@ import android.widget.EditText;
 
 import lodore.com.lodore.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class CheckOutFragment3 extends Fragment {
 
 

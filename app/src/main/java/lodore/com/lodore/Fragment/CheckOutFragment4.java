@@ -21,18 +21,13 @@ import lodore.com.lodore.Pojo.CheckOut4DTO;
 import lodore.com.lodore.R;
 import lodore.com.lodore.adapter.Checkout4RecyclerAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class CheckOutFragment4 extends Fragment {
 
 
     RecyclerView recyclerView;
     Checkout4RecyclerAdapter adapter;
 
-    public CheckOutFragment4() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -85,7 +80,7 @@ public class CheckOutFragment4 extends Fragment {
         String[] title = {"الآسيوية", "الآسيوية"};
         String[] quans = {"1", "1"};
         String[] price = {"السع", "السعر"};
-        int[] image = {R.drawable.perfume2, R.drawable.perfume4};
+        int[] image = {R.drawable.perfume2, R.drawable.perfume2};
 
         for (int i = 0; i < title.length; i++) {
             CheckOut4DTO checkOut4DTO = new CheckOut4DTO();

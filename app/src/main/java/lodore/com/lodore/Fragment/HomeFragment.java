@@ -26,9 +26,7 @@ import lodore.com.lodore.adapter.RecyclerHome;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class HomeFragment extends Fragment {
 
     Button reg,start_jeorney;

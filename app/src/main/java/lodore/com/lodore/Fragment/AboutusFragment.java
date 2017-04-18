@@ -16,28 +16,18 @@ import android.widget.ImageView;
 
 import lodore.com.lodore.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class AboutusFragment extends Fragment {
 
 
     Toolbar toolbar;
     ImageView image_nav_menu,image_tool_cart,image_tool_search;
 
-   /* NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) ((AppCompatActivity)getActivity()).getSupportFragmentManager().findFragmentById(R.id.navigation_drawer_fragment);
-    DrawerLayout drawerLayout;*/
-
-
-    public AboutusFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_aboutus, container, false);
 
         return view;

@@ -19,11 +19,9 @@ import android.widget.RadioButton;
 
 import lodore.com.lodore.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class CheckOutFragment2 extends Fragment {
-//fragment_check_out2
+
 
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     EditText editText1, editText2, editText3, editText4, editText5, editText6, editText7, editText8, editText9, editText10,

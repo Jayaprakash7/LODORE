@@ -28,9 +28,6 @@ import lodore.com.lodore.adapter.RecyclerviewbrandsAdapter;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BlogFragment extends Fragment {
 
     private RecyclerView recyclerViewblog;

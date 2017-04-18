@@ -43,9 +43,6 @@ import lodore.com.lodore.adapter.RecyclerviewhomeAdapter;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BranddetailsFragment extends Fragment {
 
     private RecyclerView recyclerViewbrandsdetails;
@@ -116,7 +113,7 @@ public class BranddetailsFragment extends Fragment {
                     if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
-                    //Picasso.with(getContext()).load("http://192.168.123.10/lodore/" + response.getBrandinfo().get(0).getBrandPic()).config(Bitmap.Config.RGB_565).resize(200, 300).into(brand_details_image);
+
                     Glide.with(getActivity())
                             .load("http://54.201.67.32/lodore/connection/" + response.getBrandinfo().get(0).getBrandPic())
                             .diskCacheStrategy(DiskCacheStrategy.ALL)

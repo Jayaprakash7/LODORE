@@ -25,9 +25,7 @@ import lodore.com.lodore.Pojo.CartDTO;
 import lodore.com.lodore.R;
 import lodore.com.lodore.adapter.CartAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class CartFragment extends Fragment {
 
     EditText editTextMain;
@@ -88,7 +86,7 @@ public class CartFragment extends Fragment {
         List<CartDTO> cartDTOList = new ArrayList<>();
         String[] title = {"الآسيوية", "الآسيوية"};
         String[] price = {"السع", "السعر"};
-        int[] image = {R.drawable.perfume2, R.drawable.perfume4};
+        int[] image = {R.drawable.perfume2, R.drawable.perfume2};
 
         for (int i = 0; i < title.length; i++) {
             CartDTO cartDTO = new CartDTO();

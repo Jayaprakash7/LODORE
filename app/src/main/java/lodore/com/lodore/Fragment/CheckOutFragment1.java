@@ -31,9 +31,6 @@ import java.util.Locale;
 
 import lodore.com.lodore.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CheckOutFragment1 extends Fragment {
 
     EditText editText1, editText2, editText3, editAddress, editCity, editPostal;

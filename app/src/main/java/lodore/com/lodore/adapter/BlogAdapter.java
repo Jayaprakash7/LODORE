@@ -17,9 +17,6 @@ import java.util.List;
 import lodore.com.lodore.Pojo.BlogResult;
 import lodore.com.lodore.R;
 
-/**
- * Created by win7 on 10-Apr-17.
- */
 
 public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder>{
 
@@ -44,7 +41,6 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.MyViewHolder>{
         BlogResult blogResult = blogResultList.get(position);
         holder.textName.setText(blogResult.getName());
         holder.textDescription.setText(blogResult.getDescription());
-        //Picasso.with(context).load("http://192.168.123.10/lodore/" + blogResultList.get(position).getImage()).fit().into(holder.imageBlog);
         Glide.with(context)
                 .load("http://54.201.67.32/lodore/connection/" + blogResultList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

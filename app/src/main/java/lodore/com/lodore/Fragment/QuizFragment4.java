@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,9 +20,6 @@ import lodore.com.lodore.Pojo.PerfumeDTO;
 import lodore.com.lodore.R;
 import lodore.com.lodore.adapter.PerfumeAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class QuizFragment4 extends Fragment {
 
 
@@ -73,7 +69,7 @@ public class QuizFragment4 extends Fragment {
     public static List<PerfumeDTO> getData() {
         List<PerfumeDTO> perfumeDTOList = new ArrayList<>();
         String[] text = {" تسجيل الدخول", " تسجيل الدخول", " تسجيل الدخول", " تسجيل الدخول"};
-        int[] image = {R.drawable.perfume2, R.drawable.perfume4, R.drawable.perfume2, R.drawable.perfume4};
+        int[] image = {R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2, R.drawable.perfume2};
 
         for (int i = 0; i < text.length; i++) {
             PerfumeDTO perfumeDTO = new PerfumeDTO();

@@ -16,9 +16,6 @@ import android.widget.Button;
 import lodore.com.lodore.MainActivity;
 import lodore.com.lodore.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CheckOutFragment5 extends Fragment {
 
 

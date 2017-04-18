@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         image_search = (ImageView) findViewById(R.id.toolbar_search);
         linearLayout = (LinearLayout) findViewById(R.id.search_txt);
         search_btn = (Button) findViewById(R.id.search_btn);
-        toolbar_text.setText("الرئيسية");
+        toolbar_text.setText("LOdore");
 
         login =(TextView) findViewById(R.id.nav_login);
 
