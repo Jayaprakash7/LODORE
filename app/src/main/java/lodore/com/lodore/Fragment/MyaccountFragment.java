@@ -144,7 +144,6 @@ public class MyaccountFragment extends Fragment {
 
     public class UpdateUser extends AsyncTask<RegResult, Integer, Registerresp> {
         RestAdapter restAdapter;
-        public String res;
 
         @Override
         protected void onPreExecute() {
@@ -155,7 +154,7 @@ public class MyaccountFragment extends Fragment {
 
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
                     .setClient(new OkClient(okHttpClient))
                     .build();
         }
@@ -183,7 +182,7 @@ public class MyaccountFragment extends Fragment {
                     editor.putString("mobile", response.getResult().get(0).getMobile());
                     editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
 
-                    editor.commit();
+                    editor.apply();
                     hideDialoge();
                     Toast.makeText(getContext(), "Update is succesfull", Toast.LENGTH_SHORT).show();
 

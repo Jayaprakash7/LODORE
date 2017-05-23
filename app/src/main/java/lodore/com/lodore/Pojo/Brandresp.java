@@ -11,8 +11,7 @@ import javax.xml.transform.Result;
 public class Brandresp {
 
         private String status;
-        private String message;
-        private List<BrandResult> product_result = null;
+        private List<BrandResult> result = null;
 
         public String getStatus() {
             return status;
@@ -22,20 +21,12 @@ public class Brandresp {
             this.status = status;
         }
 
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
         public List<BrandResult> getProduct_result() {
-            return product_result;
+            return result;
         }
 
         public void setProduct_result(List<BrandResult> result) {
-            this.product_result = result;
+            this.result = result;
         }
 
 }

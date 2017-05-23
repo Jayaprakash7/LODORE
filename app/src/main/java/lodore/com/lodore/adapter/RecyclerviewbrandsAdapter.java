@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.List;
+
 import lodore.com.lodore.Fragment.BranddetailsFragment;
 import lodore.com.lodore.Pojo.BrandResult;
 import lodore.com.lodore.R;
@@ -38,7 +41,7 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
     }
 
 
-    public RecyclerviewbrandsAdapter(Context context,List<BrandResult> brandList,FragmentActivity myContext) {
+    public RecyclerviewbrandsAdapter(Context context, List<BrandResult> brandList, FragmentActivity myContext) {
         this.brandList = brandList;
         this.context = context;
         this.myContext = myContext;
@@ -56,11 +59,11 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final BrandResult brand = brandList.get(position);
         holder.title.setText(brand.getName());
-       // Picasso.with(context).load("http://192.168.123.10/lodore/" + brandList.get(position).getImage()).fit().into(holder.thumbnail);
 
         Glide.with(context)
                 .load("http://54.201.67.32/lodore/connection/" + brandList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .crossFade()
                 .into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
@@ -68,11 +71,12 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
             public void onClick(View view) {
 
                 selected_product_id = brand.getId();
-               System.out.println("prdeeep printing id ************ "+id);
+                System.out.println("prdeeep printing id ************ " + selected_product_id);
 
                 BranddetailsFragment fragment2 = new BranddetailsFragment();
                 FragmentManager fragmentManager = myContext.getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.replace(R.id.content_frame, fragment2);
                 fragmentTransaction.commit();
 

@@ -135,6 +135,8 @@
         android:layout_margin="16dp"
         android:background="@drawable/btn_cart_background"
         android:text="@string/create_acc"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:elevation="2dp"
+        android:stateListAnimator="@animator/fab_raise"/>
 
 </RelativeLayout>

@@ -43,7 +43,9 @@
                 android:gravity="center"
                 android:padding="20dp"
                 android:text="@string/back_home"
-                android:textColor="@color/primary_text" />
+                android:textColor="@color/primary_text"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"/>
 
         </LinearLayout>
     </ScrollView>

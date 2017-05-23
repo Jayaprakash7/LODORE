@@ -21,6 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
         tools:context="lodore.com.lodore.Fragment.NavigationDrawerFragment">
@@ -287,15 +289,6 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/nav_product_details"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="right"
-                android:text="Product Details"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
 
         </LinearLayout>
 

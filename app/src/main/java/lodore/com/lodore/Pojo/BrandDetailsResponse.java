@@ -10,8 +10,8 @@ public class BrandDetailsResponse {
 
     private String status;
     private String message;
-    private List<BrandInfo> brandinfo = null;
-    private List<BrandProducts> product_result = null;
+    private List<BrandInfo> brand_detail = null;
+    private List<BrandProducts> brandlist = null;
 
     public String getStatus() {return status;}
 
@@ -21,11 +21,11 @@ public class BrandDetailsResponse {
 
     public void setMessage(String message) {this.message = message;}
 
-    public List<BrandInfo> getBrandinfo() {return brandinfo;}
+    public List<BrandInfo> getBrand_detail() {return brand_detail;}
 
-    public void setBrandinfo(List<BrandInfo> brandinfo) {this.brandinfo = brandinfo;}
+    public void setBrand_detail(List<BrandInfo> brand_detail) {this.brand_detail = brand_detail;}
 
-    public List<BrandProducts> getbrandProducts() {return product_result;}
+    public List<BrandProducts> getbrandProducts() {return brandlist;}
 
-    public void setbrandProducts(List<BrandProducts> brandProducts) {this.product_result = brandProducts;}
+    public void setbrandProducts(List<BrandProducts> brandProducts) {this.brandlist = brandlist;}
 }

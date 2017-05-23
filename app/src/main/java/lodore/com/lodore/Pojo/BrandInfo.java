@@ -1,8 +1,6 @@
 package lodore.com.lodore.Pojo;
 
-/**
- * Created by w7 on 10-Apr-17.
- */
+
 
 public class BrandInfo {
 

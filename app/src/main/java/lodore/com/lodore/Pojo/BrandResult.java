@@ -9,8 +9,7 @@ public class BrandResult {
     private String _id;
     private String name;
     private String image;
-    private String description;
-    private String updated;
+
 
 
     public String getId() {
@@ -35,22 +34,6 @@ public class BrandResult {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(String updated) {
-        this.updated = updated;
     }
 
 

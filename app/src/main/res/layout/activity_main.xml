@@ -30,6 +30,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_shopping_cart_white_24px" />
@@ -40,22 +41,38 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/toolbar_cart"
                     android:layout_alignBottom="@+id/toolbar_cart"
+                    android:layout_centerVertical="true"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_toLeftOf="@+id/toolbar_cart"
                     android:layout_toStartOf="@+id/toolbar_cart"
                     android:src="@drawable/ic_search_white_24px" />
 
-                <TextView
-                    android:id="@+id/toolbar_text"
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOdore"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true">
+
+                    <TextView
+                        android:id="@+id/toolbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LOdore"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/toolbar_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/logo"
+                        android:visibility="visible" />
+                </FrameLayout>
+
+
             </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
@@ -82,7 +99,7 @@
                 android:drawableLeft="@drawable/search_icon" />
 
             <EditText
-                android:id="@+id/search_here"
+                android:id="@+id/edit_search_here"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

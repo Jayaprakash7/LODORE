@@ -39,7 +39,7 @@ public class NavigationDrawerFragment extends Fragment {
     private DrawerLayout mDrawerLayout;
 
     TextView home,perfume,contact_us,about_us,my_account,login,fragnance_fmaily;
-    TextView quiz,blog,productdetails,shippinganddeliveryifo,sendgift,faq,privacy_policy;
+    TextView quiz,blog,shippinganddeliveryifo,sendgift,faq,privacy_policy;
 
     LinearLayout linearLayoutLogout,linearLayoutLogin,linearRegister,linearMyaccount;
 
@@ -73,7 +73,6 @@ public class NavigationDrawerFragment extends Fragment {
         contact_us = (TextView) view.findViewById(R.id.nav_contact_us);
 
 
-        productdetails = (TextView) view.findViewById(R.id.nav_product_details);
         linearLayoutLogout = (LinearLayout) view.findViewById(R.id.linear_logout);
         linearLayoutLogin = (LinearLayout) view.findViewById(R.id.linear_login);
         linearRegister = (LinearLayout) view.findViewById(R.id.linear_rigister);
@@ -133,8 +132,7 @@ public class NavigationDrawerFragment extends Fragment {
     public TextView getBlog(){
         return blog;
     }
-    public TextView getProductdetails(){return productdetails;}
-    public TextView getShippinganddeliveryifo(){return shippinganddeliveryifo;}
+
     public TextView getSendgift(){return sendgift;}
     public TextView getFaq(){return faq;}
     public TextView getPrivacy_policy(){return privacy_policy;}

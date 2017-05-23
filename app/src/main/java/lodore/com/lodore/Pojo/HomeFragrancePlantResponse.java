@@ -8,7 +8,6 @@ import java.util.List;
 
 public class HomeFragrancePlantResponse {
     private String status;
-    private String message;
     private List<HomeFragrancePlantResult> result;
 
     public String getStatus() {
@@ -17,14 +16,6 @@ public class HomeFragrancePlantResponse {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public List<HomeFragrancePlantResult> getResult() {

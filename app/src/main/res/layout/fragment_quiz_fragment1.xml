@@ -8,7 +8,6 @@
     tools:context="lodore.com.lodore.Fragment.QuizFragment1">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,23 +46,28 @@
                 android:textColor="@color/primary_text" />
 
             <Button
+                android:id="@+id/btn_cool"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/btn_cart_background"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/cool"
                 android:textColor="@color/btn_primary_color" />
 
             <Button
-                android:id="@+id/btn_quiz1"
+                android:id="@+id/btn_warm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_cart_background"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/warm"
                 android:textColor="@color/btn_primary_color" />
         </LinearLayout>

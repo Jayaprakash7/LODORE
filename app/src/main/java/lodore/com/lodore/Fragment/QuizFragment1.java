@@ -19,6 +19,8 @@ import lodore.com.lodore.R;
  */
 public class QuizFragment1 extends Fragment {
 
+    public static String warm = "";
+    public static String cool = "";
 
     private void quizFragment() {
         QuizFragment2 quizFragment2 = new QuizFragment2();
@@ -41,16 +43,27 @@ public class QuizFragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_quiz_fragment1, container, false);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        Button btnQuiz1 = (Button) view.findViewById(R.id.btn_quiz1);
+        Button btnCool = (Button) view.findViewById(R.id.btn_cool);
+        Button btnWarm = (Button) view.findViewById(R.id.btn_warm);
 
 
 
-        btnQuiz1.setOnClickListener(new View.OnClickListener() {
+        btnCool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                warm = "";
+                cool = "cool";
                 quizFragment();
 
+            }
+        });
+
+        btnWarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                warm = "warm";
+                cool = "";
+                quizFragment();
             }
         });
 

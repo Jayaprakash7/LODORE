@@ -10,7 +10,7 @@ public class BrandProducts {
     private String name;
     private String image;
     private String description;
-    private String updated;
+
 
     public String getId() {
         return _id;
@@ -42,12 +42,5 @@ public class BrandProducts {
         this.description = description;
     }
 
-    public String getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(String updated) {
-        this.updated = updated;
-    }
 
 }

@@ -1,38 +1,43 @@
 package lodore.com.lodore.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import lodore.com.lodore.CheckOutActivity;
-import lodore.com.lodore.Pojo.CartDTO;
+import lodore.com.lodore.Pojo.CartRequest;
+import lodore.com.lodore.Pojo.CartResponse;
 import lodore.com.lodore.R;
 import lodore.com.lodore.adapter.CartAdapter;
+import lodore.com.lodore.service.Retrofit_rest;
+import retrofit.RestAdapter;
 
 
 public class CartFragment extends Fragment {
 
     EditText editTextMain;
-    Button btnHome,btnSendGift;
+    Button btnHome, btnSendGift;
     RecyclerView recyclerView;
-    CartAdapter adapter;
-    Toolbar toolbar;
+    TextView textTotal, textFullTotal;
+    int totalPrice;
+    ProgressDialog progressDialog;
+    LinearLayout linearLayoutEmpty;
 
     public CartFragment() {
         // Required empty public constructor
@@ -44,16 +49,16 @@ public class CartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
 
+        progressDialog = new ProgressDialog(getContext());
         editTextMain = (EditText) view.findViewById(R.id.edit_main);
         recyclerView = (RecyclerView) view.findViewById(R.id.cart_recycler_view);
         btnHome = (Button) view.findViewById(R.id.btn_home);
         btnSendGift = (Button) view.findViewById(R.id.btn_send_gift);
-        adapter = new CartAdapter(getActivity(), getData());
+        textTotal = (TextView) view.findViewById(R.id.total_price);
+        textFullTotal = (TextView) view.findViewById(R.id.text_full_total);
+        linearLayoutEmpty = (LinearLayout) view.findViewById(R.id.linear_empty);
 
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,25 +83,88 @@ public class CartFragment extends Fragment {
 
             }
         });
+        SharedPreferences preferences = getActivity().getSharedPreferences("login data", Context.MODE_PRIVATE);
+        CartRequest cartRequest = new CartRequest();
+        cartRequest.setId_customer(preferences.getString("_id", "null"));
+
+        new CartDisplay().execute(cartRequest);
 
         return view;
     }
 
-    public static List<CartDTO> getData() {
-        List<CartDTO> cartDTOList = new ArrayList<>();
-        String[] title = {"الآسيوية", "الآسيوية"};
-        String[] price = {"السع", "السعر"};
-        int[] image = {R.drawable.perfume2, R.drawable.perfume2};
+    public class CartDisplay extends AsyncTask<CartRequest, Void, CartResponse> {
+        RestAdapter restAdapter;
 
-        for (int i = 0; i < title.length; i++) {
-            CartDTO cartDTO = new CartDTO();
-            cartDTO.titleCart = title[i];
-            cartDTO.priceCart = price[i];
-            cartDTO.imageCart = image[i];
-
-            cartDTOList.add(cartDTO);
+        @Override
+        protected void onPreExecute() {
+            showDialog();
+            restAdapter = new RestAdapter.Builder()
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .build();
         }
-        return cartDTOList;
+
+        @Override
+        protected CartResponse doInBackground(CartRequest... params) {
+            CartResponse response = null;
+
+            try {
+                Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
+                response = retrofitRest.getCart(params[0]);
+            } catch (Exception e) {
+                System.out.println("" + e);
+            }
+
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(CartResponse cartResponse) {
+
+            try {
+                totalPrice = 0;
+                for (int i = 0; i < cartResponse.getResult().size(); i++) {
+                    totalPrice += Integer.parseInt(cartResponse.getResult().get(i).getProduct_price());
+                }
+
+                System.out.println(totalPrice);
+                String total = String.valueOf(totalPrice);
+                textTotal.setText(total + " ريا");
+                textFullTotal.setText(total + " ريا");
+
+                hideDialoge();
+
+                if (cartResponse.getResult().size()>0){
+                    linearLayoutEmpty.setVisibility(View.GONE);
+                    CartAdapter adapter = new CartAdapter(getContext(), cartResponse.getResult(),getActivity());
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setNestedScrollingEnabled(false);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                }
+                else{
+                    hideDialoge();
+                    linearLayoutEmpty.setVisibility(View.VISIBLE);
+                }
+
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+
+    public void showDialog(){
+        progressDialog.setMessage("please wait...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+    }
+    public void hideDialoge(){
+        progressDialog.dismiss();
     }
 
 }

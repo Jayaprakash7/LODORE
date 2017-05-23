@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 
     tools:context="lodore.com.lodore.Fragment.QuizFragment1">
@@ -11,74 +11,88 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="75dp"
-      >
+        android:layout_marginBottom="75dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="24dp"
-            android:paddingBottom="24dp"
-            android:orientation="vertical">
+            android:paddingTop="24dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/happy_to_help"
+                android:gravity="center"
                 android:paddingLeft="100dp"
                 android:paddingRight="100dp"
-                android:gravity="center"/>
+                android:text="@string/happy_to_help" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
-                android:background="#c0c0c0"
-                />
+                android:background="#c0c0c0" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
-                android:text="@string/wher_using_perfume"
                 android:gravity="center"
-                android:textColor="@color/primary_text"/>
+                android:text="@string/wher_using_perfume"
+                android:textColor="@color/primary_text" />
+
             <Button
+                android:id="@+id/btn_daily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/btn_cart_background"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/daily"
-                android:textColor="@color/btn_primary_color"/>
+                android:textColor="@color/btn_primary_color" />
+
             <Button
+                android:id="@+id/btn_morning"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_cart_background"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_cart_background"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/morning"
-                android:textColor="@color/btn_primary_color"/>
+                android:textColor="@color/btn_primary_color" />
+
             <Button
+
+                android:id="@+id/btn_night"
                 android:layout_width="match_parent"
-                android:id="@+id/btn_quiz2"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_cart_background"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_cart_background"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/night"
-                android:textColor="@color/btn_primary_color"/>
+                android:textColor="@color/btn_primary_color" />
         </LinearLayout>
 
     </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp">
+
         <include layout="@layout/design_quiz_header2">
 
         </include>

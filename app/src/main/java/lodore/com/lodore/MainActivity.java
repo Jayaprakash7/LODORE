@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     FrameLayout frameLayoutSearch;
     Button search_btn;
-    ImageView image_cart,image_search;
+    ImageView image_cart,image_search,toolbar_image;
+    EditText editSearch;
 
     SharedPreferences pref;
     String Id;
@@ -65,9 +67,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar_text = (TextView) findViewById(R.id.toolbar_text);
         image_cart = (ImageView) findViewById(R.id.toolbar_cart);
         image_search = (ImageView) findViewById(R.id.toolbar_search);
+        toolbar_image = (ImageView) findViewById(R.id.toolbar_image);
         linearLayout = (LinearLayout) findViewById(R.id.search_txt);
         search_btn = (Button) findViewById(R.id.search_btn);
-        toolbar_text.setText("LOdore");
+        editSearch = (EditText) findViewById(R.id.edit_search_here);
+
+        //toolbar_text.setText("LOdore");
+        toolbar_image.setVisibility(View.VISIBLE);
+        toolbar_text.setVisibility(View.GONE);
 
         login =(TextView) findViewById(R.id.nav_login);
 
@@ -112,6 +119,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 searchFragment();
                 drawerLayout.closeDrawers();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("SearchValue",editSearch.getText().toString());
+                SearchResultFragment resultFragment = new SearchResultFragment();
+                resultFragment.setArguments(bundle);
+
+
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -126,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("الرئيسية");
                 drawerLayout.closeDrawers();
             }
@@ -135,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 perfumeFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("العطور");
                 drawerLayout.closeDrawers();
             }
@@ -144,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ContactusFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("تصل بنا");
                 drawerLayout.closeDrawers();
             }
@@ -153,8 +173,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AboutusFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("من نحن");
                 drawerLayout.closeDrawers();
+
             }
         });
 
@@ -162,6 +185,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MyaccountFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("حسابي");
                 drawerLayout.closeDrawers();
             }
@@ -172,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences settings = getSharedPreferences("login data", Context.MODE_PRIVATE);
                 settings.edit().clear().apply();
+                toolbar_image.setVisibility(View.VISIBLE);
+                toolbar_text.setVisibility(View.GONE);
                 drawerLayout.closeDrawers();
                 homeActivity();
             }
@@ -182,6 +209,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 LoginFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("تسجيل الدخول");
                 drawerLayout.closeDrawers();
             }
@@ -191,6 +220,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RegisterFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("إنشاء حساب");
                 drawerLayout.closeDrawers();
             }
@@ -209,16 +240,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BlogFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("المـدونة");
-                drawerLayout.closeDrawers();
-            }
-        });
-
-        drawerFragment.getProductdetails().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                productdetails();
-                toolbar_text.setText("العطور");
                 drawerLayout.closeDrawers();
             }
         });
@@ -228,10 +252,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 perfumeFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("العطور");
-
-               // GiftFragment1();
-                //toolbar_text.setText("أرسل هدية");
                 drawerLayout.closeDrawers();
             }
         });
@@ -240,6 +263,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FaqFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("أسئلة الخصوصية");
                 drawerLayout.closeDrawers();
             }
@@ -249,6 +274,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BrandsFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("دور العطور");
                 drawerLayout.closeDrawers();
             }
@@ -258,6 +285,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PrivacypolicyFragment();
+                toolbar_image.setVisibility(View.GONE);
+                toolbar_text.setVisibility(View.VISIBLE);
                 toolbar_text.setText("سياسة الخصوصية");
                 drawerLayout.closeDrawers();
             }

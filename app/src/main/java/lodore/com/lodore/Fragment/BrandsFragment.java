@@ -11,12 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
 
-import lodore.com.lodore.Pojo.BrandResult;
 import lodore.com.lodore.Pojo.Brandresp;
 import lodore.com.lodore.R;
-import lodore.com.lodore.adapter.PerfumeFilterAdapter;
 import lodore.com.lodore.adapter.RecyclerviewbrandsAdapter;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
@@ -59,7 +56,7 @@ public class BrandsFragment extends Fragment {
             dialog.show();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
                     .build();
         }
 
@@ -73,7 +70,7 @@ public class BrandsFragment extends Fragment {
 
             } catch (Exception e) {
 
-                System.out.println("catch print  ************ "+e);
+                System.out.println("catch print  ************ " + e);
             }
             return response;
 
@@ -86,7 +83,7 @@ public class BrandsFragment extends Fragment {
                 }
 
 
-                adapter = new RecyclerviewbrandsAdapter(getContext(), response.getProduct_result(),getActivity());
+                adapter = new RecyclerviewbrandsAdapter(getContext(), response.getProduct_result(), getActivity());
                 recyclerViewbrands.setAdapter(adapter);
                 recyclerViewbrands.setHasFixedSize(true);
                 recyclerViewbrands.setNestedScrollingEnabled(false);

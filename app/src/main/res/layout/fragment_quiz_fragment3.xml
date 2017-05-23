@@ -1,208 +1,413 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="24dp">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="20dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="24dp">
+            android:gravity="center"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:text="@string/happy_to_help" />
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/divider" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/happy_to_help"
-                android:paddingLeft="100dp"
-                android:paddingRight="100dp"
-                android:gravity="center"/>
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/which_perfume_family_like"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/divider" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="@string/which_perfume_family_like"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <FrameLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
 
                     <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/btn_spices"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-
                         android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
                         android:text="@string/spices" />
 
                     <Button
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/btn_check_spices"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/spices"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_oud"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
                         android:text="@string/oud" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <Button
-                        android:layout_width="wrap_content"
+                        android:id="@+id/btn_check_oud"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/fragrant_plant" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/amber" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/flowers" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/musk"
-                        android:id="@+id/button6" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/sweet" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/leather" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/powder" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/citrus" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:weightSum="1">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginRight="100dp"
-                        android:layout_weight="0.36"
-                        android:background="@drawable/btn_background_quiz"
-                        android:text="@string/wood" />
-
-                </LinearLayout>
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/oud"
+                        android:visibility="gone" />
+                </FrameLayout>
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_quiz3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_cart_background"
-                android:text="@string/show_result"
-                android:textColor="@color/btn_primary_color"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
-                <include layout="@layout/design_quiz_header3" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_fragrant_plant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/fragrant_plant" />
+
+                    <Button
+                        android:id="@+id/btn_check_fragrant_plant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/fragrant_plant"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_amber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/amber" />
+
+                    <Button
+                        android:id="@+id/btn_check_amber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/amber"
+                        android:visibility="gone" />
+                </FrameLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
 
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_flowers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/flowers" />
+
+                    <Button
+                        android:id="@+id/btn_check_flowers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/flowers"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_musk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/musk" />
+
+                    <Button
+                        android:id="@+id/btn_check_musk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/musk"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_sweet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/sweet" />
+
+                    <Button
+                        android:id="@+id/btn_check_sweet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/sweet"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_leather"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/leather" />
+
+                    <Button
+                        android:id="@+id/btn_check_leather"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/leather"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_powder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/powder" />
+
+                    <Button
+                        android:id="@+id/btn_check_powder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:visibility="gone"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/powder" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5">
+
+                    <Button
+                        android:id="@+id/btn_citrus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/citrus" />
+                    <Button
+                        android:id="@+id/btn_check_citrus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:visibility="gone"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/citrus" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_wood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_background_quiz"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/wood" />
+                    <Button
+                        android:id="@+id/btn_check_wood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_cart_background"
+                        android:drawableRight="@drawable/ic_check_white_24px"
+                        android:visibility="gone"
+                        android:elevation="2dp"
+                        android:stateListAnimator="@animator/fab_raise"
+                        android:text="@string/wood" />
+                </FrameLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
-    </ScrollView>
+        <Button
+            android:id="@+id/btn_show_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_cart_background"
+            android:elevation="2dp"
+            android:stateListAnimator="@animator/fab_raise"
+            android:text="@string/show_result"
+            android:textColor="@color/btn_primary_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <include layout="@layout/design_quiz_header3" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -6,8 +6,9 @@
     android:layout_marginBottom="20dp"
     android:weightSum="6">
 
-    <CheckBox
-        android:id="@+id/check_cart"
+    <ImageView
+        android:id="@+id/delete_cart"
+        android:src="@drawable/ic_cart_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -25,18 +26,20 @@
 
     <TextView
         android:id="@+id/row_text_quan_cart"
+        android:maxLines="1"
+        android:inputType="number"
         android:layout_width="0dp"
+        android:layout_gravity="right|end"
         android:layout_height="match_parent"
-        android:layout_weight="1.25"
+        android:layout_weight="1"
         android:background="@drawable/btn_backround_home"
         android:gravity="center"
-        android:text="1"
         android:textColor="@color/primary_text" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2.75"
+        android:layout_weight="3"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -49,6 +52,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center_vertical"
                 android:text="@string/login_name"
                 android:textColor="@color/primary_text" />

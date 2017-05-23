@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment {
             showDialog();
             restAdapter = new RestAdapter.Builder()
                     .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .setEndpoint("http://54.201.67.32/lodore/connection/api")
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
                     .setClient(new OkClient(okHttpClient))
                     .build();
         }

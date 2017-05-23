@@ -102,6 +102,8 @@
         android:textColor="@color/btn_primary_color"
         android:layout_marginBottom="12dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:elevation="2dp"
+        android:stateListAnimator="@animator/fab_raise"/>
 
 </RelativeLayout>

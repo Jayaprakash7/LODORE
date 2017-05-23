@@ -1,9 +1,7 @@
-
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c19343"
-    >
+    android:background="#c19343">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,11 +9,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context="lodore.com.lodore.Fragment.HomeFragment">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -27,11 +25,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
                     android:text="@string/home_header_one"
                     android:textAlignment="center"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/_home_heading_two"
@@ -61,15 +59,18 @@
 
                 android:id="@+id/start_jeorney"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/btn_backround_home"
+                android:background="@drawable/btn_background_ripple"
+                android:paddingLeft="65dp"
+                android:paddingRight="65dp"
                 android:paddingTop="10dp"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/start_journey"
                 android:textColor="@color/colorPrimary"
-                android:paddingLeft="65dp"
-                android:paddingRight="65dp"/>
+                />
 
 
         </LinearLayout>
@@ -87,10 +88,10 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="48dp"
                 android:paddingRight="48dp"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold"
                 android:text="@string/fragnance_familess"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                     />
+                    />
 
 
             </LinearLayout>
@@ -126,8 +127,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:textColor="@color/primary_text"
-                    android:text="@string/suggested_perfume" />
+                    android:text="@string/suggested_perfume"
+                    android:textColor="@color/primary_text" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -141,44 +142,48 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="0.5"
-                    android:layout_height="match_parent">
-                    <include layout="@layout/row_home_bottom"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <include layout="@layout/row_home_bottom" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="0.5"
-                    android:layout_height="match_parent">
-                    <include layout="@layout/row_home_bottom"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <include layout="@layout/row_home_bottom" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="0.5"
-                    android:layout_height="match_parent">
-                    <include layout="@layout/row_home_bottom"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <include layout="@layout/row_home_bottom" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="0.5"
-                    android:layout_height="match_parent">
-                    <include layout="@layout/row_home_bottom"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <include layout="@layout/row_home_bottom" />
                 </LinearLayout>
             </LinearLayout>
-
 
 
         </LinearLayout>

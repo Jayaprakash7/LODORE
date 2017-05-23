@@ -139,14 +139,14 @@
                 android:weightSum="2">
 
                 <EditText
-                    android:inputType="phone"
-                    android:maxLines="1"
                     android:id="@+id/et_myacc_phone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="phone"
+                    android:maxLines="1"
                     android:text="0504488977"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
@@ -171,14 +171,14 @@
                 android:weightSum="2">
 
                 <EditText
-                    android:inputType="phone"
-                    android:maxLines="1"
                     android:id="@+id/et_myacc_anotherphone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="phone"
+                    android:maxLines="1"
                     android:text="0508514231"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
@@ -204,6 +204,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_checkout"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/change_info"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp" />
@@ -218,6 +220,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_checkout"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/change_password"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp" />
@@ -251,27 +255,27 @@
                 android:weightSum="2">
 
                 <EditText
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
                     android:id="@+id/et_my_acc_city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:text="@string/city"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
                     android:id="@+id/my_acc_city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:text="@string/city"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -286,14 +290,14 @@
                 android:weightSum="2">
 
                 <EditText
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
                     android:id="@+id/et_my_acc_neighborhood"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:text="@string/full_name"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
@@ -319,14 +323,14 @@
                 android:weightSum="2">
 
                 <EditText
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
                     android:id="@+id/et_my_acc_streetname"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:text="@string/street_name"
                     android:textColor="@color/primary_text"
                     android:textSize="18sp" />
@@ -352,6 +356,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_checkout"
+                android:elevation="2dp"
+                android:stateListAnimator="@animator/fab_raise"
                 android:text="@string/change_info"
                 android:textColor="@color/primary_text"
                 android:textSize="18sp" />

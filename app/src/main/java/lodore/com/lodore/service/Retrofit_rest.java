@@ -4,7 +4,14 @@ import lodore.com.lodore.Pojo.BlogResponse;
 import lodore.com.lodore.Pojo.BrandDetailsResponse;
 import lodore.com.lodore.Pojo.BrandInfo;
 import lodore.com.lodore.Pojo.Brandresp;
+import lodore.com.lodore.Pojo.CartRequest;
+import lodore.com.lodore.Pojo.CartResponse;
 import lodore.com.lodore.Pojo.HomeFragrancePlantResponse;
+import lodore.com.lodore.Pojo.PerfumeDetail;
+import lodore.com.lodore.Pojo.PerfumeFilterRequest;
+import lodore.com.lodore.Pojo.PerfumeRequest;
+import lodore.com.lodore.Pojo.PerfumeResponse;
+import lodore.com.lodore.Pojo.ProductDetailsResponse;
 import lodore.com.lodore.Pojo.RegResult;
 import lodore.com.lodore.Pojo.Registerresp;
 import retrofit.http.Body;
@@ -15,25 +22,25 @@ import retrofit.http.POST;
 
 public interface Retrofit_rest {
 
-    @POST("/customer")
+    @POST("/register")
     Registerresp regUrlEncode(@Body RegResult param);
 
 
-    @POST("/customer/login")
+    @POST("/login")
     Registerresp loginUrlEncode(@Body RegResult param);
 
-    @POST("/customer/update")
+    @POST("/update")
     Registerresp updateUrlEncode(@Body RegResult param);
 
-    @POST("/customer/update")
+    @POST("/update")
     Registerresp updatepasswordUrlEncode(@Body RegResult param);
 
 
-    @GET("/category")
+    @GET("/brands")
     Brandresp getBrandList();
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @POST("/category/subcategory")
+    @POST("/branddetails")
     BrandDetailsResponse getBrandDeatails(@Body BrandInfo param);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
@@ -41,8 +48,42 @@ public interface Retrofit_rest {
     BlogResponse getBlogList();
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @GET("/banner")
+    @GET("/priceLowtoHigh")
+    PerfumeResponse getPerfumeByPrice();
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/homepage")
     HomeFragrancePlantResponse getPlantList();
 
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/perfume")
+    PerfumeResponse getPerfumes();
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/productDetails")
+    ProductDetailsResponse getProductDetails(@Body PerfumeDetail perfumeDetail);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/cartinsert")
+    CartResponse getCartResponse(@Body CartRequest cartRequest);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/cart")
+    CartResponse getCart(@Body CartRequest cartRequest);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/updatecart")
+    CartResponse updateCart(@Body CartRequest cartRequest);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/deleteCart")
+    CartResponse deleteCart(@Body CartRequest cartRequest);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/perfumeFilter")
+    PerfumeResponse getFilterPerfume(@Body PerfumeFilterRequest perfumeFilterRequest);
+
+    @POST("/quizFilter")
+    PerfumeResponse getQuizFilter(@Body PerfumeFilterRequest perfumeFilterRequest);
 
 }

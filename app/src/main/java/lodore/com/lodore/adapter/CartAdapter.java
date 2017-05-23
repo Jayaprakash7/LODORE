@@ -1,60 +1,175 @@
 package lodore.com.lodore.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.AsyncTask;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.Collections;
 import java.util.List;
 
+import lodore.com.lodore.Fragment.BranddetailsFragment;
+import lodore.com.lodore.Fragment.CartFragment;
 import lodore.com.lodore.Pojo.CartDTO;
+import lodore.com.lodore.Pojo.CartRequest;
+import lodore.com.lodore.Pojo.CartResponse;
+import lodore.com.lodore.Pojo.CartResult;
 import lodore.com.lodore.R;
+import lodore.com.lodore.service.Retrofit_rest;
+import retrofit.RestAdapter;
 
 /**
  * Created by w7 on 21-Mar-17.
  */
 
-public class CartAdapter  extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
 
-    LayoutInflater inflater;
-    List<CartDTO> cartDTOList = Collections.emptyList();
+    Context context;
+    private List<CartResult> cartResultList;
+    FragmentActivity fragmentActivity;
+    public static int c;
 
-    public CartAdapter(Context context, List<CartDTO> cartDTOList) {
-        inflater = LayoutInflater.from(context);
-        this.cartDTOList = cartDTOList;
+
+    public CartAdapter(Context context, List<CartResult> cartResultList, FragmentActivity fragmentActivity) {
+        this.context = context;
+        this.cartResultList = cartResultList;
+        this.fragmentActivity = fragmentActivity;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cart_main,parent,false);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cart_main, parent, false);
+
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        CartDTO cartDTO = cartDTOList.get(position);
-        holder.imageItem.setImageResource(cartDTO.imageCart);
-        holder.textTitleCart.setText(cartDTO.titleCart);
-        holder.textPriceCart.setText(cartDTO.priceCart);
+        final CartResult cartResult = cartResultList.get(position);
+
+        holder.textTitleCart.setText(cartResult.getProduct_name());
+        holder.textPriceCart.setText(cartResult.getProduct_price() + " ريا");
+        holder.textQuansCart.setText(cartResult.getQuantity());
+        holder.deleteCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CartRequest cartRequest = new CartRequest();
+                cartRequest.set_id(cartResult.get_id());
+
+                new CartDelete().execute(cartRequest);
+            }
+        });
+
+        holder.textQuansCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                LayoutInflater mInflater = (LayoutInflater) fragmentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                final ViewGroup viewGroup = (ViewGroup) mInflater.inflate(R.layout.custom_dialog, null);
+                final EditText editQuans = (EditText) viewGroup.findViewById(R.id.edit_alert);
+                final TextView textError = (TextView) viewGroup.findViewById(R.id.text_error);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(fragmentActivity);
+                builder.setTitle("Enter The Quantity");
+                builder.setView(viewGroup);
+                builder.setNegativeButton("Cancel", null);
+                builder.setPositiveButton("Save", null);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                        btnPos.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String quans = editQuans.getText().toString().trim();
+                                if (quans.length() > 2) {
+                                    textError.setVisibility(View.VISIBLE);
+                                } else if (quans.isEmpty()) {
+                                    textError.setVisibility(View.GONE);
+                                    Toast.makeText(fragmentActivity, "Field Should not empty", Toast.LENGTH_SHORT).show();
+                                } else {
+
+                                    int quans_int = Integer.parseInt(quans);
+                                    int price = Integer.parseInt(cartResult.getProduct_price());
+                                    int b_quantity = Integer.parseInt(cartResult.getQuantity());
+
+                                    int original_price = price / b_quantity;
+                                    int total_price = original_price * quans_int;
+                                    String totalPrice = String.valueOf(total_price);
+
+                                    CartRequest cartRequest = new CartRequest();
+                                    cartRequest.set_id(cartResult.get_id());
+                                    cartRequest.setQuantity(quans);
+                                    cartRequest.setProduct_price(totalPrice);
+
+                                    System.out.println(cartResult.get_id());
+                                    System.out.println(quans);
+                                    System.out.println(totalPrice);
+
+                                    new CartUpdate().execute(cartRequest);
+
+                                    Toast.makeText(fragmentActivity, "Success", Toast.LENGTH_SHORT).show();
+                                    alertDialog.dismiss();
+
+                                }
+                            }
+                        });
+
+                        Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                        btnNeg.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                alertDialog.dismiss();
+                            }
+                        });
+                    }
+                });
+                alertDialog.show();
+
+            }
+        });
+
+        Glide.with(context)
+                .load("http://54.201.67.32/lodore/connection/" + cartResultList.get(position).getProduct_image())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.imageItem);
+
     }
 
     @Override
     public int getItemCount() {
-        return cartDTOList.size();
+        return cartResultList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textTitleCart,textQuansCart,textPriceCart;
+        TextView textTitleCart, textPriceCart;
+        TextView textQuansCart;
         ImageView imageItem;
-        CheckBox checkSelected;
+        ImageView deleteCart;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -63,8 +178,84 @@ public class CartAdapter  extends RecyclerView.Adapter<CartAdapter.MyViewHolder>
             textQuansCart = (TextView) itemView.findViewById(R.id.row_text_quan_cart);
             textPriceCart = (TextView) itemView.findViewById(R.id.row_text_price_cart);
             imageItem = (ImageView) itemView.findViewById(R.id.row_image_cart);
-            checkSelected = (CheckBox) itemView.findViewById(R.id.check_cart);
+            deleteCart = (ImageView) itemView.findViewById(R.id.delete_cart);
 
         }
     }
+
+    public class CartUpdate extends AsyncTask<CartRequest, Void, CartResponse>{
+
+        RestAdapter restAdapter;
+
+        @Override
+        protected void onPreExecute() {
+            restAdapter = new RestAdapter.Builder()
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .build();
+        }
+
+        @Override
+        protected CartResponse doInBackground(CartRequest... params) {
+            CartResponse cartResponse = null;
+
+            try{
+                Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
+                cartResponse = retrofitRest.updateCart(params[0]);
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+            return cartResponse;
+        }
+
+        @Override
+        protected void onPostExecute(CartResponse cartResponse) {
+            CartFragment cartFragment = new CartFragment();
+            FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, cartFragment);
+            fragmentTransaction.commit();
+
+        }
+    }
+
+    public class CartDelete extends AsyncTask<CartRequest, Void, CartResponse>{
+
+        RestAdapter restAdapter;
+
+        @Override
+        protected void onPreExecute() {
+            restAdapter = new RestAdapter.Builder()
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .build();
+        }
+
+        @Override
+        protected CartResponse doInBackground(CartRequest... params) {
+            CartResponse cartResponse = null;
+
+            try{
+                Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
+                cartResponse = retrofitRest.deleteCart(params[0]);
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+            return cartResponse;
+        }
+
+        @Override
+        protected void onPostExecute(CartResponse cartResponse) {
+            Toast.makeText(fragmentActivity, ""+cartResponse.getMessage(), Toast.LENGTH_SHORT).show();
+            CartFragment cartFragment = new CartFragment();
+            FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, cartFragment);
+            fragmentTransaction.commit();
+
+        }
+    }
+
 }

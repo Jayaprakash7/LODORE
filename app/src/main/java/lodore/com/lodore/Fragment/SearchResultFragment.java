@@ -49,6 +49,9 @@ public class SearchResultFragment extends Fragment {
         linearLayoutPerfumeHouse = (LinearLayout) view.findViewById(R.id.linear_perfume_house);
 
 
+        Bundle bundle = this.getArguments();
+        String strtext = bundle.getString("SearchValue");
+        System.out.println(strtext);
 
         linearLayoutPerfumes.setOnClickListener(new View.OnClickListener() {
             @Override
