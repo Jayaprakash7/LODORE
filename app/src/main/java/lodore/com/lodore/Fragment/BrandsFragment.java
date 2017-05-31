@@ -2,14 +2,24 @@ package lodore.com.lodore.Fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 import lodore.com.lodore.Pojo.Brandresp;
@@ -23,6 +33,7 @@ public class BrandsFragment extends Fragment {
 
     private RecyclerView recyclerViewbrands;
     private RecyclerviewbrandsAdapter adapter;
+    private String network_error;
 
 
     public BrandsFragment() {
@@ -69,8 +80,7 @@ public class BrandsFragment extends Fragment {
 
 
             } catch (Exception e) {
-
-                System.out.println("catch print  ************ " + e);
+                network_error = String.valueOf(e);
             }
             return response;
 
@@ -78,20 +88,63 @@ public class BrandsFragment extends Fragment {
 
         protected void onPostExecute(Brandresp response) {
             try {
-                if (dialog.isShowing()) {
-                    dialog.dismiss();
+
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+
+                if (info != null && info.isConnected() && network_error == null) {
+                    if (dialog.isShowing()) {
+                        dialog.dismiss();
+                    }
+
+
+                    adapter = new RecyclerviewbrandsAdapter(getContext(), response.getProduct_result(), getActivity());
+                    recyclerViewbrands.setAdapter(adapter);
+                    recyclerViewbrands.setHasFixedSize(true);
+                    recyclerViewbrands.setNestedScrollingEnabled(false);
+                    recyclerViewbrands.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                }
+                else {
+                    alertDialog();
                 }
 
 
-                adapter = new RecyclerviewbrandsAdapter(getContext(), response.getProduct_result(), getActivity());
-                recyclerViewbrands.setAdapter(adapter);
-                recyclerViewbrands.setHasFixedSize(true);
-                recyclerViewbrands.setNestedScrollingEnabled(false);
-                recyclerViewbrands.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+    }
+    public  void alertDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Please Check The InternetConnection");
+        builder.setNegativeButton("Setting", null);
+        builder.setPositiveButton("Ok", null);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnPos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                btnNeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
     }
 
 }

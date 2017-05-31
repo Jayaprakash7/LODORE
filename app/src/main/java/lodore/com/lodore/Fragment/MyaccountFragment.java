@@ -3,13 +3,19 @@ package lodore.com.lodore.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +42,7 @@ import retrofit.client.OkClient;
 public class MyaccountFragment extends Fragment {
 
     ProgressDialog progressDialog;
+    private String network_error;
 
     public MyaccountFragment() {
         // Required empty public constructor
@@ -131,6 +138,18 @@ public class MyaccountFragment extends Fragment {
             }
         });
 
+        my_fav_perfume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FavoriteFragment favoriteFragment = new FavoriteFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, favoriteFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         change_password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,34 +184,43 @@ public class MyaccountFragment extends Fragment {
                 Retrofit_rest enroll_plan = restAdapter.create(Retrofit_rest.class);
                 status = enroll_plan.updateUrlEncode(params[0]);
             } catch (Exception e) {
-
+                network_error = String.valueOf(e);
             }
             return status;
         }
 
         protected void onPostExecute(Registerresp response) {
             try {
-                if (response.getStatus().equals("success")) {
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
-                    Intent i = new Intent(getContext(), MainActivity.class);
+                if (info != null && info.isConnected() && network_error == null) {
+                    if (response.getStatus().equals("success")) {
 
-                    SharedPreferences.Editor editor = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS).edit();
-                    editor.putString("email", response.getResult().get(0).getEmail());
-                    editor.putString("username", response.getResult().get(0).getUsername());
-                    editor.putString("mobile", response.getResult().get(0).getMobile());
-                    editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
+                        Intent i = new Intent(getContext(), MainActivity.class);
 
-                    editor.apply();
-                    hideDialoge();
-                    Toast.makeText(getContext(), "Update is succesfull", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS).edit();
+                        editor.putString("email", response.getResult().get(0).getEmail());
+                        editor.putString("username", response.getResult().get(0).getUsername());
+                        editor.putString("mobile", response.getResult().get(0).getMobile());
+                        editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
 
-                    startActivity(i);
+                        editor.apply();
+                        hideDialoge();
+                        Toast.makeText(getContext(), "Update is succesfull", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    hideDialoge();
-                    Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
+                        startActivity(i);
 
+                    } else {
+                        hideDialoge();
+                        Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
+                else {
+                    alertDialog();
+                }
+
 
             } catch (Exception e) {
             }
@@ -207,6 +235,37 @@ public class MyaccountFragment extends Fragment {
     public void hideDialoge(){
         progressDialog.dismiss();
     }
+    public  void alertDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Please Check The InternetConnection");
+        builder.setNegativeButton("Setting", null);
+        builder.setPositiveButton("Ok", null);
 
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnPos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                btnNeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
+    }
 
 }

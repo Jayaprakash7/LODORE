@@ -9,6 +9,7 @@ public class BrandInfo {
     private String brand_head;
     private String description;
     private String id_category;
+    private String brand_id;
 
 
     public String getId() {
@@ -49,5 +50,13 @@ public class BrandInfo {
 
     public void setIdCategory(String idCategory) {
         this.id_category = idCategory;
+    }
+
+    public String getBrand_id() {
+        return brand_id;
+    }
+
+    public void setBrand_id(String brand_id) {
+        this.brand_id = brand_id;
     }
 }

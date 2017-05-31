@@ -71,7 +71,6 @@ public class RecyclerviewbrandsAdapter extends RecyclerView.Adapter<Recyclerview
             public void onClick(View view) {
 
                 selected_product_id = brand.getId();
-                System.out.println("prdeeep printing id ************ " + selected_product_id);
 
                 BranddetailsFragment fragment2 = new BranddetailsFragment();
                 FragmentManager fragmentManager = myContext.getSupportFragmentManager();

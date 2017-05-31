@@ -3,17 +3,25 @@ package lodore.com.lodore.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,6 +33,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import lodore.com.lodore.Pojo.CartRequest;
 import lodore.com.lodore.Pojo.CartResponse;
+import lodore.com.lodore.Pojo.FavouriteRequest;
 import lodore.com.lodore.Pojo.PerfumeDetail;
 import lodore.com.lodore.Pojo.ProductDetailsResponse;
 import lodore.com.lodore.R;
@@ -33,9 +42,7 @@ import lodore.com.lodore.adapter.ProductDetailsSimilarBrandsAdapter;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class ProductDetailsFragment extends Fragment {
 
     RecyclerView recyclerViewSimilarProduct;
@@ -49,14 +56,15 @@ public class ProductDetailsFragment extends Fragment {
 
     SharedPreferences preferences;
 
-    String name, description, size, concentration, perfumeStory, price, image,productID;
+    String name, description, size, concentration, perfumeStory, price, image, productID;
+    private String network_error;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_details, container, false);
 
-        progressDialog = new ProgressDialog(getActivity());
+        progressDialog = new ProgressDialog(getContext());
 
         PerfumeDetail perfumeDetail = new PerfumeDetail();
         perfumeDetail.set_id(PerfumeFragmentAdapter.selected_item_id);
@@ -86,9 +94,32 @@ public class ProductDetailsFragment extends Fragment {
                 if (textAddFav.getVisibility() == View.GONE) {
                     textAddFav.setVisibility(View.VISIBLE);
                     textRemoveFav.setVisibility(View.GONE);
-                } else
+                    preferences = getContext().getSharedPreferences("login data", Context.MODE_PRIVATE);
+                    String customerId = preferences.getString("_id", "null");
+
+                    FavouriteRequest request = new FavouriteRequest();
+                    request.setId_customer(customerId);
+                    request.setProduct_image(image);
+                    request.setProduct_name(name);
+                    request.setProduct_price(price);
+                    request.setProduct_id(productID);
+
+                    new AddToFavourite().execute(request);
+
+
+                } else {
                     textAddFav.setVisibility(View.GONE);
-                textRemoveFav.setVisibility(View.VISIBLE);
+                    textRemoveFav.setVisibility(View.VISIBLE);
+
+                    preferences = getContext().getSharedPreferences("login data", Context.MODE_PRIVATE);
+                    String customerId = preferences.getString("_id", "null");
+
+                    FavouriteRequest request = new FavouriteRequest();
+                    request.setId_customer(customerId);
+                    request.setProduct_id(productID);
+                    new RemoveFromFavourite().execute(request);
+                }
+
             }
         });
 
@@ -97,17 +128,15 @@ public class ProductDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 preferences = getContext().getSharedPreferences("login data", Context.MODE_PRIVATE);
-                String customerId = preferences.getString("_id","null");
-                if (customerId.equals("null"))
-                {
+                String customerId = preferences.getString("_id", "null");
+                if (customerId.equals("null")) {
                     LoginFragment loginFragment = new LoginFragment();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame,loginFragment);
+                    fragmentTransaction.replace(R.id.content_frame, loginFragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
-                }
-               else if (editQuantity.getText().toString().isEmpty()) {
+                } else if (editQuantity.getText().toString().isEmpty()) {
                     Toast.makeText(getContext(), "Enter the Quantity", Toast.LENGTH_SHORT).show();
                 } else {
 
@@ -157,7 +186,7 @@ public class ProductDetailsFragment extends Fragment {
                 Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
                 response = retrofitRest.getProductDetails(params[0]);
             } catch (Exception e) {
-                System.out.println("" + e);
+                Log.d("Network Error", "doInBackground: " + e);
             }
 
             return response;
@@ -167,42 +196,60 @@ public class ProductDetailsFragment extends Fragment {
         protected void onPostExecute(ProductDetailsResponse productDetailsResponse) {
 
             try {
-                if (productDetailsResponse.getStatus().equals("success")) {
+                ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
-                    name = productDetailsResponse.getPerfume_details().get(0).getName();
-                    description = productDetailsResponse.getPerfume_details().get(0).getDescription();
-                    size = productDetailsResponse.getPerfume_details().get(0).getSize();
-                    concentration = productDetailsResponse.getPerfume_details().get(0).getConcentration();
-                    perfumeStory = productDetailsResponse.getPerfume_details().get(0).getPerfume_story();
-                    price = productDetailsResponse.getPerfume_details().get(0).getPrice();
-                    image = productDetailsResponse.getPerfume_details().get(0).getImage();
-                    productID = productDetailsResponse.getPerfume_details().get(0).get_id();
+                if (info != null && info.isConnected()) {
+                    if (productDetailsResponse.getStatus().equals("success")) {
 
-
-                    Glide.with(getActivity())
-                            .load("http://54.201.67.32/lodore/connection/" + image)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .into(imageProduct);
-
-                    //textName, textDescription, textSize, textConcentration, textPerfumeStory, textPrice;
+                        name = productDetailsResponse.getPerfume_details().get(0).getName();
+                        description = productDetailsResponse.getPerfume_details().get(0).getDescription();
+                        size = productDetailsResponse.getPerfume_details().get(0).getSize();
+                        concentration = productDetailsResponse.getPerfume_details().get(0).getConcentration();
+                        perfumeStory = productDetailsResponse.getPerfume_details().get(0).getPerfume_story();
+                        price = productDetailsResponse.getPerfume_details().get(0).getPrice();
+                        image = productDetailsResponse.getPerfume_details().get(0).getImage();
+                        productID = productDetailsResponse.getPerfume_details().get(0).get_id();
 
 
-                    textName.setText(name);
-                    textDescription.setText(description);
-                    textSize.setText(size);
-                    textConcentration.setText(concentration);
-                    textPerfumeStory.setText(perfumeStory);
-                    textPrice.setText(price + " ريا");
+                        Glide.with(getActivity())
+                                .load("http://54.201.67.32/lodore/connection/" + image)
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .into(imageProduct);
 
-                    adapter = new ProductDetailsSimilarBrandsAdapter(getContext(), productDetailsResponse.getPerfume_list(), getActivity());
-                    recyclerViewSimilarProduct.setAdapter(adapter);
-                    recyclerViewSimilarProduct.setNestedScrollingEnabled(false);
-                    recyclerViewSimilarProduct.setHasFixedSize(true);
-                    recyclerViewSimilarProduct.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                        //textName, textDescription, textSize, textConcentration, textPerfumeStory, textPrice;
 
-                    hideDialoge();
 
+                        textName.setText(name);
+                        textDescription.setText(description);
+                        textSize.setText(size);
+                        textConcentration.setText(concentration);
+                        textPerfumeStory.setText(perfumeStory);
+                        textPrice.setText(price + " ريا");
+
+                        PerfumeFragmentAdapter adapter = new PerfumeFragmentAdapter(getContext(), productDetailsResponse.getResult(), getActivity());
+                        recyclerViewSimilarProduct.setAdapter(adapter);
+                        recyclerViewSimilarProduct.setNestedScrollingEnabled(false);
+                        recyclerViewSimilarProduct.setHasFixedSize(true);
+                        recyclerViewSimilarProduct.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+                        SharedPreferences pref = getContext().getSharedPreferences("login data", Context.MODE_PRIVATE);
+                        String id_customer = pref.getString("_id", "null");
+
+                        FavouriteRequest favouriteRequest = new FavouriteRequest();
+                        favouriteRequest.setId_customer(id_customer);
+                        favouriteRequest.setProduct_id(productID);
+
+                        new CheckFavorite().execute(favouriteRequest);
+
+                        hideDialoge();
+
+                    }
+                } else {
+                    HomeFragment homeFragment = new HomeFragment();
+                    homeFragment.alertDialog();
                 }
+
             } catch (Exception e) {
                 System.out.println("" + e);
             }
@@ -231,7 +278,7 @@ public class ProductDetailsFragment extends Fragment {
                 Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
                 cartResponse = retrofitRest.getCartResponse(params[0]);
             } catch (Exception e) {
-                System.out.println("" + e);
+                network_error = String.valueOf(e);
             }
 
             return cartResponse;
@@ -239,8 +286,124 @@ public class ProductDetailsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(CartResponse cartResponse) {
-            Toast.makeText(getActivity(), ""+cartResponse.getMessage(), Toast.LENGTH_SHORT).show();
+            ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+
+            if (info != null && info.isConnected() && network_error == null) {
+                Toast.makeText(getContext(), "" + cartResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                hideDialoge();
+            } else {
+                alertDialog();
+            }
+
+        }
+    }
+
+    public class AddToFavourite extends AsyncTask<FavouriteRequest, Void, CartResponse> {
+
+        RestAdapter restAdapter;
+
+        @Override
+        protected void onPreExecute() {
+            showDialog();
+            restAdapter = new RestAdapter.Builder()
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
+                    .build();
+        }
+
+        @Override
+        protected CartResponse doInBackground(FavouriteRequest... params) {
+            CartResponse response = null;
+            try {
+                Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
+                response = retrofitRest.getFavoriteInsert(params[0]);
+
+            } catch (Exception e) {
+                network_error = String.valueOf(e);
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(CartResponse cartResponse) {
             hideDialoge();
+        }
+    }
+
+    public class RemoveFromFavourite extends AsyncTask<FavouriteRequest, Void, CartResponse> {
+
+        RestAdapter restAdapter;
+
+        @Override
+        protected void onPreExecute() {
+            showDialog();
+            restAdapter = new RestAdapter.Builder()
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
+                    .build();
+        }
+
+        @Override
+        protected CartResponse doInBackground(FavouriteRequest... params) {
+            CartResponse response = null;
+            try {
+                Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
+                response = retrofitRest.removeFavorite(params[0]);
+
+            } catch (Exception e) {
+                network_error = String.valueOf(e);
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(CartResponse cartResponse) {
+            hideDialoge();
+        }
+    }
+
+    public class CheckFavorite extends AsyncTask<FavouriteRequest, Void, CartResponse>
+    {
+        RestAdapter restAdapter;
+
+        @Override
+        protected void onPreExecute() {
+            restAdapter = new RestAdapter.Builder()
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                    .setEndpoint("http://54.201.67.32/lodore/connection/api/customer")
+                    .build();
+        }
+
+        @Override
+        protected CartResponse doInBackground(FavouriteRequest... params) {
+            CartResponse cartResponse = null;
+
+            try {
+                Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
+                cartResponse = retrofitRest.checkFavorite(params[0]);
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            return cartResponse;
+        }
+
+        @Override
+        protected void onPostExecute(CartResponse cartResponse) {
+            String message = cartResponse.getMessage();
+            Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
+            if (cartResponse.getMessage().equals("Product Already Added In favorite"))
+            {
+                textAddFav.setVisibility(View.VISIBLE);
+                textRemoveFav.setVisibility(View.GONE);
+            }
+            else
+            {
+                textAddFav.setVisibility(View.GONE);
+                textRemoveFav.setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -253,6 +416,39 @@ public class ProductDetailsFragment extends Fragment {
 
     public void hideDialoge() {
         progressDialog.dismiss();
+    }
+
+    public void alertDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Please Check The InternetConnection");
+        builder.setNegativeButton("Setting", null);
+        builder.setPositiveButton("Ok", null);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnPos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                btnNeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(Settings.ACTION_SETTINGS), 0);
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
     }
 
 

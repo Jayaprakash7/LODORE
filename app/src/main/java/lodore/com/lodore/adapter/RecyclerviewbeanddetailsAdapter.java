@@ -20,9 +20,6 @@ import lodore.com.lodore.Pojo.BrandProducts;
 import lodore.com.lodore.Pojo.BrandResult;
 import lodore.com.lodore.R;
 
-/**
- * Created by w7 on 11-Apr-17.
- */
 
 public class RecyclerviewbeanddetailsAdapter extends RecyclerView.Adapter<RecyclerviewbeanddetailsAdapter.MyViewHolder> {
 

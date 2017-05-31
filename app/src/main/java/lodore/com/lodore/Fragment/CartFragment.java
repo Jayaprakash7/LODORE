@@ -3,15 +3,21 @@ package lodore.com.lodore.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import lodore.com.lodore.CheckOutActivity;
 import lodore.com.lodore.Pojo.CartRequest;
@@ -38,6 +45,7 @@ public class CartFragment extends Fragment {
     int totalPrice;
     ProgressDialog progressDialog;
     LinearLayout linearLayoutEmpty;
+    private String network_error;
 
     public CartFragment() {
         // Required empty public constructor
@@ -57,7 +65,6 @@ public class CartFragment extends Fragment {
         textTotal = (TextView) view.findViewById(R.id.total_price);
         textFullTotal = (TextView) view.findViewById(R.id.text_full_total);
         linearLayoutEmpty = (LinearLayout) view.findViewById(R.id.linear_empty);
-
 
 
         btnHome.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +119,7 @@ public class CartFragment extends Fragment {
                 Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
                 response = retrofitRest.getCart(params[0]);
             } catch (Exception e) {
-                System.out.println("" + e);
+                network_error = String.valueOf(e);
             }
 
             return response;
@@ -122,31 +129,36 @@ public class CartFragment extends Fragment {
         protected void onPostExecute(CartResponse cartResponse) {
 
             try {
-                totalPrice = 0;
-                for (int i = 0; i < cartResponse.getResult().size(); i++) {
-                    totalPrice += Integer.parseInt(cartResponse.getResult().get(i).getProduct_price());
-                }
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
-                System.out.println(totalPrice);
-                String total = String.valueOf(totalPrice);
-                textTotal.setText(total + " ريا");
-                textFullTotal.setText(total + " ريا");
+                if (info != null && info.isConnected() && network_error == null) {
+                    totalPrice = 0;
+                    for (int i = 0; i < cartResponse.getResult().size(); i++) {
+                        totalPrice += Integer.parseInt(cartResponse.getResult().get(i).getProduct_price());
+                    }
 
-                hideDialoge();
+                    System.out.println(totalPrice);
+                    String total = String.valueOf(totalPrice);
+                    textTotal.setText(total + " ريا");
+                    textFullTotal.setText(total + " ريا");
 
-                if (cartResponse.getResult().size()>0){
-                    linearLayoutEmpty.setVisibility(View.GONE);
-                    CartAdapter adapter = new CartAdapter(getContext(), cartResponse.getResult(),getActivity());
-                    recyclerView.setAdapter(adapter);
-                    recyclerView.setNestedScrollingEnabled(false);
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                }
-                else{
                     hideDialoge();
-                    linearLayoutEmpty.setVisibility(View.VISIBLE);
-                }
 
+                    if (cartResponse.getResult().size() > 0) {
+                        linearLayoutEmpty.setVisibility(View.GONE);
+                        CartAdapter adapter = new CartAdapter(getContext(), cartResponse.getResult(), getActivity());
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setNestedScrollingEnabled(false);
+                        recyclerView.setHasFixedSize(true);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    } else {
+                        hideDialoge();
+                        linearLayoutEmpty.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    alertDialog();
+                }
 
 
             } catch (Exception e) {
@@ -157,14 +169,47 @@ public class CartFragment extends Fragment {
     }
 
 
-    public void showDialog(){
+    public void showDialog() {
         progressDialog.setMessage("please wait...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
-        progressDialog.setCancelable(false);
+
     }
-    public void hideDialoge(){
+
+    public void hideDialoge() {
         progressDialog.dismiss();
     }
 
+    public  void alertDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Please Check The InternetConnection");
+        builder.setNegativeButton("Setting", null);
+        builder.setPositiveButton("Ok", null);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnPos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                btnNeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
+    }
 }

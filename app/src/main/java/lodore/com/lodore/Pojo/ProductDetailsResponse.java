@@ -9,7 +9,7 @@ import java.util.List;
 public class ProductDetailsResponse {
     private String status;
     private String message;
-    private List<PerfumeList> perfume_list;
+    private List<Product> result;
     private List<PerfumeDetail> perfume_details;
 
     public String getStatus() {
@@ -28,12 +28,12 @@ public class ProductDetailsResponse {
         this.message = message;
     }
 
-    public List<PerfumeList> getPerfume_list() {
-        return perfume_list;
+    public List<Product> getResult() {
+        return result;
     }
 
-    public void setPerfume_list(List<PerfumeList> perfume_list) {
-        this.perfume_list = perfume_list;
+    public void setResult(List<Product> result) {
+        this.result = result;
     }
 
     public List<PerfumeDetail> getPerfume_details() {

@@ -6,6 +6,7 @@ import lodore.com.lodore.Pojo.BrandInfo;
 import lodore.com.lodore.Pojo.Brandresp;
 import lodore.com.lodore.Pojo.CartRequest;
 import lodore.com.lodore.Pojo.CartResponse;
+import lodore.com.lodore.Pojo.FavouriteRequest;
 import lodore.com.lodore.Pojo.HomeFragrancePlantResponse;
 import lodore.com.lodore.Pojo.PerfumeDetail;
 import lodore.com.lodore.Pojo.PerfumeFilterRequest;
@@ -14,6 +15,7 @@ import lodore.com.lodore.Pojo.PerfumeResponse;
 import lodore.com.lodore.Pojo.ProductDetailsResponse;
 import lodore.com.lodore.Pojo.RegResult;
 import lodore.com.lodore.Pojo.Registerresp;
+import lodore.com.lodore.Pojo.SearchRequest;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.Headers;
@@ -42,6 +44,10 @@ public interface Retrofit_rest {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("/branddetails")
     BrandDetailsResponse getBrandDeatails(@Body BrandInfo param);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/suggestedBrands")
+    PerfumeResponse getSuggestPerfume (@Body BrandInfo brandInfo);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/blog")
@@ -85,5 +91,23 @@ public interface Retrofit_rest {
 
     @POST("/quizFilter")
     PerfumeResponse getQuizFilter(@Body PerfumeFilterRequest perfumeFilterRequest);
+
+    @POST("/searchByPerfume")
+    PerfumeResponse getsearchPerfume(@Body SearchRequest searchRequest);
+
+    @POST("/searchByBrand")
+    Brandresp getsearchBrand(@Body SearchRequest searchRequest);
+
+    @POST("/favorite")
+    CartResponse getFavoriteList(@Body FavouriteRequest favouriteRequest);
+
+    @POST("/insertfavorite")
+    CartResponse getFavoriteInsert(@Body FavouriteRequest favouriteRequest);
+
+    @POST("/removefavorite")
+    CartResponse removeFavorite(@Body FavouriteRequest favouriteRequest);
+
+    @POST("/Checkfavorite")
+    CartResponse checkFavorite(@Body FavouriteRequest favouriteRequest);
 
 }

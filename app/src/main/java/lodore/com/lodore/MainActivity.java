@@ -39,23 +39,22 @@ import lodore.com.lodore.Fragment.ProductDetailsFragment;
 import lodore.com.lodore.Fragment.QuizFragment1;
 import lodore.com.lodore.Fragment.RegisterFragment;
 import lodore.com.lodore.Fragment.SearchResultFragment;
+import lodore.com.lodore.Pojo.SearchRequest;
 
 import static lodore.com.lodore.R.id.login;
 
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
-    TextView toolbar_text,login;
+    TextView toolbar_text, login;
     Toolbar toolbar;
     FrameLayout frameLayoutSearch;
     Button search_btn;
-    ImageView image_cart,image_search,toolbar_image;
+    ImageView image_cart, image_search, toolbar_image;
     EditText editSearch;
 
     SharedPreferences pref;
     String Id;
-
-
 
 
     @Override
@@ -72,11 +71,10 @@ public class MainActivity extends AppCompatActivity {
         search_btn = (Button) findViewById(R.id.search_btn);
         editSearch = (EditText) findViewById(R.id.edit_search_here);
 
-        //toolbar_text.setText("LOdore");
         toolbar_image.setVisibility(View.VISIBLE);
         toolbar_text.setVisibility(View.GONE);
 
-        login =(TextView) findViewById(R.id.nav_login);
+        login = (TextView) findViewById(R.id.nav_login);
 
         pref = getSharedPreferences("login data", Context.MODE_MULTI_PROCESS);
         Id = pref.getString("_id", "null");
@@ -99,12 +97,11 @@ public class MainActivity extends AppCompatActivity {
         image_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(linearLayout.getVisibility() == View.GONE)
-                {
+                if (linearLayout.getVisibility() == View.GONE) {
                     drawerLayout.closeDrawers();
                     linearLayout.setVisibility(View.VISIBLE);
 
-                }else if(linearLayout.getVisibility() == View.VISIBLE){
+                } else if (linearLayout.getVisibility() == View.VISIBLE) {
 
                     drawerLayout.closeDrawers();
                     linearLayout.setVisibility(View.GONE);
@@ -117,27 +114,31 @@ public class MainActivity extends AppCompatActivity {
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchFragment();
-                drawerLayout.closeDrawers();
 
-                Bundle bundle = new Bundle();
-                bundle.putString("SearchValue",editSearch.getText().toString());
-                SearchResultFragment resultFragment = new SearchResultFragment();
-                resultFragment.setArguments(bundle);
 
+                String search_text = editSearch.getText().toString().trim();
+
+                SharedPreferences.Editor editor = getSharedPreferences("Search_Result",MODE_PRIVATE).edit();
+                editor.putString("text",search_text);
+                editor.apply();
 
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
 
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
+
+
+                drawerLayout.closeDrawers();
+                searchFragment();
+
             }
         });
 
         drawerFragment.getHome().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 toolbar_image.setVisibility(View.GONE);
@@ -305,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void homeActivity() {
-        Intent intent = new Intent(MainActivity.this,MainActivity.class);
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -314,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
         SearchResultFragment searchResultFragment = new SearchResultFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,searchResultFragment);
+        fragmentTransaction.replace(R.id.content_frame, searchResultFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
@@ -414,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public void RegisterFragment(){
+    public void RegisterFragment() {
         RegisterFragment registerFragment = new RegisterFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -422,6 +423,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
     public void PrivacypolicyFragment() {
         PrivacypolicyFragment privacypolicyFragment = new PrivacypolicyFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();

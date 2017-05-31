@@ -5,8 +5,10 @@ import java.util.List;
 public class Product {
     private String _id;
     private String name;
+    private String description;
     private String parent;
     private String image;
+    private String price;
 
     public String get_id() {
         return _id;
@@ -24,6 +26,14 @@ public class Product {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getParent() {
         return parent;
     }
@@ -38,5 +48,13 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

@@ -1,6 +1,7 @@
 package lodore.com.lodore.adapter;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,51 +9,59 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.Collections;
 import java.util.List;
 
-import lodore.com.lodore.Pojo.SearchResultDto;
+import lodore.com.lodore.Pojo.Product;
 import lodore.com.lodore.R;
 
-/**
- * Created by w7 on 21-Mar-17.
- */
 
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.MyViewHolder> {
 
-    LayoutInflater inflater;
-    List<SearchResultDto> searchResultDtoList = Collections.emptyList();
+    Context context;
+    private List<Product> productList = Collections.emptyList();
+    private FragmentActivity fragmentActivity;
 
-    public SearchResultAdapter(Context context, List<SearchResultDto> searchResultDtoList) {
-        inflater = LayoutInflater.from(context);
-        this.searchResultDtoList = searchResultDtoList;
+    public SearchResultAdapter(Context context, List<Product> productList, FragmentActivity fragmentActivity) {
+        this.context = context;
+        this.productList = productList;
+        this.fragmentActivity = fragmentActivity;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_search_result,parent,false);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        Product product = productList.get(position);
+        holder.textTitleResult.setText(product.getName());
+        holder.textDescResult.setText(product.getDescription());
+        holder.textPriceResult.setText(product.getPrice());
 
-        SearchResultDto searchResultDto = searchResultDtoList.get(position);
-        holder.imageItem.setImageResource(searchResultDto.image);
+        Glide.with(context)
+                .load("http://54.201.67.32/lodore/connection/" + productList.get(position).getImage())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .crossFade()
+                .into(holder.imageItem);
 
 
     }
 
     @Override
     public int getItemCount() {
-        return searchResultDtoList.size();
+        return productList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView textTitleResult,textDescResult,textPriceResult;
-        ImageView imageItem,imageDelete;
+        ImageView imageItem, imageDetails;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -61,7 +70,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
             textDescResult = (TextView) itemView.findViewById(R.id.row_desc_result);
             textPriceResult = (TextView) itemView.findViewById(R.id.row_price_result);
             imageItem = (ImageView) itemView.findViewById(R.id.row_image_result);
-            imageDelete = (ImageView) itemView.findViewById(R.id.image_delete_result);
+            imageDetails = (ImageView) itemView.findViewById(R.id.image_details_result);
 
         }
     }

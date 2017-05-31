@@ -8,15 +8,18 @@
     android:weightSum="6">
 
     <ImageView
-        android:id="@+id/image_delete_result"
+        android:id="@+id/image_details_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:contentDescription="@null"
         android:src="@drawable/ic_chevron_left_black_24dp" />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="4.5"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="4"
         android:layout_height="match_parent"
         android:gravity="center_vertical|right"
 
@@ -48,7 +51,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="2.5"
         android:orientation="horizontal">
 
         <LinearLayout

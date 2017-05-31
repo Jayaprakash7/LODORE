@@ -3,11 +3,17 @@ package lodore.com.lodore.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +43,7 @@ public class LoginFragment extends Fragment {
     SharedPreferences pref;
     String emailString,passwordString;
     private ProgressDialog progressDialog;
+    private String network_error;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -121,7 +128,7 @@ public class LoginFragment extends Fragment {
                 Retrofit_rest enroll_plan = restAdapter.create(Retrofit_rest.class);
                 status = enroll_plan.loginUrlEncode(params[0]);
             }catch (Exception e){
-
+                network_error = String.valueOf(e);
             }
             return status;
         }
@@ -129,29 +136,39 @@ public class LoginFragment extends Fragment {
         protected void onPostExecute(Registerresp response)
         {
             try {
-                if (response.getStatus().equals("success")) {
 
-                    Intent i = new Intent(getContext(),MainActivity.class);
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
-                    SharedPreferences.Editor editor = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS).edit();
-                    editor.putString("_id",response.getResult().get(0).getId());
-                    editor.putString("email", response.getResult().get(0).getEmail());
-                    editor.putString("username", response.getResult().get(0).getUsername());
-                    editor.putString("mobile", response.getResult().get(0).getMobile());
-                    editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
+                if (info != null && info.isConnected() && network_error == null) {
+                    if (response.getStatus().equals("success")) {
 
-                    editor.apply();
-                    startActivity(i);
-                    hideDialoge();
-                    Toast.makeText(getContext(), "Login is succesfull", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getContext(),MainActivity.class);
 
-                }else  {
-                    hideDialoge();
-                    Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = getContext().getSharedPreferences("login data", Context.MODE_MULTI_PROCESS).edit();
+                        editor.putString("_id",response.getResult().get(0).getId());
+                        editor.putString("email", response.getResult().get(0).getEmail());
+                        editor.putString("username", response.getResult().get(0).getUsername());
+                        editor.putString("mobile", response.getResult().get(0).getMobile());
+                        editor.putString("anothermobile", response.getResult().get(0).getAnotherMobile());
 
+                        editor.apply();
+                        startActivity(i);
+                        hideDialoge();
+                        Toast.makeText(getContext(), "Login is succesfull", Toast.LENGTH_SHORT).show();
+
+                    }else  {
+                        hideDialoge();
+                        Toast.makeText(getContext(), "Wrong respose Credential", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+                else {
+                    alertDialog();
                 }
 
-            } catch (Exception e){}
+
+            } catch (Exception e){e.printStackTrace();}
         }
     }
     public void showDialog(){
@@ -162,5 +179,36 @@ public class LoginFragment extends Fragment {
     public void hideDialoge(){
         progressDialog.dismiss();
     }
+    public  void alertDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Please Check The InternetConnection");
+        builder.setNegativeButton("Setting", null);
+        builder.setPositiveButton("Ok", null);
 
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnPos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                btnNeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
+    }
 }

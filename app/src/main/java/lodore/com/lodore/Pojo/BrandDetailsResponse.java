@@ -11,7 +11,7 @@ public class BrandDetailsResponse {
     private String status;
     private String message;
     private List<BrandInfo> brand_detail = null;
-    private List<BrandProducts> brandlist = null;
+    private List<Product> result = null;
 
     public String getStatus() {return status;}
 
@@ -25,7 +25,7 @@ public class BrandDetailsResponse {
 
     public void setBrand_detail(List<BrandInfo> brand_detail) {this.brand_detail = brand_detail;}
 
-    public List<BrandProducts> getbrandProducts() {return brandlist;}
+    public List<Product> getbrandProducts() {return result;}
 
-    public void setbrandProducts(List<BrandProducts> brandProducts) {this.brandlist = brandlist;}
+    public void setbrandProducts(List<Product> brandProducts) {this.result = result;}
 }

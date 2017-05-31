@@ -1,22 +1,32 @@
 package lodore.com.lodore.Pojo;
 
+/**
+ * Created by win7 on 30-May-17.
+ */
 
-public class CartResult {
-    private String _id;
+public class FavouriteRequest {
+
+    private String id_customer;
+    private String id;
     private String product_name;
     private String product_image;
-    private String quantity;
     private String product_price;
-    private String id_customer;
     private String product_id;
 
-
-    public String get_id() {
-        return _id;
+    public String getId_customer() {
+        return id_customer;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setId_customer(String id_customer) {
+        this.id_customer = id_customer;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getProduct_name() {
@@ -35,28 +45,12 @@ public class CartResult {
         this.product_image = product_image;
     }
 
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
     public String getProduct_price() {
         return product_price;
     }
 
     public void setProduct_price(String product_price) {
         this.product_price = product_price;
-    }
-
-    public String getId_customer() {
-        return id_customer;
-    }
-
-    public void setId_customer(String id_customer) {
-        this.id_customer = id_customer;
     }
 
     public String getProduct_id() {

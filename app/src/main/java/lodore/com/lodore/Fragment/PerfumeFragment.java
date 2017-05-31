@@ -2,9 +2,16 @@ package lodore.com.lodore.Fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -46,6 +53,7 @@ public class PerfumeFragment extends Fragment {
 
     String cool = "", warm = "", morning = "", daily = "", night = "", amber = "", oud = "", wood = "", fruit = "",
             powder = "", spices = "", leather = "", musk = "", sweet = "", fragrant_plant = "", flower = "";
+    private String network_error;
 
 
     public PerfumeFragment() {
@@ -676,7 +684,7 @@ public class PerfumeFragment extends Fragment {
                 response = retrofitRest.getPerfumes();
 
             } catch (Exception e) {
-                e.printStackTrace();
+                network_error = String.valueOf(e);
             }
             return response;
         }
@@ -685,15 +693,25 @@ public class PerfumeFragment extends Fragment {
         protected void onPostExecute(PerfumeResponse perfumeResponse) {
 
             try {
-                hideDialoge();
-                adapter = new PerfumeFragmentAdapter(getContext(), perfumeResponse.getProduct(), getActivity());
-                recyclerViewPerfume.setVisibility(View.VISIBLE);
-                recyclerOrderByPrice.setVisibility(View.GONE);
-                recyclerFilter.setVisibility(View.GONE);
-                recyclerViewPerfume.setAdapter(adapter);
-                recyclerViewPerfume.setHasFixedSize(true);
-                recyclerViewPerfume.setNestedScrollingEnabled(false);
-                recyclerViewPerfume.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+
+                if (info != null && info.isConnected() && network_error == null) {
+                    hideDialoge();
+                    adapter = new PerfumeFragmentAdapter(getContext(), perfumeResponse.getProduct(), getActivity());
+                    recyclerViewPerfume.setVisibility(View.VISIBLE);
+                    recyclerOrderByPrice.setVisibility(View.GONE);
+                    recyclerFilter.setVisibility(View.GONE);
+                    recyclerViewPerfume.setAdapter(adapter);
+                    recyclerViewPerfume.setHasFixedSize(true);
+                    recyclerViewPerfume.setNestedScrollingEnabled(false);
+                    recyclerViewPerfume.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                }
+                else {
+                    alertDialog();
+                }
+
 
             } catch (Exception e) {
                 System.out.print("" + e);
@@ -727,7 +745,7 @@ public class PerfumeFragment extends Fragment {
                 Retrofit_rest retrofitRest = restAdapter.create(Retrofit_rest.class);
                 perfumeResponse = retrofitRest.getPerfumeByPrice();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.d("Network Error", "doInBackground: "+e);
             }
             return perfumeResponse;
         }
@@ -736,15 +754,24 @@ public class PerfumeFragment extends Fragment {
         protected void onPostExecute(PerfumeResponse perfumeResponse) {
 
             try {
-                hideDialoge();
-                adapter = new PerfumeFragmentAdapter(getContext(), perfumeResponse.getProduct(), getActivity());
-                recyclerViewPerfume.setVisibility(View.GONE);
-                recyclerOrderByPrice.setVisibility(View.VISIBLE);
-                recyclerFilter.setVisibility(View.GONE);
-                recyclerOrderByPrice.setAdapter(adapter);
-                recyclerOrderByPrice.setHasFixedSize(true);
-                recyclerOrderByPrice.setNestedScrollingEnabled(false);
-                recyclerOrderByPrice.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+
+                if (info != null && info.isConnected() && network_error == null) {
+                    hideDialoge();
+                    adapter = new PerfumeFragmentAdapter(getContext(), perfumeResponse.getProduct(), getActivity());
+                    recyclerViewPerfume.setVisibility(View.GONE);
+                    recyclerOrderByPrice.setVisibility(View.VISIBLE);
+                    recyclerFilter.setVisibility(View.GONE);
+                    recyclerOrderByPrice.setAdapter(adapter);
+                    recyclerOrderByPrice.setHasFixedSize(true);
+                    recyclerOrderByPrice.setNestedScrollingEnabled(false);
+                    recyclerOrderByPrice.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                }
+                else {
+                    alertDialog();
+                }
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -782,7 +809,7 @@ public class PerfumeFragment extends Fragment {
                 response = retrofitRest.getFilterPerfume(params[0]);
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.d("Network Error", "doInBackground: "+e);
             }
             return response;
         }
@@ -790,16 +817,25 @@ public class PerfumeFragment extends Fragment {
         @Override
         protected void onPostExecute(PerfumeResponse perfumeResponse) {
             try {
-                hideDialoge();
+                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
-                adapter = new PerfumeFragmentAdapter(getContext(), perfumeResponse.getProduct(), getActivity());
-                recyclerViewPerfume.setVisibility(View.GONE);
-                recyclerOrderByPrice.setVisibility(View.GONE);
-                recyclerFilter.setVisibility(View.VISIBLE);
-                recyclerFilter.setAdapter(adapter);
-                recyclerFilter.setHasFixedSize(true);
-                recyclerFilter.setNestedScrollingEnabled(false);
-                recyclerFilter.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                if (info != null && info.isConnected() && network_error == null) {
+                    hideDialoge();
+
+                    adapter = new PerfumeFragmentAdapter(getContext(), perfumeResponse.getProduct(), getActivity());
+                    recyclerViewPerfume.setVisibility(View.GONE);
+                    recyclerOrderByPrice.setVisibility(View.GONE);
+                    recyclerFilter.setVisibility(View.VISIBLE);
+                    recyclerFilter.setAdapter(adapter);
+                    recyclerFilter.setHasFixedSize(true);
+                    recyclerFilter.setNestedScrollingEnabled(false);
+                    recyclerFilter.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                }
+                else {
+                    alertDialog();
+                }
+
 
             } catch (Exception e) {
                 System.out.print("" + e);
@@ -814,5 +850,38 @@ public class PerfumeFragment extends Fragment {
     }
     public void hideDialoge(){
         progressDialog.dismiss();
+    }
+
+    public  void alertDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Please Check The InternetConnection");
+        builder.setNegativeButton("Setting", null);
+        builder.setPositiveButton("Ok", null);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button btnPos = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnPos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                Button btnNeg = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                btnNeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
     }
 }

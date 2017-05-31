@@ -1,92 +1,91 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="webhostapp.com.buy_it_jp.fragments.SearchResultFragment">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
+            android:id="@+id/linear_perfume_house"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="webhostapp.com.buy_it_jp.fragments.SearchResultFragment">
-
-            <LinearLayout
-                android:id="@+id/linear_perfume_house"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:text="@string/perfume_houses"
-                    android:textColor="@color/primary_text"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:background="@color/divider"
-                    android:gravity="center" />
-
-                <LinearLayout
-
-                    android:id="@+id/linear_perfumes"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:text="@string/perfumes"
-                        android:textColor="@color/primary_text"
-                        android:textSize="18sp" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/perfume_houses"
+                android:textColor="@color/primary_text"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:background="@color/divider"
                 android:gravity="center" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="center"
-                android:text="@string/prouct_found"
-                android:textSize="18sp" />
-
             <LinearLayout
-                android:layout_width="match_parent"
+
+                android:id="@+id/linear_perfumes"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:background="@drawable/btn_backround_home">
+                android:layout_weight="0.5"
+                android:orientation="vertical">
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view_search"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:nestedScrollingEnabled="false">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/perfumes"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp" />
 
-                </android.support.v7.widget.RecyclerView>
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/total_product_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/prouct_found"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:background="@drawable/btn_backround_home">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false">
+
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
