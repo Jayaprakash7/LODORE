@@ -8,48 +8,55 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.Collections;
 import java.util.List;
 
+import lodore.com.lodore.Pojo.CartResponse;
+import lodore.com.lodore.Pojo.CartResult;
 import lodore.com.lodore.Pojo.CheckOut4DTO;
 import lodore.com.lodore.R;
 
-/**
- * Created by w7 on 21-Mar-17.
- */
+
 
 public class Checkout4RecyclerAdapter extends RecyclerView.Adapter<Checkout4RecyclerAdapter.MyViewHolder> {
 
-    LayoutInflater inflater;
-    List<CheckOut4DTO> checkOut4DTOList = Collections.emptyList();
+    Context context;
+    private List<CartResult> cartResultList;
 
-    public Checkout4RecyclerAdapter(Context context, List<CheckOut4DTO> checkOut4DTOList) {
-        this.inflater = LayoutInflater.from(context);
-        this.checkOut4DTOList = checkOut4DTOList;
+    public Checkout4RecyclerAdapter(Context context, List<CartResult> cartResultList) {
+        this.context = context;
+        this.cartResultList = cartResultList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_recycler_checkout,parent,false);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        CartResult cartResult = cartResultList.get(position);
 
-        CheckOut4DTO checkOut4DTO = checkOut4DTOList.get(position);
-        holder.imagePerume.setImageResource(checkOut4DTO.imagePerfume);
-        holder.textTitle.setText(checkOut4DTO.title);
-        holder.textQuantity.setText(checkOut4DTO.quantity);
-        holder.textPrice.setText(checkOut4DTO.price);
+        holder.textTitle.setText(cartResult.getProduct_name());
+        holder.textPrice.setText(cartResult.getProduct_price() + " ريا");
+        holder.textQuantity.setText(cartResult.getQuantity());
+
+        Glide.with(context)
+                .load("http://54.201.67.32/lodore/connection/" + cartResultList.get(position).getProduct_image())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.imagePerume);
+
 
     }
 
     @Override
     public int getItemCount() {
-        return checkOut4DTOList.size();
+        return cartResultList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

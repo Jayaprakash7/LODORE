@@ -1,6 +1,5 @@
 package lodore.com.lodore.Fragment;
 
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,7 +16,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +23,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import lodore.com.lodore.CheckOutActivity;
 import lodore.com.lodore.Pojo.CartRequest;
 import lodore.com.lodore.Pojo.CartResponse;
@@ -47,10 +43,6 @@ public class CartFragment extends Fragment {
     LinearLayout linearLayoutEmpty;
     private String network_error;
 
-    public CartFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,7 +62,7 @@ public class CartFragment extends Fragment {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CheckOutActivity.class);
+                Intent intent = new Intent(getContext(), CheckOutActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 
@@ -90,7 +82,7 @@ public class CartFragment extends Fragment {
 
             }
         });
-        SharedPreferences preferences = getActivity().getSharedPreferences("login data", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences("login data", Context.MODE_PRIVATE);
         CartRequest cartRequest = new CartRequest();
         cartRequest.setId_customer(preferences.getString("_id", "null"));
 
@@ -99,7 +91,7 @@ public class CartFragment extends Fragment {
         return view;
     }
 
-    public class CartDisplay extends AsyncTask<CartRequest, Void, CartResponse> {
+    private class CartDisplay extends AsyncTask<CartRequest, Void, CartResponse> {
         RestAdapter restAdapter;
 
         @Override
@@ -129,7 +121,7 @@ public class CartFragment extends Fragment {
         protected void onPostExecute(CartResponse cartResponse) {
 
             try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
                 if (info != null && info.isConnected() && network_error == null) {
@@ -140,8 +132,9 @@ public class CartFragment extends Fragment {
 
                     System.out.println(totalPrice);
                     String total = String.valueOf(totalPrice);
-                    textTotal.setText(total + " ريا");
-                    textFullTotal.setText(total + " ريا");
+                    String displayPrice = total + getString(R.string.price_concade);
+                    textTotal.setText(displayPrice);
+                    textFullTotal.setText(displayPrice);
 
                     hideDialoge();
 
@@ -182,7 +175,7 @@ public class CartFragment extends Fragment {
 
     public  void alertDialog()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Please Check The InternetConnection");
         builder.setNegativeButton("Setting", null);
         builder.setPositiveButton("Ok", null);

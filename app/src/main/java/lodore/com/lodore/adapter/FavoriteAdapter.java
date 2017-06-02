@@ -64,7 +64,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
         holder.imageViewCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = fragmentActivity.getSharedPreferences("login data", Context.MODE_PRIVATE);
+                SharedPreferences preferences = context.getSharedPreferences("login data", Context.MODE_PRIVATE);
                 String customerId = preferences.getString("_id", "null");
                 String product_id = cartResult.getProduct_id();
                 FavouriteRequest request = new FavouriteRequest();

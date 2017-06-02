@@ -38,15 +38,13 @@ import lodore.com.lodore.R;
 import lodore.com.lodore.service.Retrofit_rest;
 import retrofit.RestAdapter;
 
-/**
- * Created by w7 on 21-Mar-17.
- */
+
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
 
     Context context;
     private List<CartResult> cartResultList;
-    FragmentActivity fragmentActivity;
+    private FragmentActivity fragmentActivity;
     public static int c;
 
 
@@ -220,7 +218,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         }
     }
 
-    public class CartDelete extends AsyncTask<CartRequest, Void, CartResponse>{
+    private class CartDelete extends AsyncTask<CartRequest, Void, CartResponse>{
 
         RestAdapter restAdapter;
 

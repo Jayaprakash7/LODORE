@@ -70,7 +70,7 @@ public class MyaccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_myaccount, container, false);
 
-        progressDialog = new ProgressDialog(getActivity());
+        progressDialog = new ProgressDialog(getContext());
 
         personal_info = (TextView) view.findViewById(R.id.personal_info);
         email = (TextView) view.findViewById(R.id.myacc_eamil);
@@ -122,7 +122,7 @@ public class MyaccountFragment extends Fragment {
                 String et_anotherphoneString = et_anotherphone.getText().toString().trim();
 
                 if (et_nameString.matches("") || et_anotherphoneString.matches("") || et_anotherphoneString.matches("")){
-                    Toast.makeText(getActivity(), "Enter all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
                 }
                 else
                 reginput.setEmail(et_email.getText().toString());
@@ -146,6 +146,19 @@ public class MyaccountFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, favoriteFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        order_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OrderHistoryFragment orderHistoryFragment = new OrderHistoryFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, orderHistoryFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
@@ -191,7 +204,7 @@ public class MyaccountFragment extends Fragment {
 
         protected void onPostExecute(Registerresp response) {
             try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
                 if (info != null && info.isConnected() && network_error == null) {
@@ -237,7 +250,7 @@ public class MyaccountFragment extends Fragment {
     }
     public  void alertDialog()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Please Check The InternetConnection");
         builder.setNegativeButton("Setting", null);
         builder.setPositiveButton("Ok", null);

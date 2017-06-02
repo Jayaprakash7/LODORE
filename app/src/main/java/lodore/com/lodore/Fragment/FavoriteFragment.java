@@ -97,7 +97,7 @@ public class FavoriteFragment extends Fragment {
 
             recyclerViewFavorite.setAdapter(adapter);
             recyclerViewFavorite.setHasFixedSize(true);
-            recyclerViewFavorite.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+            recyclerViewFavorite.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         }
     }
 

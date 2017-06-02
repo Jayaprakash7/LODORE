@@ -12,6 +12,8 @@ public class CartRequest {
     private String product_price;
     private String id_customer;
     private String product_id;
+    private String price;
+    private String status;
 
     public String get_id() {
         return _id;
@@ -67,5 +69,21 @@ public class CartRequest {
 
     public void setProduct_id(String product_id) {
         this.product_id = product_id;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

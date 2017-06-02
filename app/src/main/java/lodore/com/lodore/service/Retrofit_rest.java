@@ -110,4 +110,15 @@ public interface Retrofit_rest {
     @POST("/Checkfavorite")
     CartResponse checkFavorite(@Body FavouriteRequest favouriteRequest);
 
+    @POST("/insertOrderHistory")
+    CartResponse insertToOrderHistory(@Body CartRequest cartRequest);
+
+    @POST("/deleteCartByCustomer")
+    CartResponse deleteCartByCustomer(@Body CartRequest cartRequest);
+
+    @POST("/getOrderHistory")
+    CartResponse orderHIstory(@Body CartRequest cartRequest);
+
+    
+
 }

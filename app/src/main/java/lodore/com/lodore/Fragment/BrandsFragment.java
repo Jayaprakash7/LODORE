@@ -89,7 +89,7 @@ public class BrandsFragment extends Fragment {
         protected void onPostExecute(Brandresp response) {
             try {
 
-                ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
                 if (info != null && info.isConnected() && network_error == null) {
@@ -102,7 +102,7 @@ public class BrandsFragment extends Fragment {
                     recyclerViewbrands.setAdapter(adapter);
                     recyclerViewbrands.setHasFixedSize(true);
                     recyclerViewbrands.setNestedScrollingEnabled(false);
-                    recyclerViewbrands.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                    recyclerViewbrands.setLayoutManager(new GridLayoutManager(getContext(), 2));
                 }
                 else {
                     alertDialog();
@@ -116,7 +116,7 @@ public class BrandsFragment extends Fragment {
     }
     public  void alertDialog()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Please Check The InternetConnection");
         builder.setNegativeButton("Setting", null);
         builder.setPositiveButton("Ok", null);
